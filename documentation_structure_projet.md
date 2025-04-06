@@ -75,10 +75,13 @@ API_travel/
       - [x] Partie 2: Transactions et eSIM (Étapes 5-8)
       - [x] Partie 3: Suivi et gestion (Étapes 9-12)
   - [x] Testeur d'API interactif
-      - [x] Sélection dynamique des endpoints
-      - [x] Génération de formulaires adaptés
-      - [x] Exécution des requêtes API en temps réel
-      - [x] Affichage formaté des résultats
+      - [x] Sélection dynamique des endpoints (100% de couverture de l'API)
+      - [x] Génération de formulaires adaptés pour chaque endpoint
+      - [x] Exécution des requêtes API en temps réel avec méthodes GET, POST, PATCH
+      - [x] Affichage formaté des résultats avec code de statut et messages d'erreur
+      - [x] Validation des champs obligatoires avant soumission
+      - [x] Format de données adapté (snake_case) pour compatibilité avec l'API
+      - [x] Documentation complète et guide d'utilisation avec exemples
   - [x] Simulateur d'écrans mobiles
 
 ### 5. Visualisations et démonstrations (Jour 9-10)
