@@ -1,0 +1,273 @@
+<!-- Étapes 5 à 8 du guide d'intégration -->
+
+<!-- Étape 5 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 5 : Gestion des recharges à la demande (Topup)</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Les recharges à la demande (topups) permettent d'ajouter du crédit, des données mobiles ou des minutes d'appel 
+            à un numéro de téléphone existant. Voici comment gérer les transactions de type topup.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Création d'une transaction topup</h4>
+        <p class="text-gray-700 mb-3">
+            Pour créer une transaction de recharge, vous devez fournir l'identifiant de l'offre et le numéro de téléphone 
+            du client final (MSISDN) dans la requête.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>POST /distributors/transactions</p>
+            <p>{</p>
+            <p>&nbsp;&nbsp;"offer_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",</p>
+            <p>&nbsp;&nbsp;"parameters": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"msisdn": "33612345678"</p>
+            <p>&nbsp;&nbsp;}</p>
+            <p>}</p>
+        </div>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Points importants</h5>
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                <li>Vérifiez toujours le stock disponible (bucket) avant de créer une transaction</li>
+                <li>Assurez-vous que le numéro MSISDN est au format international (ex: 33612345678 pour la France)</li>
+                <li>Le statut de la transaction indiquera si la recharge a été effectuée avec succès</li>
+            </ul>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient toutes les informations sur la transaction créée, y compris son statut et les détails 
+            de la recharge effectuée.
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p># Exemple de réponse</p>
+            <p>{</p>
+            <p>&nbsp;&nbsp;"id": "5fa85f64-5717-4562-b3fc-2c963f66afa9",</p>
+            <p>&nbsp;&nbsp;"status": "ok",</p>
+            <p>&nbsp;&nbsp;"product_type": "data topup",</p>
+            <p>&nbsp;&nbsp;"creation_date": "2023-01-15T14:23:15Z",</p>
+            <p>&nbsp;&nbsp;"offer_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",</p>
+            <p>&nbsp;&nbsp;"offer_name": "Europe Data 5GB",</p>
+            <p>&nbsp;&nbsp;"parameters": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"msisdn": "33612345678"</p>
+            <p>&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;...</p>
+            <p>}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 6 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 6 : Gestion sécurisée des eSIM</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Les codes d'activation des eSIM sont des données sensibles qui doivent être protégées. L'API Orange Travel B2B 
+            utilise le chiffrement RSA pour sécuriser ces codes, et seul le distributeur peut les déchiffrer avec sa clé privée.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Génération des clés RSA</h4>
+        <p class="text-gray-700 mb-3">
+            Première étape : générer une paire de clés RSA (clé privée et clé publique).
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p># Génération d'une paire de clés RSA de 4096 bits</p>
+            <p>openssl genrsa -out distributor_private.pem 4096</p>
+            <p>openssl rsa -in distributor_private.pem -pubout -out distributor_public.pem</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-5">
+            <h5 class="text-blue-700 font-medium mb-1">Important</h5>
+            <p class="text-gray-700 text-sm">
+                La clé privée ne doit JAMAIS être partagée ou exposée. Conservez-la dans un emplacement sécurisé.
+                Seule la clé publique est transmise à Orange via l'API.
+            </p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Enregistrement de la clé publique</h4>
+        <p class="text-gray-700 mb-3">
+            Transmettez votre clé publique à l'API Orange Travel B2B pour qu'elle soit utilisée pour le chiffrement des codes d'activation eSIM.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>POST /distributors/keys</p>
+            <p>{</p>
+            <p>&nbsp;&nbsp;"key_type": "rsa256",</p>
+            <p>&nbsp;&nbsp;"public_key_value": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8A...clé publique au format PEM...kQIDAQAB\n-----END PUBLIC KEY-----"</p>
+            <p>}</p>
+        </div>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Remarque</h5>
+            <p class="text-gray-700 text-sm">
+                Vous pouvez utiliser le paramètre <code>encoding</code> avec la valeur <code>base64</code> si votre clé publique 
+                est encodée en base64.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 7 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 7 : Transaction eSIM</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Une fois que vous avez configuré votre clé publique, vous pouvez créer des transactions eSIM. Contrairement aux 
+            transactions de topup, les transactions eSIM ne nécessitent pas de paramètre MSISDN.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Création d'une transaction eSIM</h4>
+        <p class="text-gray-700 mb-3">
+            La requête pour une transaction eSIM est plus simple que pour une recharge, car seul l'identifiant de l'offre est requis.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>POST /distributors/transactions</p>
+            <p>{</p>
+            <p>&nbsp;&nbsp;"offer_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"</p>
+            <p>}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse avec code d'activation chiffré</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient toutes les informations sur la transaction eSIM, y compris le code d'activation chiffré 
+            avec votre clé publique RSA.
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"id": "5fa85f64-5717-4562-b3fc-2c963f66afa9",</p>
+            <p>&nbsp;&nbsp;"status": "ok",</p>
+            <p>&nbsp;&nbsp;"product_type": "eSim",</p>
+            <p>&nbsp;&nbsp;"creation_date": "2023-01-15T14:23:15Z",</p>
+            <p>&nbsp;&nbsp;"offer_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",</p>
+            <p>&nbsp;&nbsp;"offer_name": "Europe eSIM 10GB",</p>
+            <p>&nbsp;&nbsp;"parameters": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"activation_code": "BASE64_ENCODED_ENCRYPTED_DATA",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"pin_code": "1234",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"puk": "12345678",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"iccid": "8944010000000000000",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;"smdp_url": "https://rsp.truphone.com"</p>
+            <p>&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;...</p>
+            <p>}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Déchiffrement du code d'activation</h4>
+        <p class="text-gray-700 mb-3">
+            Vous devez déchiffrer le code d'activation en utilisant votre clé privée.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p># Déchiffrement avec la clé privée</p>
+            <p>echo "BASE64_ENCODED_ENCRYPTED_DATA" | base64 -d | \</p>
+            <p>openssl pkeyutl -decrypt -inkey distributor_private.pem \</p>
+            <p>-pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256</p>
+        </div>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Important</h5>
+            <p class="text-gray-700 text-sm">
+                Le code d'activation déchiffré doit être transmis au client final de manière sécurisée. Il permettra d'installer 
+                l'eSIM sur son appareil. Le code ressemble généralement à "LPA:1$smdp.provider.com$ACTIVATION-CODE".
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 8 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 8 : Vérification d'identité KYC</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            KYC (Know Your Customer) est un processus obligatoire pour certains produits eSIM et SIM. Ce processus permet 
+            de vérifier l'identité du client final et est généralement requis dans les 30 jours suivant l'achat.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Processus KYC</h4>
+        <p class="text-gray-700 mb-4">
+            Selon le fournisseur, le processus KYC peut varier. Les clients doivent être informés de la nécessité 
+            de compléter la vérification d'identité pour continuer à utiliser le service.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Orange France -->
+            <div class="bg-orange-50 p-4 rounded-lg">
+                <h4 class="text-orange-700 font-semibold mb-2">Orange France</h4>
+                <p class="text-gray-700 text-sm mb-2">
+                    URL de vérification KYC :
+                </p>
+                <div class="bg-white p-2 rounded border text-center">
+                    <a href="https://travel.orange.com/fr/orange-holidays" target="_blank" class="text-blue-600 hover:underline">
+                        travel.orange.com/fr/orange-holidays
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Welcome Travelers -->
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="text-blue-700 font-semibold mb-2">Welcome Travelers</h4>
+                <p class="text-gray-700 text-sm mb-2">
+                    URL de vérification KYC :
+                </p>
+                <div class="bg-white p-2 rounded border text-center">
+                    <a href="https://travel.orange.com/fr/welcome-travelers" target="_blank" class="text-blue-600 hover:underline">
+                        travel.orange.com/fr/welcome-travelers
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Informations requises pour le KYC</h4>
+        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-2">
+                <li>Pièce d'identité valide (passeport, carte d'identité)</li>
+                <li>Informations personnelles (nom, prénom, date de naissance)</li>
+                <li>Numéro de transaction ou autre identifiant fournit lors de l'achat</li>
+                <li>Dans certains cas, une photo du visage (selfie) pour la vérification biométrique</li>
+            </ul>
+        </div>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Important</h5>
+            <p class="text-gray-700 text-sm">
+                Si le KYC n'est pas complété dans les délais requis (généralement 30 jours), la ligne peut être 
+                suspendue ou désactivée. Il est donc crucial d'informer vos clients de cette exigence lors de l'achat.
+            </p>
+        </div>
+    </div>
+</div>

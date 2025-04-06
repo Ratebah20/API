@@ -1,0 +1,368 @@
+<!-- Étapes 9 à 12 du guide d'intégration -->
+
+<!-- Étape 9 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 9 : Statut de la SIM/eSIM</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Pour assurer un suivi efficace des SIM et eSIM, l'API Orange Travel B2B propose un endpoint dédié
+            permettant de récupérer le statut actuel d'une carte SIM ou eSIM.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Vérification du statut</h4>
+        <p class="text-gray-700 mb-3">
+            Pour vérifier le statut, vous devez spécifier l'ID du fournisseur et l'ID de la transaction associée.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/suppliers/{supplier_id}/simstatus?transaction={transaction_id}</p>
+        </div>
+        
+        <p class="text-gray-700 mb-3">
+            Pour les SIM physiques ou les eSIM récupérées par lot, vous pouvez utiliser le paramètre <code>simId</code> au lieu de <code>transaction</code> :
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/suppliers/{supplier_id}/simstatus?simId={sim_id}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient le statut de la SIM/eSIM ainsi que des informations complémentaires comme les dates d'activation 
+            et d'expiration.
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"status": "available",</p>
+            <p>&nbsp;&nbsp;"activation_date": "2023-01-15T14:23:15Z",</p>
+            <p>&nbsp;&nbsp;"expiration_date": "2023-01-30T23:59:59Z",</p>
+            <p>&nbsp;&nbsp;"number_expiration_date": "2023-04-15T23:59:59Z"</p>
+            <p>}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Valeurs possibles du statut</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="border p-3 rounded bg-green-50">
+                <p class="font-medium text-green-700">available</p>
+                <p class="text-sm text-gray-700">La carte est active et peut être utilisée normalement</p>
+            </div>
+            <div class="border p-3 rounded bg-yellow-50">
+                <p class="font-medium text-yellow-700">not installed</p>
+                <p class="text-sm text-gray-700">L'eSIM n'a pas encore été installée sur un appareil</p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">suspended fraud</p>
+                <p class="text-sm text-gray-700">Suspendue pour suspicion de fraude</p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">suspended kyc default</p>
+                <p class="text-sm text-gray-700">Suspendue car le KYC n'a pas été complété</p>
+            </div>
+            <div class="border p-3 rounded bg-gray-50">
+                <p class="font-medium text-gray-700">expired</p>
+                <p class="text-sm text-gray-700">La période de validité est terminée</p>
+            </div>
+            <div class="border p-3 rounded bg-gray-50">
+                <p class="font-medium text-gray-700">revoked by operator</p>
+                <p class="text-sm text-gray-700">Révoquée par l'opérateur</p>
+            </div>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <h5 class="text-blue-700 font-medium mb-1">Conseil</h5>
+            <p class="text-gray-700 text-sm">
+                Effectuez des vérifications régulières de statut pour les cartes actives afin de détecter rapidement tout problème 
+                et d'informer vos clients en conséquence.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 10 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 10 : Gestion des consommations</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Pour permettre aux utilisateurs de suivre leur consommation de données, d'appels et de SMS, l'API Orange Travel B2B 
+            propose un endpoint dédié à la récupération des consommations restantes.
+        </p>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Disponibilité</h5>
+            <p class="text-gray-700 text-sm">
+                Cette fonctionnalité n'est disponible que pour les fournisseurs Welcome Travelers et Orange France. 
+                Les autres fournisseurs ne supportent pas cette fonctionnalité pour le moment.
+            </p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Récupération des consommations restantes</h4>
+        <p class="text-gray-700 mb-3">
+            Pour récupérer les consommations, utilisez l'endpoint suivant en spécifiant l'ID du fournisseur et l'ID de la transaction.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/suppliers/{supplier_id}/usagebalances?transaction={transaction_id}</p>
+        </div>
+        
+        <p class="text-gray-700 mb-3">
+            De même que pour le statut, vous pouvez utiliser le paramètre <code>simId</code> pour les SIM physiques ou les eSIM 
+            récupérées par lot :
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/suppliers/{supplier_id}/usagebalances?simId={sim_id}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient des informations détaillées sur les consommations restantes, organisées par "buckets" 
+            (enveloppes de consommation).
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"first_activation_date": "2023-01-15T14:23:15Z",</p>
+            <p>&nbsp;&nbsp;"number_expiration_date": "2023-04-15T23:59:59Z",</p>
+            <p>&nbsp;&nbsp;"buckets": [</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Data Europe",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"activation_date": "2023-01-15T14:23:15Z",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"expiration_date": "2023-01-30T23:59:59Z",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"data_remaining": 4.2,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"data_unit": "Go",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"airtime_remaining": 120,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"airtime_unit": "minutes",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sms_remaining": 50</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;]</p>
+            <p>}</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <h5 class="text-blue-700 font-medium mb-1">Conseil d'implémentation</h5>
+            <p class="text-gray-700 text-sm">
+                Intégrez cette fonctionnalité dans votre application pour permettre à vos clients de surveiller 
+                facilement leur consommation et d'éviter les mauvaises surprises. Vous pouvez également mettre 
+                en place des alertes lorsque les consommations atteignent certains seuils.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 11 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 11 : Gestion des transactions</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            La gestion efficace des transactions est essentielle pour suivre les activités, générer des rapports et 
+            résoudre d'éventuels problèmes. L'API Orange Travel B2B propose plusieurs endpoints pour faciliter cette gestion.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Liste des transactions</h4>
+        <p class="text-gray-700 mb-3">
+            Pour récupérer la liste des transactions, utilisez l'endpoint suivant. Vous pouvez utiliser divers filtres pour 
+            affiner les résultats.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/transactions</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Paramètres de filtrage disponibles</h4>
+        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-2">
+                <li><code>offset</code> : Décalage pour la pagination</li>
+                <li><code>limit</code> : Nombre maximal de transactions à retourner</li>
+                <li><code>startDate</code> : Date de début (format YYYY-MM-DD)</li>
+                <li><code>endDate</code> : Date de fin (format YYYY-MM-DD)</li>
+                <li><code>status</code> : Filtre par statut (created, pending, ok, ko, expired)</li>
+                <li><code>offer</code> : Filtre par identifiant d'offre</li>
+                <li><code>supplier</code> : Filtre par identifiant de fournisseur</li>
+                <li><code>user</code> : Filtre par identifiant utilisateur</li>
+            </ul>
+        </div>
+        
+        <p class="text-gray-700 mb-3">
+            Exemple de requête avec filtres :
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/transactions?startDate=2023-01-01&endDate=2023-01-31&status=ok&limit=10</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Détails d'une transaction spécifique</h4>
+        <p class="text-gray-700 mb-3">
+            Pour récupérer les détails complets d'une transaction spécifique, utilisez l'identifiant de la transaction.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/transactions/{transaction_id}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Comptage des transactions</h4>
+        <p class="text-gray-700 mb-3">
+            Si vous avez besoin de connaître le nombre total de transactions sans récupérer les données complètes, 
+            utilisez l'endpoint dédié au comptage.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/transactions/count</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <h5 class="text-blue-700 font-medium mb-1">Bonnes pratiques</h5>
+            <p class="text-gray-700 text-sm">
+                Pour optimiser les performances, utilisez toujours des filtres appropriés et limitez le nombre de résultats 
+                si vous n'avez pas besoin de récupérer toutes les transactions. Pour les rapports, considérez l'utilisation 
+                du comptage et de la pagination.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 12 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 12 : Gestion des erreurs</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Une gestion efficace des erreurs est essentielle pour assurer la robustesse de votre intégration avec l'API Orange Travel B2B. 
+            Cette dernière étape vous présente les différents types d'erreurs et comment les traiter.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Format des réponses d'erreur</h4>
+        <p class="text-gray-700 mb-3">
+            Toutes les erreurs sont retournées avec un code HTTP approprié et un corps JSON contenant des informations détaillées.
+        </p>
+        
+        <div class="bg-gray-800 text-red-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"code": 4001,</p>
+            <p>&nbsp;&nbsp;"message": "Bad Request",</p>
+            <p>&nbsp;&nbsp;"description": "Missing required field 'offer_id' in the request body"</p>
+            <p>}</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Principaux codes d'erreur HTTP</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">401 Unauthorized</p>
+                <p class="text-sm text-gray-700">Problème d'authentification ou token expiré</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Régénérer un token valide</p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">400 Bad Request</p>
+                <p class="text-sm text-gray-700">Requête mal formée ou paramètres invalides</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Vérifier les paramètres de la requête</p>
+            </div>
+            <div class="border p-3 rounded bg-orange-50">
+                <p class="font-medium text-orange-700">404 Not Found</p>
+                <p class="text-sm text-gray-700">Ressource non trouvée (URL incorrecte ou ID invalide)</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Vérifier l'URL et les identifiants utilisés</p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">429 Too Many Requests</p>
+                <p class="text-sm text-gray-700">Dépassement de la limite de requêtes</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Implémenter un backoff exponentiel</p>
+            </div>
+            <div class="border p-3 rounded bg-purple-50">
+                <p class="font-medium text-purple-700">500 Internal Server Error</p>
+                <p class="text-sm text-gray-700">Erreur interne du serveur</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Contacter le support d'Orange</p>
+            </div>
+            <div class="border p-3 rounded bg-gray-50">
+                <p class="font-medium text-gray-700">503 Service Unavailable</p>
+                <p class="text-sm text-gray-700">Service temporairement indisponible</p>
+                <p class="text-xs text-gray-500 mt-1">Solution : Réessayer plus tard avec un backoff</p>
+            </div>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Stratégies de gestion des erreurs</h4>
+        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+            <ol class="list-decimal list-inside text-gray-700 text-sm space-y-2">
+                <li><strong>Validation préalable</strong> : Validez vos données avant d'envoyer des requêtes</li>
+                <li><strong>Gestion des 401</strong> : Implémentez un mécanisme de rafraîchissement automatique des tokens</li>
+                <li><strong>Retries avec backoff</strong> : Pour les erreurs 429 et 503, implémentez un système de réessais avec délai croissant</li>
+                <li><strong>Logging</strong> : Enregistrez toutes les erreurs pour faciliter le diagnostic</li>
+                <li><strong>Monitoring</strong> : Mettez en place des alertes pour détecter les problèmes récurrents</li>
+            </ol>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <h5 class="text-blue-700 font-medium mb-1">Code d'exemple pour la gestion des erreurs</h5>
+            <pre class="bg-gray-800 text-green-300 p-3 rounded-lg mt-2 font-mono text-xs overflow-x-auto">
+function handleApiError(error) {
+  if (error.response) {
+    // La requête a été faite et le serveur a répondu avec un code d'état hors de la plage 2xx
+    const status = error.response.status;
+    const data = error.response.data;
+    
+    switch (status) {
+      case 401:
+        // Problème d'authentification
+        refreshToken().then(() => {
+          // Réessayer la requête avec le nouveau token
+        });
+        break;
+      case 400:
+        // Erreur de validation
+        console.error('Erreur de validation:', data.description);
+        // Informer l'utilisateur du problème spécifique
+        break;
+      case 429:
+        // Trop de requêtes
+        const retryAfter = error.response.headers['retry-after'] || 5;
+        setTimeout(() => {
+          // Réessayer la requête après le délai
+        }, retryAfter * 1000);
+        break;
+      default:
+        // Autres erreurs
+        console.error(`Erreur ${status}:`, data.description);
+        // Informer l'utilisateur qu'une erreur s'est produite
+    }
+  } else if (error.request) {
+    // La requête a été faite mais aucune réponse n'a été reçue
+    console.error('Pas de réponse du serveur');
+    // Vérifier la connectivité réseau
+  } else {
+    // Une erreur s'est produite lors de la configuration de la requête
+    console.error('Erreur de configuration:', error.message);
+  }
+}
+            </pre>
+        </div>
+    </div>
+</div>

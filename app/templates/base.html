@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default('Orange Travel B2B API') }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-orange-500 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold">Orange Travel B2B API</a>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="/" class="hover:text-orange-200">Accueil</a></li>
+                        <li><a href="/guide" class="hover:text-orange-200">Guide d'intégration</a></li>
+                        <li><a href="/api-tester" class="hover:text-orange-200">Testeur d'API</a></li>
+                        <li><a href="/simulator" class="hover:text-orange-200">Simulateur Mobile</a></li>
+                        <li><a href="/security" class="hover:text-orange-200">Sécurité & eSIM</a></li>
+                    </ul>
+                </nav>
+                <div class="md:hidden" x-data="{ open: false }">
+                    <button @click="open = !open" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <div x-show="open" x-cloak class="absolute top-16 right-0 bg-orange-500 w-48 py-2 shadow-lg rounded-lg">
+                        <a href="/" class="block px-4 py-2 hover:bg-orange-600">Accueil</a>
+                        <a href="/guide" class="block px-4 py-2 hover:bg-orange-600">Guide d'intégration</a>
+                        <a href="/api-tester" class="block px-4 py-2 hover:bg-orange-600">Testeur d'API</a>
+                        <a href="/simulator" class="block px-4 py-2 hover:bg-orange-600">Simulateur Mobile</a>
+                        <a href="/security" class="block px-4 py-2 hover:bg-orange-600">Sécurité & eSIM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Orange Travel B2B API</p>
+                </div>
+                <div>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="hover:text-orange-300">Mentions légales</a></li>
+                        <li><a href="#" class="hover:text-orange-300">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-orange-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

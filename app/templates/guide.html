@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-3xl font-bold text-orange-600 mb-6">Guide d'intégration en 12 étapes</h1>
+    
+    <div class="mb-8">
+        <p class="text-gray-700 mb-4">
+            Ce guide interactif vous présente les 12 étapes nécessaires pour intégrer l'API Orange Travel B2B 
+            dans votre système. Chaque étape contient des explications détaillées et des exemples concrets.
+        </p>
+    </div>
+    
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-8">
+        <button 
+            onclick="document.getElementById('section-1-4').scrollIntoView({behavior: 'smooth'})" 
+            class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition">
+            Étapes 1-4 : Bases et configuration
+        </button>
+        <button 
+            onclick="document.getElementById('section-5-8').scrollIntoView({behavior: 'smooth'})" 
+            class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition">
+            Étapes 5-8 : Transactions et eSIM
+        </button>
+        <button 
+            onclick="document.getElementById('section-9-12').scrollIntoView({behavior: 'smooth'})" 
+            class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition">
+            Étapes 9-12 : Suivi et gestion
+        </button>
+    </div>
+    
+    <!-- Section 1 : Étapes 1-4 -->
+    <div id="section-1-4" class="mb-12">
+        <h2 class="text-2xl font-bold text-orange-600 mb-4 pb-2 border-b border-orange-200">Bases et configuration</h2>
+        {% include 'partials/guide_etapes_1_4.html' %}
+    </div>
+    
+    <!-- Section 2 : Étapes 5-8 -->
+    <div id="section-5-8" class="mb-12">
+        <h2 class="text-2xl font-bold text-orange-600 mb-4 pb-2 border-b border-orange-200">Transactions et eSIM</h2>
+        {% include 'partials/guide_etapes_5_8.html' %}
+    </div>
+    
+    <!-- Section 3 : Étapes 9-12 -->
+    <div id="section-9-12" class="mb-8">
+        <h2 class="text-2xl font-bold text-orange-600 mb-4 pb-2 border-b border-orange-200">Suivi et gestion</h2>
+        {% include 'partials/guide_etapes_9_12.html' %}
+    </div>
+    
+    <div class="bg-gray-50 p-6 rounded-lg mt-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-3">Ressources complémentaires</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/api_tester" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                <div class="mr-4 bg-blue-100 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Testeur d'API</h3>
+                    <p class="text-sm text-gray-600">Essayez les endpoints directement depuis votre navigateur</p>
+                </div>
+            </a>
+            <a href="/simulator" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                <div class="mr-4 bg-green-100 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Simulateur d'écrans mobiles</h3>
+                    <p class="text-sm text-gray-600">Visualisez l'expérience utilisateur sur mobile</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

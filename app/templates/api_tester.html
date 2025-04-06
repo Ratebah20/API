@@ -1,0 +1,680 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-3xl font-bold text-orange-600 mb-6">Testeur d'API</h1>
+    
+    <div class="mb-8">
+        <p class="text-gray-700 mb-4">
+            Cet outil vous permet de tester directement les différents endpoints de l'API Orange Travel B2B
+            et de visualiser les réponses de manière formatée.
+        </p>
+        
+        {% if not session.get('access_token') %}
+            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                <p>Vous devez vous authentifier avant de pouvoir tester l'API.</p>
+                <a href="/test_auth" class="inline-block mt-2 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
+                    S'authentifier
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div x-data="{ endpoint: 'countries' }" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Panneau de sélection d'endpoint -->
+        <div class="bg-orange-50 rounded-lg p-4">
+            <h2 class="text-lg font-semibold text-orange-700 mb-4">Sélectionner un endpoint</h2>
+            
+            <div class="space-y-2">
+                <h3 class="font-semibold text-gray-700">Informations de base</h3>
+                <button 
+                    @click="endpoint = 'countries'"
+                    :class="endpoint === 'countries' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Liste des pays
+                </button>
+                
+                <button 
+                    @click="endpoint = 'currencies'"
+                    :class="endpoint === 'currencies' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Liste des devises
+                </button>
+                
+                <h3 class="font-semibold text-gray-700 mt-4">Gestion des offres</h3>
+                <button 
+                    @click="endpoint = 'offers'"
+                    :class="endpoint === 'offers' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Liste des offres
+                </button>
+                
+                <button 
+                    @click="endpoint = 'offer_details'"
+                    :class="endpoint === 'offer_details' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Détails d'une offre
+                </button>
+                
+                <button 
+                    @click="endpoint = 'offer_customize'"
+                    :class="endpoint === 'offer_customize' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Personnaliser une offre
+                </button>
+                
+                <h3 class="font-semibold text-gray-700 mt-4">Gestion des transactions</h3>
+                <button 
+                    @click="endpoint = 'transactions'"
+                    :class="endpoint === 'transactions' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Liste des transactions
+                </button>
+                
+                <button 
+                    @click="endpoint = 'transaction_create'"
+                    :class="endpoint === 'transaction_create' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Créer une transaction
+                </button>
+                
+                <h3 class="font-semibold text-gray-700 mt-4">Gestion des fournisseurs et eSIM</h3>
+                <button 
+                    @click="endpoint = 'suppliers'"
+                    :class="endpoint === 'suppliers' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Liste des fournisseurs
+                </button>
+                
+                <button 
+                    @click="endpoint = 'sim_status'"
+                    :class="endpoint === 'sim_status' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Statut d'une SIM/eSIM
+                </button>
+                
+                <button 
+                    @click="endpoint = 'usage_balances'"
+                    :class="endpoint === 'usage_balances' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Consommations d'une SIM
+                </button>
+                
+                <button 
+                    @click="endpoint = 'global_balances'"
+                    :class="endpoint === 'global_balances' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Statistiques globales
+                </button>
+                
+                <h3 class="font-semibold text-gray-700 mt-4">Gestion des clés RSA</h3>
+                <button 
+                    @click="endpoint = 'keys_get'"
+                    :class="endpoint === 'keys_get' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Récupérer clé publique
+                </button>
+                
+                <button 
+                    @click="endpoint = 'keys_set'"
+                    :class="endpoint === 'keys_set' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Configurer clé publique
+                </button>
+            </div>
+            
+            <!-- Paramètres spécifiques aux endpoints -->
+            <div class="mt-6">
+                <h3 class="font-semibold text-gray-700 mb-2">Paramètres</h3>
+                
+                <!-- Paramètres pour pays et devises -->
+                <div x-show="endpoint === 'countries' || endpoint === 'currencies'" class="space-y-3">
+                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                </div>
+                
+                <!-- Paramètres pour liste des offres -->
+                <div x-show="endpoint === 'offers'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Page</label>
+                        <input id="offers-page" type="number" min="1" value="1" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Nombre par page</label>
+                        <input id="offers-perPage" type="number" min="1" max="50" value="10" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour détails d'offre -->
+                <div x-show="endpoint === 'offer_details'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <input id="offer-id" type="text" placeholder="ex: OFF123456" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour personnalisation d'offre -->
+                <div x-show="endpoint === 'offer_customize'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <input id="customize-offer-id" type="text" placeholder="ex: OFF123456" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Nom personnalisé</label>
+                        <input id="customize-name" type="text" placeholder="Nom personnalisé de l'offre" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Frais de service</label>
+                        <input id="customize-markup" type="number" step="0.01" min="0" placeholder="5.99" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Devise des frais</label>
+                        <select id="customize-markup-currency" class="w-full border rounded p-2">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour transactions -->
+                <div x-show="endpoint === 'transactions'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de début</label>
+                        <input id="transactions-startDate" type="date" value="2023-01-01" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de fin</label>
+                        <input id="transactions-endDate" type="date" value="2025-12-31" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                        <select id="transactions-status" class="w-full border rounded p-2">
+                            <option value="">Tous</option>
+                            <option value="created">Créée</option>
+                            <option value="pending">En attente</option>
+                            <option value="ok">Réussie</option>
+                            <option value="ko">Échouée</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Page</label>
+                        <input id="transactions-page" type="number" min="1" value="1" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Nombre par page</label>
+                        <input id="transactions-perPage" type="number" min="1" max="50" value="10" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour création de transaction -->
+                <div x-show="endpoint === 'transaction_create'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-offer-id" type="text" placeholder="ex: OFF123456" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID du client <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-client-id" type="text" placeholder="ID unique du client" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Prénom du client <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-client-firstname" type="text" placeholder="Prénom" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Nom du client <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-client-lastname" type="text" placeholder="Nom" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Email du client <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-client-email" type="email" placeholder="email@exemple.com" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de naissance <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-client-birthdate" type="date" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour liste des fournisseurs -->
+                <div x-show="endpoint === 'suppliers'" class="space-y-3">
+                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                </div>
+                
+                <!-- Paramètres pour statut SIM -->
+                <div x-show="endpoint === 'sim_status'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <input id="sim-status-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <input id="sim-status-transaction-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ICCID (optionnel)</label>
+                        <input id="sim-status-iccid" type="text" placeholder="ex: 89123456789012345678" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour consommations SIM -->
+                <div x-show="endpoint === 'usage_balances'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <input id="usage-balances-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <input id="usage-balances-transaction-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ICCID (optionnel)</label>
+                        <input id="usage-balances-iccid" type="text" placeholder="ex: 89123456789012345678" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour statistiques globales -->
+                <div x-show="endpoint === 'global_balances'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <input id="global-balances-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de début <span class="text-red-500">*</span></label>
+                        <input id="global-balances-start-date" type="date" value="2023-01-01" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de fin <span class="text-red-500">*</span></label>
+                        <input id="global-balances-end-date" type="date" value="2025-12-31" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Niveau de zone <span class="text-red-500">*</span></label>
+                        <select id="global-balances-zone-level" class="w-full border rounded p-2">
+                            <option value="region">Région</option>
+                            <option value="country">Pays</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour récupération de clé RSA -->
+                <div x-show="endpoint === 'keys_get'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Encodage</label>
+                        <select id="keys-get-encoding" class="w-full border rounded p-2">
+                            <option value="">Par défaut</option>
+                            <option value="base64">Base64</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour configuration de clé RSA -->
+                <div x-show="endpoint === 'keys_set'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Type de clé <span class="text-red-500">*</span></label>
+                        <select id="keys-set-type" class="w-full border rounded p-2">
+                            <option value="rsa256">RSA 256</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Valeur de la clé publique <span class="text-red-500">*</span></label>
+                        <textarea id="keys-set-value" rows="4" placeholder="-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----" class="w-full border rounded p-2 font-mono text-sm"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <button id="execute-btn" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                        Exécuter la requête
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Panneau de résultats -->
+        <div class="lg:col-span-2">
+            <div class="bg-gray-800 rounded-lg p-4 text-white h-full">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg font-semibold">Réponse API</h3>
+                    <span class="text-xs px-2 py-1 bg-green-500 rounded">200 OK</span>
+                </div>
+                
+                <div class="bg-gray-900 p-3 rounded h-[500px] overflow-y-auto">
+                    <pre class="text-green-300 text-sm whitespace-pre-wrap font-mono">
+{
+  "isAlive": true,
+  "version": "1.7.X"
+}
+
+<!-- Contenu d'exemple qui sera remplacé par les vraies réponses API -->
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-8 p-4 bg-gray-100 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Fonctionnalités à venir</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <li>Sauvegarde des requêtes précédentes</li>
+            <li>Génération de code pour différents langages de programmation</li>
+            <li>Mode comparaison des réponses</li>
+        </ul>
+    </div>
+</div>
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM chargé, initialisation du testeur API');
+    
+    // Récupération des éléments DOM pour l'affichage des résultats
+    const executeBtn = document.getElementById('execute-btn');
+    const resultArea = document.querySelector('pre');
+    const statusLabel = document.querySelector('span.px-2.py-1');
+    
+    console.log('Bouton d\'exécution:', executeBtn);
+    console.log('Zone de résultat:', resultArea);
+    console.log('Label de statut:', statusLabel);
+    
+    if (!executeBtn) {
+        console.error("Le bouton d'exécution n'a pas été trouvé!");
+        return;
+    }
+    
+    // Fonction pour mettre à jour l'affichage du résultat
+    function updateResult(data, status) {
+        resultArea.innerHTML = JSON.stringify(data, null, 2);
+        statusLabel.textContent = status;
+        
+        // Mise à jour de la classe CSS selon le statut
+        statusLabel.className = 'text-xs px-2 py-1 rounded';
+        if (status.startsWith('2')) {
+            statusLabel.classList.add('bg-green-500');
+        } else if (status.startsWith('4')) {
+            statusLabel.classList.add('bg-red-500');
+        } else if (status.startsWith('5')) {
+            statusLabel.classList.add('bg-orange-500');
+        } else {
+            statusLabel.classList.add('bg-blue-500');
+        }
+    }
+    
+    // Obtenir les informations spécifiques à l'endpoint
+    function getEndpointConfig(endpoint) {
+        let apiEndpoint = '';
+        let method = 'GET';
+        let pathParams = {};
+        let queryParams = {};
+        let body = null;
+        
+        switch(endpoint) {
+            case 'countries':
+                apiEndpoint = 'countries';
+                break;
+                
+            case 'currencies':
+                apiEndpoint = 'currencies';
+                break;
+                
+            case 'offers':
+                apiEndpoint = 'offers';
+                queryParams.page = document.getElementById('offers-page').value;
+                queryParams.perPage = document.getElementById('offers-perPage').value;
+                break;
+                
+            case 'offer_details':
+                const offerId = document.getElementById('offer-id').value;
+                if (!offerId) {
+                    alert('ID de l\'offre requis');
+                    return null;
+                }
+                apiEndpoint = 'offers';
+                pathParams.offer_id = offerId;
+                break;
+                
+            case 'offer_customize':
+                const customizeOfferId = document.getElementById('customize-offer-id').value;
+                if (!customizeOfferId) {
+                    alert('ID de l\'offre requis');
+                    return null;
+                }
+                apiEndpoint = 'offers';
+                pathParams.offer_id = customizeOfferId;
+                method = 'PATCH';
+                body = {};
+                const customName = document.getElementById('customize-name').value;
+                const markup = document.getElementById('customize-markup').value;
+                const markupCurrency = document.getElementById('customize-markup-currency').value;
+                
+                if (customName) body.customName = customName;
+                if (markup) body.markup = parseFloat(markup);
+                if (markupCurrency) body.markupCurrency = markupCurrency;
+                break;
+                
+            case 'transactions':
+                apiEndpoint = 'transactions';
+                queryParams.startDate = document.getElementById('transactions-startDate').value;
+                queryParams.endDate = document.getElementById('transactions-endDate').value;
+                const status = document.getElementById('transactions-status').value;
+                if (status) queryParams.status = status;
+                queryParams.page = document.getElementById('transactions-page').value;
+                queryParams.perPage = document.getElementById('transactions-perPage').value;
+                break;
+                
+            case 'transaction_create':
+                apiEndpoint = 'transactions';
+                method = 'POST';
+                body = {
+                    offerId: document.getElementById('create-transaction-offer-id').value,
+                    clientId: document.getElementById('create-transaction-client-id').value,
+                    clientFirstname: document.getElementById('create-transaction-client-firstname').value,
+                    clientLastname: document.getElementById('create-transaction-client-lastname').value,
+                    clientEmail: document.getElementById('create-transaction-client-email').value,
+                    clientBirthdate: document.getElementById('create-transaction-client-birthdate').value
+                };
+                
+                // Vérification des champs obligatoires
+                for (const [key, value] of Object.entries(body)) {
+                    if (!value) {
+                        alert(`Le champ ${key} est obligatoire`);
+                        return null;
+                    }
+                }
+                break;
+                
+            case 'suppliers':
+                apiEndpoint = 'suppliers';
+                break;
+                
+            case 'sim_status':
+                const statusSupplierId = document.getElementById('sim-status-supplier-id').value;
+                const statusTransactionId = document.getElementById('sim-status-transaction-id').value;
+                
+                if (!statusSupplierId || !statusTransactionId) {
+                    alert('ID du fournisseur et ID de transaction requis');
+                    return null;
+                }
+                
+                apiEndpoint = 'suppliers';
+                pathParams.supplier_id = statusSupplierId;
+                pathParams.action = 'simstatus';
+                queryParams.transactionId = statusTransactionId;
+                
+                const statusIccid = document.getElementById('sim-status-iccid').value;
+                if (statusIccid) queryParams.iccid = statusIccid;
+                break;
+                
+            case 'usage_balances':
+                const usageSupplierId = document.getElementById('usage-balances-supplier-id').value;
+                const usageTransactionId = document.getElementById('usage-balances-transaction-id').value;
+                
+                if (!usageSupplierId || !usageTransactionId) {
+                    alert('ID du fournisseur et ID de transaction requis');
+                    return null;
+                }
+                
+                apiEndpoint = 'suppliers';
+                pathParams.supplier_id = usageSupplierId;
+                pathParams.action = 'usagebalances';
+                queryParams.transactionId = usageTransactionId;
+                
+                const usageIccid = document.getElementById('usage-balances-iccid').value;
+                if (usageIccid) queryParams.iccid = usageIccid;
+                break;
+                
+            case 'global_balances':
+                const globalSupplierId = document.getElementById('global-balances-supplier-id').value;
+                const startDate = document.getElementById('global-balances-start-date').value;
+                const endDate = document.getElementById('global-balances-end-date').value;
+                const zoneLevel = document.getElementById('global-balances-zone-level').value;
+                
+                if (!globalSupplierId || !startDate || !endDate || !zoneLevel) {
+                    alert('Tous les champs avec * sont requis');
+                    return null;
+                }
+                
+                apiEndpoint = 'suppliers';
+                pathParams.supplier_id = globalSupplierId;
+                pathParams.action = 'globalbalances';
+                queryParams.startDate = startDate;
+                queryParams.endDate = endDate;
+                queryParams.zoneLevel = zoneLevel;
+                break;
+                
+            case 'keys_get':
+                apiEndpoint = 'keys';
+                const encoding = document.getElementById('keys-get-encoding').value;
+                if (encoding) queryParams.encoding = encoding;
+                break;
+                
+            case 'keys_set':
+                apiEndpoint = 'keys';
+                method = 'POST';
+                body = {
+                    key_type: document.getElementById('keys-set-type').value,
+                    public_key_value: document.getElementById('keys-set-value').value
+                };
+                
+                if (!body.key_type || !body.public_key_value) {
+                    alert('Type de clé et valeur de clé publique requis');
+                    return null;
+                }
+                break;
+                
+            default:
+                alert('Endpoint non supporté');
+                return null;
+        }
+        
+        return {
+            endpoint: apiEndpoint,
+            method: method,
+            pathParams: pathParams,
+            params: queryParams,
+            body: body
+        };
+    }
+    
+    // Exécuter la requête vers le testeur d'API
+    async function executeApiTest(config) {
+        try {
+            console.log('Début de l\'exécution de la requête');
+            console.log('Configuration:', config);
+            
+            statusLabel.textContent = 'Chargement...';
+            statusLabel.className = 'text-xs px-2 py-1 bg-yellow-500 rounded';
+            
+            console.log('Envoi de la requête à /api/test');
+            const response = await fetch('/api/test', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(config)
+            });
+            
+            console.log('Réponse reçue:', response.status, response.statusText);
+            
+            const data = await response.json();
+            console.log('Données reçues:', data);
+            
+            if (data.statusCode) {
+                console.log('Mise à jour du résultat avec le code de statut');
+                updateResult(data.data, `${data.statusCode} ${data.statusText}`);
+            } else if (data.error) {
+                console.log('Mise à jour du résultat avec l\'erreur');
+                updateResult({error: data.error}, 'Erreur');
+            } else {
+                console.log('Mise à jour du résultat avec succès');
+                updateResult(data, 'Succès');
+            }
+        } catch (error) {
+            console.error('Erreur lors de l\'exécution de la requête:', error);
+            updateResult({error: 'Erreur lors de la communication avec le serveur: ' + error.message}, 'Erreur');
+        }
+    }
+    
+    // Fonction directe pour obtenir l'endpoint sélectionné
+    function getSelectedEndpoint() {
+        // Cibler spécifiquement le conteneur principal avec les classes de grille
+        // qui contient la déclaration x-data="{ endpoint: ... }"
+        const mainContainer = document.querySelector('.grid.grid-cols-1.lg\\:grid-cols-3');
+        console.log("Conteneur principal trouvé:", mainContainer);
+        
+        if (mainContainer && mainContainer.__x && mainContainer.__x.$data && mainContainer.__x.$data.endpoint) {
+            const selectedEndpoint = mainContainer.__x.$data.endpoint;
+            console.log("Endpoint sélectionné depuis le conteneur principal:", selectedEndpoint);
+            return selectedEndpoint;
+        }
+        
+        // Méthode alternative par les boutons actifs
+        const activeButton = document.querySelector('button.bg-orange-500.text-white');
+        if (activeButton) {
+            // Extraire l'endpoint du onClick (form: @click="endpoint = 'X'")
+            const onClickAttr = activeButton.getAttribute('@click') || '';
+            const match = onClickAttr.match(/endpoint\s*=\s*['"]([^'"]+)['"]/);
+            if (match && match[1]) {
+                console.log("Endpoint extrait du bouton actif:", match[1]);
+                return match[1];
+            }
+        }
+        
+        // Parcourir tous les éléments Alpine comme dernier recours
+        const alpineElements = document.querySelectorAll('[x-data]');
+        for (const element of alpineElements) {
+            if (element.__x && element.__x.$data && element.__x.$data.endpoint) {
+                console.log("Endpoint trouvé via Alpine:", element.__x.$data.endpoint);
+                return element.__x.$data.endpoint;
+            }
+        }
+        
+        // Valeur par défaut si rien ne fonctionne
+        console.log("Aucun moyen de déterminer l'endpoint, utilisation de la valeur par défaut");
+        return 'countries';
+    }
+    
+    // Gestionnaire d'événement pour le bouton d'exécution
+    executeBtn.addEventListener('click', function() {
+        console.log('Bouton exécuter cliqué');
+        
+        try {
+            // Récupérer l'endpoint directement avec notre nouvelle fonction
+            const endpoint = getSelectedEndpoint();
+            console.log('Endpoint sélectionné:', endpoint);
+            
+            // Récupérer la configuration pour cet endpoint
+            const config = getEndpointConfig(endpoint);
+            console.log('Configuration obtenue:', config);
+            
+            if (config) {
+                // Exécuter la requête API
+                executeApiTest(config);
+            } else {
+                console.error('La configuration est nulle pour l\'endpoint:', endpoint);
+                alert('Erreur de configuration. Veuillez sélectionner un autre endpoint ou renseigner tous les champs obligatoires.');
+            }
+        } catch (error) {
+            console.error('Erreur lors de l\'exécution:', error);
+            alert('Une erreur est survenue: ' + error.message);
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% endblock %}

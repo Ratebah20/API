@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-3xl font-bold text-orange-600 mb-6">Bienvenue sur le site interactif Orange Travel B2B API</h1>
+    
+    <div class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Qu'est-ce que l'API Orange Travel B2B ?</h2>
+        <p class="text-gray-700 mb-4">
+            L'API Orange Travel B2B permet aux entreprises partenaires (distributeurs) de gérer de manière automatisée 
+            la distribution de recharges mobiles (topups) et d'eSIMs à leurs clients finaux. Cette interface interactive 
+            vous aidera à comprendre et intégrer cette API dans vos applications.
+        </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-orange-700 mb-3">Guide d'intégration</h3>
+            <p class="text-gray-700 mb-4">
+                Suivez notre guide interactif en 12 étapes pour intégrer l'API dans votre système.
+            </p>
+            <a href="/guide" class="inline-block bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
+                Découvrir le guide
+            </a>
+        </div>
+        
+        <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-orange-700 mb-3">Testeur d'API</h3>
+            <p class="text-gray-700 mb-4">
+                Testez directement les différents endpoints de l'API et visualisez les réponses.
+            </p>
+            <a href="/api-tester" class="inline-block bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
+                Tester l'API
+            </a>
+        </div>
+        
+        <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-orange-700 mb-3">Simulateur Mobile</h3>
+            <p class="text-gray-700 mb-4">
+                Visualisez l'expérience utilisateur finale sur mobile pour les différentes fonctionnalités.
+            </p>
+            <a href="/simulator" class="inline-block bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
+                Explorer les simulations
+            </a>
+        </div>
+    </div>
+    
+    <div class="bg-gray-100 p-6 rounded-lg">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Authentification</h2>
+        {% if session.get('access_token') %}
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                <p>Vous êtes authentifié avec un token valide.</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="/test_auth" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                    Renouveler le token
+                </a>
+                <a href="/clear" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition">
+                    Se déconnecter
+                </a>
+            </div>
+        {% else %}
+            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                <p>Vous n'êtes pas encore authentifié auprès de l'API.</p>
+            </div>
+            <a href="/test_auth" class="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
+                S'authentifier
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
