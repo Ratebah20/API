@@ -27,6 +27,7 @@ class Config:
         
         # Transactions
         "transactions": "distributors/transactions",
+        "transactions/{transaction_id}": "distributors/transactions/{transaction_id}",
         "transactions_count": "distributors/transactions/count",
         
         # Fournisseurs et services

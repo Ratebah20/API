@@ -28,6 +28,13 @@
             <div class="space-y-2">
                 <h3 class="font-semibold text-gray-700">Informations de base</h3>
                 <button 
+                    @click="endpoint = 'live'"
+                    :class="endpoint === 'live' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Test de connexion
+                </button>
+                
+                <button 
                     @click="endpoint = 'countries'"
                     :class="endpoint === 'countries' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
@@ -78,6 +85,20 @@
                     Créer une transaction
                 </button>
                 
+                <button 
+                    @click="endpoint = 'transaction_details'"
+                    :class="endpoint === 'transaction_details' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Détails d'une transaction
+                </button>
+                
+                <button 
+                    @click="endpoint = 'transactions_count'"
+                    :class="endpoint === 'transactions_count' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    class="w-full py-2 px-4 rounded transition">
+                    Nombre de transactions
+                </button>
+                
                 <h3 class="font-semibold text-gray-700 mt-4">Gestion des fournisseurs et eSIM</h3>
                 <button 
                     @click="endpoint = 'suppliers'"
@@ -126,6 +147,11 @@
             <!-- Paramètres spécifiques aux endpoints -->
             <div class="mt-6">
                 <h3 class="font-semibold text-gray-700 mb-2">Paramètres</h3>
+                
+                <!-- Paramètres pour test de connexion -->
+                <div x-show="endpoint === 'live'" class="space-y-3">
+                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                </div>
                 
                 <!-- Paramètres pour pays et devises -->
                 <div x-show="endpoint === 'countries' || endpoint === 'currencies'" class="space-y-3">
@@ -202,6 +228,37 @@
                     <div>
                         <label class="block text-sm text-gray-600 mb-1">Nombre par page</label>
                         <input id="transactions-perPage" type="number" min="1" max="50" value="10" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour détails d'une transaction -->
+                <div x-show="endpoint === 'transaction_details'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <input id="transaction-details-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour comptage des transactions -->
+                <div x-show="endpoint === 'transactions_count'" class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de début</label>
+                        <input id="transactions-count-startDate" type="date" value="2023-01-01" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Date de fin</label>
+                        <input id="transactions-count-endDate" type="date" value="2025-01-01" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                        <select id="transactions-count-status" class="w-full border rounded p-2">
+                            <option value="">Tous</option>
+                            <option value="created">Créée</option>
+                            <option value="pending">En attente</option>
+                            <option value="ok">Réussie</option>
+                            <option value="ko">Échouée</option>
+                            <option value="expired">Expirée</option>
+                        </select>
                     </div>
                 </div>
                 
@@ -403,6 +460,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let body = null;
         
         switch(endpoint) {
+            case 'live':
+                apiEndpoint = 'live';
+                break;
+                
             case 'countries':
                 apiEndpoint = 'countries';
                 break;
@@ -456,16 +517,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 queryParams.perPage = document.getElementById('transactions-perPage').value;
                 break;
                 
+            case 'transaction_details':
+                const transactionId = document.getElementById('transaction-details-id').value;
+                if (!transactionId) {
+                    alert('ID de la transaction requis');
+                    return null;
+                }
+                apiEndpoint = 'transactions/{transaction_id}';
+                pathParams.transaction_id = transactionId;
+                break;
+                
+            case 'transactions_count':
+                apiEndpoint = 'transactions_count';
+                queryParams.startDate = document.getElementById('transactions-count-startDate').value;
+                queryParams.endDate = document.getElementById('transactions-count-endDate').value;
+                const countStatus = document.getElementById('transactions-count-status').value;
+                if (countStatus) queryParams.status = countStatus;
+                break;
+                
             case 'transaction_create':
                 apiEndpoint = 'transactions';
                 method = 'POST';
                 body = {
-                    offerId: document.getElementById('create-transaction-offer-id').value,
-                    clientId: document.getElementById('create-transaction-client-id').value,
-                    clientFirstname: document.getElementById('create-transaction-client-firstname').value,
-                    clientLastname: document.getElementById('create-transaction-client-lastname').value,
-                    clientEmail: document.getElementById('create-transaction-client-email').value,
-                    clientBirthdate: document.getElementById('create-transaction-client-birthdate').value
+                    offer_id: document.getElementById('create-transaction-offer-id').value,
+                    client_id: document.getElementById('create-transaction-client-id').value,
+                    client_firstname: document.getElementById('create-transaction-client-firstname').value,
+                    client_lastname: document.getElementById('create-transaction-client-lastname').value,
+                    client_email: document.getElementById('create-transaction-client-email').value,
+                    client_birthdate: document.getElementById('create-transaction-client-birthdate').value
                 };
                 
                 // Vérification des champs obligatoires
