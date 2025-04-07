@@ -34,13 +34,26 @@ def test_api():
     # Récupération du mapping des endpoints
     endpoints_map = current_app.config["ENDPOINTS"]
     
+    # Cas spéciaux pour les endpoints avec des paramètres dans le chemin
+    # Gestion des endpoints d'offres
+    if endpoint == 'offers/{offer_id}' and 'offer_id' in path_params:
+        endpoint = 'offers/{offer_id}'
+    
+    # Gestion des endpoints de personnalisation d'offres
+    elif endpoint == 'offers/customize/{offer_id}' and 'offer_id' in path_params:
+        endpoint = 'offers/customize/{offer_id}'
+    
+    # Gestion des endpoints de transactions
+    elif endpoint == 'transactions/{transaction_id}' and 'transaction_id' in path_params:
+        endpoint = 'transactions/{transaction_id}'
+        
     # Cas spéciaux pour les endpoints avec des actions
-    if 'action' in path_params:
+    elif 'action' in path_params:
         action = path_params.pop('action')
         if f"suppliers/{action}" in endpoints_map:
             endpoint = f"suppliers/{action}"
     
-    if endpoint not in endpoints_map and endpoint not in ["countries", "currencies", "live"]:
+    if endpoint not in endpoints_map and endpoint not in ["countries", "currencies", "live"] and not endpoint.startswith("offers/") and not endpoint.startswith("transactions/") and not endpoint.startswith("suppliers/"):
         return jsonify({"error": f"Endpoint {endpoint} non supporté"}), 400
     
     # Construction de l'URL finale
@@ -78,13 +91,13 @@ def test_api():
     
     try:
         if http_method == "GET":
-            response = requests.get(url, headers=headers, params=params)
+            response = requests.get(url, headers=headers, params=params, verify=False)
         elif http_method == "POST":
-            response = requests.post(url, headers=headers, json=payload)
+            response = requests.post(url, headers=headers, json=payload, verify=False)
         elif http_method == "PATCH":
-            response = requests.patch(url, headers=headers, json=payload)
+            response = requests.patch(url, headers=headers, json=payload, verify=False)
         elif http_method == "DELETE":
-            response = requests.delete(url, headers=headers)
+            response = requests.delete(url, headers=headers, verify=False)
         else:
             return jsonify({"error": f"Méthode HTTP {http_method} non supportée"}), 400
         

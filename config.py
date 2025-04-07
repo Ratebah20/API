@@ -18,25 +18,43 @@ class Config:
     # Mapping des endpoints
     ENDPOINTS = {
         # Endpoints de base - documentation consultable via /guide
-        "countries": "countries",
+        # GET - Test de connexion et informations de version
         "live": "live",
+        # GET - Liste des pays avec codes ISO, noms et préfixes téléphoniques
+        "countries": "countries",
+        # GET - Liste des devises disponibles avec taux de conversion
         "currencies": "currencies",
         
         # Offres
+        # GET - Liste des offres disponibles pour le distributeur
         "offers": "distributors/offers",
+        # GET - Détails d'une offre spécifique
+        "offers/{offer_id}": "distributors/offers/{offer_id}",
+        # PATCH - Personnaliser une offre (nom, frais, métadonnées)
+        "offers/customize/{offer_id}": "distributors/offers/{offer_id}",
         
         # Transactions
+        # GET - Liste des transactions avec filtres possibles
+        # POST - Créer une nouvelle transaction
         "transactions": "distributors/transactions",
+        # GET - Détails d'une transaction spécifique
         "transactions/{transaction_id}": "distributors/transactions/{transaction_id}",
+        # GET - Nombre de transactions selon filtres
         "transactions_count": "distributors/transactions/count",
         
         # Fournisseurs et services
+        # GET - Liste des fournisseurs disponibles
         "suppliers": "distributors/suppliers",
+        # GET - Vérifier le statut d'une carte SIM/eSIM
         "suppliers/simstatus": "distributors/suppliers/{supplier_id}/simstatus",
+        # GET - Récupérer les données de consommation
         "suppliers/usagebalances": "distributors/suppliers/{supplier_id}/usagebalances",
+        # GET - Récupérer les statistiques globales
         "suppliers/globalbalances": "distributors/suppliers/{supplier_id}/globalbalances",
         
         # Gestion des clés de sécurité
+        # GET - Récupérer la clé publique RSA actuelle
+        # POST - Définir une nouvelle clé publique RSA
         "keys": "distributors/keys"
     }
     
