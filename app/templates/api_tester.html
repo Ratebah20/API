@@ -79,8 +79,8 @@
                 </button>
                 
                 <button 
-                    @click="endpoint = 'transactions_create'"
-                    :class="endpoint === 'transactions_create' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
+                    @click="endpoint = 'transactions_post'"
+                    :class="endpoint === 'transactions_post' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
                     Créer une transaction
                 </button>
@@ -289,6 +289,54 @@
                     <div>
                         <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
                         <input id="transaction-details-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
+                    </div>
+                </div>
+                
+                <!-- Paramètres pour création de transaction -->
+                <div x-show="endpoint === 'transactions_post'" class="space-y-3" x-data="{transactionType: 'orange-topup'}">
+                    <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
+                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
+                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de créer une nouvelle transaction. Le type de transaction détermine les paramètres requis :</p>
+                        <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
+                            <li><span class="font-semibold">Recharge Orange/Espagne</span> : Nécessite un MSISDN (numéro de téléphone)</li>
+                            <li><span class="font-semibold">Recharge Welcome Travelers</span> : Nécessite un simId</li>
+                            <li><span class="font-semibold">eSIM</span> : Uniquement l'ID de l'offre est nécessaire</li>
+                        </ul>
+                        <p class="text-sm text-blue-700">L'ID de l'offre est toujours obligatoire et doit correspondre à une offre active.</p>
+                        <div class="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded">
+                            <p class="text-xs text-yellow-700">Pour les transactions eSIM, les codes d'activation retournés sont chiffrés avec la clé publique RSA du distributeur et doivent être déchiffrés avec la clé privée correspondante.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-offer-id" type="text" placeholder="ex: 7b977bd5-c7dc-4681-bf33-c4bd2eadc266" class="w-full border rounded p-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">Type de transaction <span class="text-red-500">*</span></label>
+                        <select id="create-transaction-type" x-model="transactionType" class="w-full border rounded p-2">
+                            <option value="orange-topup">Recharge Orange/Espagne (MSISDN)</option>
+                            <option value="welcome-topup">Recharge Welcome Travelers (simId)</option>
+                            <option value="esim">Activation eSIM</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-600 mb-1">ID utilisateur (optionnel)</label>
+                        <input id="create-transaction-user-id" type="text" placeholder="ex: 635768534667763" class="w-full border rounded p-2">
+                    </div>
+                    <!-- Paramètres pour recharge Orange/Espagne -->
+                    <div x-show="transactionType === 'orange-topup'">
+                        <label class="block text-sm text-gray-600 mb-1">Numéro de téléphone (MSISDN) <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-msisdn" type="text" placeholder="ex: 684587587" class="w-full border rounded p-2">
+                        <p class="text-xs text-gray-500 mt-1">Format : 9 derniers chiffres du numéro (sans préfixe international)</p>
+                    </div>
+                    <!-- Paramètres pour recharge Welcome Travelers -->
+                    <div x-show="transactionType === 'welcome-topup'">
+                        <label class="block text-sm text-gray-600 mb-1">ID de la SIM <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-simid" type="text" placeholder="ex: 1956392841179" class="w-full border rounded p-2">
+                    </div>
+                    <!-- Paramètres pour eSIM (aucun paramètre supplémentaire requis) -->
+                    <div x-show="transactionType === 'esim'" class="bg-gray-50 p-3 rounded-lg border border-gray-200">
+                        <p class="text-sm text-gray-600">Aucun paramètre supplémentaire n'est requis pour l'activation d'une eSIM. Les codes d'activation seront générés automatiquement et retournés dans la réponse (chiffrés).</p>
                     </div>
                 </div>
                 
@@ -671,25 +719,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (countStatus) queryParams.status = countStatus;
                 break;
                 
-            case 'transactions_create':
-                apiEndpoint = 'transactions_create';
+            case 'transactions_post':
+                apiEndpoint = 'transactions';
                 method = 'POST';
                 body = {
-                    offer_id: document.getElementById('create-transaction-offer-id').value,
-                    client_id: document.getElementById('create-transaction-client-id').value,
-                    client_firstname: document.getElementById('create-transaction-client-firstname').value,
-                    client_lastname: document.getElementById('create-transaction-client-lastname').value,
-                    client_email: document.getElementById('create-transaction-client-email').value,
-                    client_birthdate: document.getElementById('create-transaction-client-birthdate').value
+                    offer_id: document.getElementById('create-transaction-offer-id').value
                 };
                 
-                // Vérification des champs obligatoires
-                for (const [key, value] of Object.entries(body)) {
-                    if (!value) {
-                        alert(`Le champ ${key} est obligatoire`);
+                // Vérification du champ offer_id obligatoire
+                if (!body.offer_id) {
+                    alert('L\'ID de l\'offre est obligatoire');
+                    return null;
+                }
+                
+                // Ajout des paramètres optionnels
+                const user_id = document.getElementById('create-transaction-user-id').value;
+                if (user_id) body.user_id = user_id;
+                
+                // Ajout des paramètres spécifiques selon le type de transaction
+                const transactionType = document.getElementById('create-transaction-type').value;
+                
+                if (transactionType === 'orange-topup') {
+                    // Recharge Orange/Espagne (nécessite MSISDN)
+                    const msisdn = document.getElementById('create-transaction-msisdn').value;
+                    if (!msisdn) {
+                        alert('Le numéro de téléphone (MSISDN) est obligatoire pour une recharge Orange/Espagne');
                         return null;
                     }
+                    body.parameters = { msisdn: msisdn };
+                } 
+                else if (transactionType === 'welcome-topup') {
+                    // Recharge Welcome Travelers (nécessite simId)
+                    const simId = document.getElementById('create-transaction-simid').value;
+                    if (!simId) {
+                        alert('L\'ID de la SIM est obligatoire pour une recharge Welcome Travelers');
+                        return null;
+                    }
+                    body.parameters = { simId: simId };
                 }
+                // Pour eSIM, aucun paramètre supplémentaire n'est requis
+                // Le corps de la requête contient uniquement offer_id et user_id (optionnel)
+                
                 break;
                 
             case 'suppliers':

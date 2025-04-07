@@ -35,8 +35,9 @@ class Config:
         
         # Transactions
         # GET - Liste des transactions avec filtres possibles
-        # POST - Créer une nouvelle transaction
         "transactions": "distributors/transactions",
+        # POST - Créer une nouvelle transaction
+        "transactions_post": "distributors/transactions",
         # GET - Détails d'une transaction spécifique
         "transactions/{transaction_id}": "distributors/transactions/{transaction_id}",
         # GET - Nombre de transactions selon filtres

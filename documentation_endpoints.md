@@ -55,7 +55,133 @@ Récupère les devises disponibles avec taux de conversion.
 - **Paramètres** :
   - `offset` (optionnel) : Position de départ pour la pagination
   - `limit` (optionnel) : Nombre maximum d'éléments à retourner
-- **Réponse** : Liste des devises avec taux de conversion
+- **Réponse** : Liste des devises avec leurs taux de conversion
+
+## Transactions
+
+Les transactions représentent les opérations commerciales effectuées via l'API, comme les recharges de crédit téléphonique ou l'activation d'eSIM.
+
+### Créer une Transaction
+
+Crée une nouvelle transaction (recharge, activation eSIM, etc.).
+
+- **URL** : `/distributors/transactions`
+- **Méthode** : `POST`
+- **Corps de la Requête** :
+  - `offer_id` (obligatoire) : Identifiant UUID de l'offre
+  - `user_id` (optionnel) : Identifiant utilisateur côté distributeur
+  - `parameters` (dépend du type d'offre) : Paramètres spécifiques au type de transaction
+
+#### Exemples de Requêtes
+
+**1. Recharge Orange France/Espagne (topup)**
+
+```json
+{
+    "offer_id": "7b977bd5-c7dc-4681-bf33-c4bd2eadc266",
+    "user_id": "635768534667763",
+    "parameters": {
+        "msisdn": "684587587"
+    }
+}
+```
+
+**2. Recharge Welcome Travelers**
+
+```json
+{
+    "offer_id": "44f9d3b6-242e-47c6-b978-88d5e2e041ce",
+    "parameters": {
+        "simId": "1956392841179"
+    }
+}
+```
+
+**3. Activation eSIM**
+
+```json
+{
+    "offer_id": "07966928-d3a3-453e-9944-b7ff1081794d"
+}
+```
+
+- **Réponse** : Détails de la transaction créée, incluant un identifiant unique
+
+**Exemple de réponse pour une activation eSIM**
+
+```json
+{
+    "id": "386c9673-33f8-4364-bb78-e7b18371be5a",
+    "billing_mode": "prepaid",
+    "status": "ok",
+    "product_type": "eSim",
+    "creation_date": "2024-07-16T12:52:11Z",
+    "expiration_date": null,
+    "change_date": "2024-07-16T12:52:11Z",
+    "offer_id": "07966928-d3a3-453e-9944-b7ff1081794d",
+    "distributor_id": "8822b635-f710-47f1-a24c-5b9e58a84e7e",
+    "resell_value": 27.5,
+    "reference_currency": "EUR",
+    "distributor_fees": 0.0,
+    "distributor_fees_type": "value",
+    "offer_bucket": 0,
+    "user_id": "",
+    "metadata": null,
+    "product_id": "004088d8-20f3-4913-9b89-4bee25e0be79",
+    "product_name": "eSim for preprod",
+    "supplier_name": "Orange France",
+    "distributor_name": "FakeDistributor",
+    "parameters": {
+        "supplier_ref": "3561292346865",
+        "expiration_date": "None",
+        "prefix": "33",
+        "msisdn": "0678578522",
+        "activation_code": "Me3ddE4i-S3krivxZZIjcm1tbwgRhh2ySwTg74Lbf...5_qPSjKBX-AE4=",
+        "iccid": "",
+        "nsce": "02322145207458",
+        "pin_code": "0000",
+        "puk": "71289750",
+        "matching_id": "",
+        "smdp_url": ""
+    }
+}
+```
+
+**Note** : Pour les transactions eSIM, le code d'activation (`activation_code`) est chiffré avec la clé publique RSA du distributeur et encodé en base64. Il doit être décodé puis déchiffré avec la clé privée correspondante.
+
+### Récupérer une Transaction
+
+Récupère les détails d'une transaction spécifique.
+
+- **URL** : `/distributors/transactions/{transaction_id}`
+- **Méthode** : `GET`
+- **Paramètres de Chemin** :
+  - `transaction_id` (obligatoire) : Identifiant unique de la transaction
+- **Réponse** : Détails complets de la transaction
+
+### Lister les Transactions
+
+Récupère la liste des transactions avec possibilité de filtrage.
+
+- **URL** : `/distributors/transactions`
+- **Méthode** : `GET`
+- **Paramètres de Requête** :
+  - `offset` (optionnel) : Position de départ pour la pagination
+  - `limit` (optionnel) : Nombre maximum d'éléments à retourner
+  - `status` (optionnel) : Filtre par statut (ex: "ok", "error")
+  - `product_type` (optionnel) : Filtre par type de produit (ex: "topup", "eSim")
+  - `start_date` (optionnel) : Date de début pour filtrer (format ISO)
+  - `end_date` (optionnel) : Date de fin pour filtrer (format ISO)
+- **Réponse** : Liste des transactions correspondant aux critères
+
+### Compter les Transactions
+
+Compte le nombre de transactions correspondant aux critères de filtrage.
+
+- **URL** : `/distributors/transactions/count`
+- **Méthode** : `GET`
+- **Paramètres de Requête** : Mêmes options de filtrage que pour la liste des transactions
+- **Réponse** : Nombre total de transactions correspondant aux critères
 
 ## Gestion des Offres
 
