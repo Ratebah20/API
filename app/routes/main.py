@@ -29,3 +29,8 @@ def api_tester():
 def security():
     """Page expliquant la sécurité et la gestion des eSIM."""
     return render_template('security.html', title="Sécurité et eSIM")
+
+@main_bp.route('/api/guide/global_stats')
+def global_stats():
+    """Page de documentation sur les statistiques globales de consommation."""
+    return render_template('global_stats.html', title="Statistiques globales de consommation")

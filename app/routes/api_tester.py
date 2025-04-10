@@ -41,7 +41,7 @@ def test_api():
     
     # Gestion des endpoints de personnalisation d'offres
     elif endpoint == 'offers/customize/{offer_id}' and 'offer_id' in path_params:
-        endpoint = 'offers/customize/{offer_id}'
+        endpoint = 'offers/{offer_id}'  # Correction: utiliser le même endpoint que pour les offres
     
     # Gestion des endpoints de transactions
     elif endpoint == 'transactions/{transaction_id}' and 'transaction_id' in path_params:
@@ -95,7 +95,65 @@ def test_api():
         elif http_method == "POST":
             response = requests.post(url, headers=headers, json=payload, verify=False)
         elif http_method == "PATCH":
-            response = requests.patch(url, headers=headers, json=payload, verify=False)
+            # Traitement spécial pour la personnalisation des offres
+            if endpoint.startswith('offers/') and http_method == "PATCH":
+                # Afficher le payload reçu pour débogage
+                print(f"Payload reçu pour personnalisation d'offre: {payload}")
+                
+                # Vérifier et formater correctement le payload pour la personnalisation d'offre
+                formatted_payload = {}
+                
+                # Mapper les champs de l'interface utilisateur aux champs de l'API
+                if payload:
+                    # Ajouter le nom personnalisé s'il est fourni
+                    if "name" in payload and payload["name"]:
+                        formatted_payload["name"] = payload["name"]
+                    
+                    # Convertir les frais de service en distributor_fees
+                    has_fees = False
+                    if "distributor_fees" in payload and payload["distributor_fees"]:
+                        try:
+                            fee_value = float(payload["distributor_fees"])
+                            if fee_value > 0:
+                                formatted_payload["distributor_fees"] = fee_value
+                                has_fees = True
+                                print(f"Frais de service convertis: {fee_value}")
+                        except (ValueError, TypeError) as e:
+                            print(f"Erreur lors de la conversion des frais: {e}")
+                    
+                    # Définir le type de frais uniquement si des frais sont définis
+                    if has_fees:
+                        # Vérifier si le type de devise est spécifié
+                        if "currency" in payload and payload["currency"]:
+                            # Ne pas inclure la devise dans le payload, ce n'est pas un paramètre attendu par l'API
+                            print(f"Devise spécifiée (non envoyée à l'API): {payload['currency']}")
+                        
+                        # Utiliser "value" comme type de frais par défaut (montant fixe)
+                        formatted_payload["distributor_fees_type"] = "value"
+                    
+                    # Ajouter les métadonnées si présentes
+                    if "metadata" in payload:
+                        formatted_payload["metadata"] = payload["metadata"]
+                
+                # Vérifier que le payload est valide avant de l'envoyer
+                if not formatted_payload:
+                    print("Aucun paramètre valide à envoyer, annulation de la requête")
+                    return jsonify({
+                        "statusCode": 400,
+                        "statusText": "Bad Request",
+                        "data": {
+                            "description": "Aucun paramètre valide à envoyer. Les paramètres modifiables sont: name, distributor_fees",
+                            "message": "bad request"
+                        }
+                    }), 400
+                
+                print(f"Payload final formaté pour personnalisation d'offre: {formatted_payload}")
+                response = requests.patch(url, headers=headers, json=formatted_payload, verify=False)
+                
+                # Afficher la réponse brute pour débogage
+                print(f"Réponse brute de l'API: {response.text}")
+            else:
+                response = requests.patch(url, headers=headers, json=payload, verify=False)
         elif http_method == "DELETE":
             response = requests.delete(url, headers=headers, verify=False)
         else:

@@ -686,9 +686,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const markup = document.getElementById('customize-markup').value;
                 const markupCurrency = document.getElementById('customize-markup-currency').value;
                 
-                if (customName) body.customName = customName;
-                if (markup) body.markup = parseFloat(markup);
-                if (markupCurrency) body.markupCurrency = markupCurrency;
+                if (customName) body.name = customName;
+                if (markup) body.distributor_fees = parseFloat(markup);
+                if (markupCurrency) body.currency = markupCurrency;
                 break;
                 
             case 'transactions':
@@ -777,7 +777,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 apiEndpoint = 'suppliers/simstatus';
                 pathParams.supplier_id = statusSupplierId;
-                queryParams.transactionId = statusTransactionId;
+                queryParams.transaction = statusTransactionId;
                 
                 const statusIccid = document.getElementById('sim-status-iccid').value;
                 if (statusIccid) queryParams.iccid = statusIccid;
@@ -794,7 +794,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 apiEndpoint = 'suppliers/usagebalances';
                 pathParams.supplier_id = usageSupplierId;
-                queryParams.transactionId = usageTransactionId;
+                queryParams.transaction = usageTransactionId;
                 
                 const usageIccid = document.getElementById('usage-balances-iccid').value;
                 if (usageIccid) queryParams.iccid = usageIccid;
@@ -825,7 +825,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
                 
             case 'keys_post':
-                apiEndpoint = 'keys_post';
+                apiEndpoint = 'keys';
                 method = 'POST';
                 body = {
                     key_type: document.getElementById('keys-set-type').value,

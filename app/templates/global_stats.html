@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex items-center mb-6">
+        <a href="{{ url_for('main.guide') }}" class="flex items-center text-orange-500 hover:text-orange-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Retour au guide d'intégration
+        </a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">Statistiques globales de consommation</h1>
+
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+        <p class="text-gray-700 mb-4">
+            Pour analyser les tendances de consommation et optimiser vos offres, l'API Orange Travel B2B propose 
+            un endpoint permettant d'obtenir des statistiques globales de consommation par région ou par pays.
+        </p>
+        
+        <h4 class="text-xl font-semibold text-gray-800 mt-4 mb-3">Endpoint pour les statistiques globales</h4>
+        <p class="text-gray-700 mb-3">
+            Contrairement à l'endpoint <code>usagebalances</code> qui fournit des informations pour une carte SIM spécifique, 
+            cet endpoint permet d'obtenir des statistiques agrégées pour l'ensemble des cartes SIM/eSIM d'un fournisseur 
+            sur une période donnée.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/suppliers/{supplier_id}/globalbalances?startDate=2023-01-01&endDate=2023-12-31&zoneLevel=region</p>
+        </div>
+        
+        <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Paramètres disponibles</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">supplier_id</p>
+                <p class="text-sm text-gray-700">Identifiant du fournisseur</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">startDate</p>
+                <p class="text-sm text-gray-700">Début de la période d'analyse (format ISO)</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">endDate</p>
+                <p class="text-sm text-gray-700">Fin de la période d'analyse (format ISO)</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">zoneLevel</p>
+                <p class="text-sm text-gray-700">Niveau d'agrégation ("region" ou "country")</p>
+            </div>
+        </div>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+            <h5 class="text-yellow-700 font-medium mb-1">Limitation</h5>
+            <p class="text-gray-700 text-sm">
+                La période d'analyse ne peut pas dépasser 6 mois. Pour des statistiques sur une plus longue période, 
+                effectuez plusieurs appels avec des périodes successives.
+            </p>
+        </div>
+        
+        <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient des statistiques détaillées par zone géographique, avec pour chaque zone la consommation 
+            de données, de voix et de SMS.
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"zones": [</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"zoneName": "Europe",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"data": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 1024,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unit": "MB"</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"voice": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 120,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unit": "min"</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sms": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 50</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"zoneName": "Amérique du Nord",</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"data": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 512,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unit": "MB"</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"voice": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 45,</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unit": "min"</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sms": {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 20</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;]</p>
+            <p>}</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8">
+            <h5 class="text-blue-700 font-medium mb-1">Applications pratiques</h5>
+            <p class="text-gray-700 text-sm">
+                Ces statistiques peuvent être utilisées pour :
+                <ul class="list-disc list-inside text-sm text-gray-700 mt-2 ml-2">
+                    <li>Analyser les tendances de consommation par zone géographique</li>
+                    <li>Optimiser vos offres en fonction des habitudes d'utilisation</li>
+                    <li>Créer des rapports visuels pour vos clients</li>
+                    <li>Anticiper les besoins en capacité et planifier vos achats</li>
+                </ul>
+            </p>
+        </div>
+
+        <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Testez cet endpoint</h4>
+        <p class="text-gray-700 mb-3">
+            Vous pouvez tester cet endpoint directement dans notre <a href="{{ url_for('main.api_tester') }}" class="text-orange-500 hover:text-orange-700 underline">testeur d'API</a>.
+            Sélectionnez l'endpoint <code>suppliers/globalbalances</code> et renseignez les paramètres requis.
+        </p>
+    </div>
+</div>
+{% endblock %}

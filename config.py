@@ -55,8 +55,9 @@ class Config:
         
         # Gestion des clés de sécurité
         # GET - Récupérer la clé publique RSA actuelle
+        "keys": "distributors/keys",
         # POST - Définir une nouvelle clé publique RSA
-        "keys": "distributors/keys"
+        "keys_post": "distributors/keys"
     }
     
     # Configuration pour la gestion des clés RSA

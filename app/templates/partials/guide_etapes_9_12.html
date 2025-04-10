@@ -17,6 +17,20 @@
             permettant de récupérer le statut actuel d'une carte SIM ou eSIM.
         </p>
         
+        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-4">
+            <h5 class="text-orange-700 font-medium mb-1">SIM physiques et eSIM</h5>
+            <p class="text-gray-700 text-sm">
+                L'API Orange Travel B2B prend en charge deux types de cartes :
+                <ul class="list-disc list-inside text-sm text-gray-700 mt-2 ml-2">
+                    <li><strong>Cartes SIM physiques</strong> : Cartes traditionnelles qui doivent être insérées physiquement dans l'appareil</li>
+                    <li><strong>eSIM</strong> : Cartes SIM électroniques intégrées directement dans l'appareil et activées à distance</li>
+                </ul>
+                Certains états et opérations comme <code>not installed</code> ou <code>uninstalled</code> ne s'appliquent qu'aux eSIM, 
+                tandis que d'autres comme <code>available</code> ou <code>suspended</code> s'appliquent aux deux types. Dans les exemples d'API ci-dessous, 
+                nous préciserons les différences d'utilisation quand elles existent.
+            </p>
+        </div>
+        
         <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Vérification du statut</h4>
         <p class="text-gray-700 mb-3">
             Pour vérifier le statut, vous devez spécifier l'ID du fournisseur et l'ID de la transaction associée.
@@ -51,29 +65,49 @@
         
         <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Valeurs possibles du statut</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">free</p>
+                <p class="text-sm text-gray-700">La SIM/eSIM n'est associée à aucun forfait <span class="text-blue-600 text-xs">(tous types)</span></p>
+            </div>
             <div class="border p-3 rounded bg-green-50">
                 <p class="font-medium text-green-700">available</p>
-                <p class="text-sm text-gray-700">La carte est active et peut être utilisée normalement</p>
+                <p class="text-sm text-gray-700">La carte est active et peut être utilisée normalement <span class="text-green-600 text-xs">(tous types)</span></p>
             </div>
             <div class="border p-3 rounded bg-yellow-50">
                 <p class="font-medium text-yellow-700">not installed</p>
-                <p class="text-sm text-gray-700">L'eSIM n'a pas encore été installée sur un appareil</p>
+                <p class="text-sm text-gray-700">L'eSIM n'a pas encore été installée sur un appareil <span class="text-yellow-600 text-xs">(eSIM uniquement)</span></p>
+            </div>
+            <div class="border p-3 rounded bg-yellow-50">
+                <p class="font-medium text-yellow-700">uninstalled</p>
+                <p class="text-sm text-gray-700">L'eSIM a été désinstallée de l'appareil initial <span class="text-yellow-600 text-xs">(eSIM uniquement)</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
                 <p class="font-medium text-red-700">suspended fraud</p>
-                <p class="text-sm text-gray-700">Suspendue pour suspicion de fraude</p>
+                <p class="text-sm text-gray-700">Suspendue pour suspicion de fraude <span class="text-red-600 text-xs">(tous types)</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
                 <p class="font-medium text-red-700">suspended kyc default</p>
-                <p class="text-sm text-gray-700">Suspendue car le KYC n'a pas été complété</p>
+                <p class="text-sm text-gray-700">Suspendue car le KYC n'a pas été complété <span class="text-red-600 text-xs">(tous types)</span></p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">suspended by operator</p>
+                <p class="text-sm text-gray-700">Désactivée par le fournisseur <span class="text-red-600 text-xs">(tous types)</span></p>
+            </div>
+            <div class="border p-3 rounded bg-red-50">
+                <p class="font-medium text-red-700">suspended following a theft or loss</p>
+                <p class="text-sm text-gray-700">Désactivée suite à un vol ou une perte <span class="text-red-600 text-xs">(tous types)</span></p>
             </div>
             <div class="border p-3 rounded bg-gray-50">
                 <p class="font-medium text-gray-700">expired</p>
-                <p class="text-sm text-gray-700">La période de validité est terminée</p>
+                <p class="text-sm text-gray-700">La période de validité est terminée <span class="text-gray-600 text-xs">(tous types)</span></p>
             </div>
             <div class="border p-3 rounded bg-gray-50">
                 <p class="font-medium text-gray-700">revoked by operator</p>
-                <p class="text-sm text-gray-700">Révoquée par l'opérateur</p>
+                <p class="text-sm text-gray-700">Révoquée par l'opérateur <span class="text-gray-600 text-xs">(tous types)</span></p>
+            </div>
+            <div class="border p-3 rounded bg-purple-50">
+                <p class="font-medium text-purple-700">sim swap</p>
+                <p class="text-sm text-gray-700">La SIM a été changée pour un nouvel appareil <span class="text-purple-600 text-xs">(SIM physique uniquement)</span></p>
             </div>
         </div>
         
@@ -87,10 +121,83 @@
     </div>
 </div>
 
-<!-- Étape 10 -->
+<!-- Étape 10 - Comptage des transactions -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 10 : Gestion des consommations</h3>
+        <h3 class="text-lg font-semibold text-orange-700">Étape 10 : Comptage et statistiques des transactions</h3>
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 17a1 1 0 01-1-1V4.414l-4.293 4.293a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 11-1.414 1.414L11 4.414V16a1 1 0 01-1 1z" clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div x-show="open" class="p-6 bg-white">
+        <p class="text-gray-700 mb-4">
+            Pour faciliter la génération de rapports et statistiques, l'API Orange Travel B2B propose un endpoint 
+            dédié au comptage des transactions selon divers critères de filtrage.
+        </p>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Comptage des transactions</h4>
+        <p class="text-gray-700 mb-3">
+            Cet endpoint permet d'obtenir rapidement le nombre total de transactions correspondant à des critères 
+            spécifiques sans avoir à récupérer et compter les transactions individuelles.
+        </p>
+        
+        <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>GET /distributors/transactions/count?startDate=2023-01-01&endDate=2023-12-31</p>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Paramètres de filtrage disponibles</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">startDate et endDate</p>
+                <p class="text-sm text-gray-700">Période de comptage (format ISO)</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">status</p>
+                <p class="text-sm text-gray-700">Filtrer par statut de transaction</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">offer</p>
+                <p class="text-sm text-gray-700">Filtrer par ID d'offre</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">supplier</p>
+                <p class="text-sm text-gray-700">Filtrer par ID de fournisseur</p>
+            </div>
+            <div class="border p-3 rounded bg-blue-50">
+                <p class="font-medium text-blue-700">user</p>
+                <p class="text-sm text-gray-700">Filtrer par ID d'utilisateur</p>
+            </div>
+        </div>
+        
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <p class="text-gray-700 mb-3">
+            La réponse contient simplement le nombre total de transactions correspondant aux critères spécifiés.
+        </p>
+        
+        <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
+            <p>{</p>
+            <p>&nbsp;&nbsp;"count": 42</p>
+            <p>}</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <h5 class="text-blue-700 font-medium mb-1">Conseil d'utilisation</h5>
+            <p class="text-gray-700 text-sm">
+                Cet endpoint est particulièrement utile pour les tableaux de bord administratifs et les rapports périodiques. 
+                Vous pouvez l'utiliser pour afficher des statistiques par période, par type d'offre ou par statut sans 
+                avoir à charger toutes les données des transactions.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Étape 11 -->
+<div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
+    <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-orange-700">Étape 11 : Gestion des consommations</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -161,6 +268,15 @@
                 Intégrez cette fonctionnalité dans votre application pour permettre à vos clients de surveiller 
                 facilement leur consommation et d'éviter les mauvaises surprises. Vous pouvez également mettre 
                 en place des alertes lorsque les consommations atteignent certains seuils.
+            </p>
+        </div>
+        
+        <!-- Notification pour les statistiques globales -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mt-4">
+            <h5 class="text-indigo-700 font-medium mb-1">Fonctionnalité avancée</h5>
+            <p class="text-gray-700 text-sm">
+                En plus des consommations individuelles, vous pouvez également accéder aux <a href="{{ url_for('main.global_stats') }}" class="text-orange-500 hover:text-orange-700 underline">statistiques globales de consommation</a> 
+                par région ou par pays. Cette fonctionnalité permet d'analyser les tendances et d'optimiser vos offres.
             </p>
         </div>
     </div>
