@@ -111,11 +111,6 @@ API_travel/
   - [ ] Tests d'intégration des endpoints
   - [ ] Tests fonctionnels de l'interface
 
-### 8. Déploiement et finalisation (Jour 14)
-- [ ] Préparation au déploiement
-  - [ ] Configuration de production
-  - [ ] Instructions de déploiement
-- [ ] Derniers ajustements et corrections de bugs
 
 ## Technologies à utiliser
 

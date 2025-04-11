@@ -53,6 +53,9 @@ def make_api_request(endpoint, access_token, params=None, method='GET', data=Non
 
     try:
         if method.upper() == 'GET':
+            print(f"Sending GET request to: {full_url}")
+            print(f"Headers: {headers}")
+            print(f"Params: {params}")
             response = requests.get(full_url, headers=headers, params=params, verify=False)
         elif method.upper() == 'POST':
             headers["Content-Type"] = "application/json"
@@ -65,7 +68,8 @@ def make_api_request(endpoint, access_token, params=None, method='GET', data=Non
             return None
 
         print(f"Status Code: {response.status_code}")
-        print(f"Response: {response.text}")
+        print(f"Response Headers: {response.headers}")
+        print(f"Response Body: {response.text}")
 
         response.raise_for_status()
         return response.json()

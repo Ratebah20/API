@@ -299,7 +299,7 @@
                         <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de créer une nouvelle transaction. Le type de transaction détermine les paramètres requis :</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
                             <li><span class="font-semibold">Recharge Orange/Espagne</span> : Nécessite un MSISDN (numéro de téléphone)</li>
-                            <li><span class="font-semibold">Recharge Welcome Travelers</span> : Nécessite un simId</li>
+                            <li><span class="font-semibold">Recharge Welcome Travelers</span> : Nécessite le NSCE (numéro court)</li>
                             <li><span class="font-semibold">eSIM</span> : Uniquement l'ID de l'offre est nécessaire</li>
                         </ul>
                         <p class="text-sm text-blue-700">L'ID de l'offre est toujours obligatoire et doit correspondre à une offre active.</p>
@@ -315,7 +315,7 @@
                         <label class="block text-sm text-gray-600 mb-1">Type de transaction <span class="text-red-500">*</span></label>
                         <select id="create-transaction-type" x-model="transactionType" class="w-full border rounded p-2">
                             <option value="orange-topup">Recharge Orange/Espagne (MSISDN)</option>
-                            <option value="welcome-topup">Recharge Welcome Travelers (simId)</option>
+                            <option value="welcome-topup">Recharge Welcome Travelers (NSCE)</option>
                             <option value="esim">Activation eSIM</option>
                         </select>
                     </div>
@@ -331,8 +331,9 @@
                     </div>
                     <!-- Paramètres pour recharge Welcome Travelers -->
                     <div x-show="transactionType === 'welcome-topup'">
-                        <label class="block text-sm text-gray-600 mb-1">ID de la SIM <span class="text-red-500">*</span></label>
-                        <input id="create-transaction-simid" type="text" placeholder="ex: 1956392841179" class="w-full border rounded p-2">
+                        <label class="block text-sm text-gray-600 mb-1">NSCE (ID court de la SIM) <span class="text-red-500">*</span></label>
+                        <input id="create-transaction-simid" type="text" placeholder="ex: 2431649196826" class="w-full border rounded p-2">
+                        <p class="text-xs text-gray-500 mt-1">Utilisez le NSCE de la SIM (visible dans les détails de transaction)</p>
                     </div>
                     <!-- Paramètres pour eSIM (aucun paramètre supplémentaire requis) -->
                     <div x-show="transactionType === 'esim'" class="bg-gray-50 p-3 rounded-lg border border-gray-200">
