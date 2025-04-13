@@ -1,0 +1,332 @@
+<!-- Écran Réception du profil eSIM -->
+<div x-show="currentFlow === 'management' && currentStep === 'receive_profile'" class="mobile-screen">
+    <div class="screen-title text-center mb-4">
+        <h3 class="text-lg font-semibold text-orange-700">Profil eSIM</h3>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="text-center mb-4">
+            <div class="inline-block p-3 bg-orange-100 rounded-full mb-2">
+                <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
+                </svg>
+            </div>
+            <h4 class="font-semibold text-gray-800">ORANGE TRAVEL - Espagne</h4>
+            <p class="text-xs text-gray-600 mt-1">eSIM active</p>
+        </div>
+        <div class="esim-info bg-gray-50 p-3 rounded border mb-4">
+            <ul class="space-y-2 text-sm">
+                <li class="flex justify-between">
+                    <span class="text-gray-600">Plan:</span>
+                    <span>Data 5GB</span>
+                </li>
+                <li class="flex justify-between">
+                    <span class="text-gray-600">Validité:</span>
+                    <span>5 jours restants</span>
+                </li>
+                <li class="flex justify-between">
+                    <span class="text-gray-600">ICCID:</span>
+                    <span class="font-mono text-xs">8933150052279504333F</span>
+                </li>
+            </ul>
+        </div>
+        <button 
+            @click="goToStep('my_esim')" 
+            class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
+            Gérer cette eSIM
+        </button>
+    </div>
+</div>
+
+<!-- Écran Mon eSIM -->
+<div x-show="currentFlow === 'management' && currentStep === 'my_esim'" class="mobile-screen">
+    <div class="screen-header flex items-center mb-4">
+        <button @click="goBack()" class="mr-2">
+            <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-orange-700">Gestion de l'eSIM</h3>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="esim-status flex items-center justify-between mb-4 pb-3 border-b">
+            <div>
+                <h4 class="font-semibold text-gray-800">ORANGE TRAVEL - Espagne</h4>
+                <span class="text-xs inline-block px-2 py-1 bg-green-100 text-green-700 rounded mt-1">Actif</span>
+            </div>
+            <div class="bg-orange-100 rounded-full p-2">
+                <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="management-options space-y-3">
+            <div @click="goToStep('supplier_info')" class="option flex items-center justify-between p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="icon bg-blue-100 rounded-full p-2 mr-3">
+                        <svg class="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <span>Informations fournisseur</span>
+                </div>
+                <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+            <div @click="goToStep('esim_type')" class="option flex items-center justify-between p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="icon bg-purple-100 rounded-full p-2 mr-3">
+                        <svg class="h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <span>Type d'eSIM</span>
+                </div>
+                <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+            <div @click="goToStep('msisdn_info')" class="option flex items-center justify-between p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="icon bg-green-100 rounded-full p-2 mr-3">
+                        <svg class="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <span>MSISDN (numéro)</span>
+                </div>
+                <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+            <div @click="goToStep('usage_info')" class="option flex items-center justify-between p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="icon bg-red-100 rounded-full p-2 mr-3">
+                        <svg class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <span>Solde et consommation</span>
+                </div>
+                <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Écran Informations fournisseur -->
+<div x-show="currentFlow === 'management' && currentStep === 'supplier_info'" class="mobile-screen">
+    <div class="screen-header flex items-center mb-4">
+        <button @click="goBack()" class="mr-2">
+            <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-orange-700">Fournisseur</h3>
+    </div>
+    <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
+        <div class="api-endpoint text-xs font-mono text-blue-800">GET /distributors/suppliers/{supplier_id}</div>
+        <div class="text-xs text-gray-600 mt-1">Informations sur le fournisseur de l'eSIM</div>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="text-center mb-4">
+            <img src="https://www.orange.com/sites/orangecom/files/styles/thumbnail/public/2020-06/Orange_logo.png" alt="Orange Logo" class="h-10 mx-auto mb-2">
+            <h4 class="font-semibold text-gray-800">Orange Spain</h4>
+        </div>
+        <div class="supplier-details space-y-3">
+            <div class="detail-item border-b pb-2">
+                <div class="text-xs text-gray-500">ID Fournisseur</div>
+                <div>ORANGESP12345</div>
+            </div>
+            <div class="detail-item border-b pb-2">
+                <div class="text-xs text-gray-500">Pays d'opération</div>
+                <div class="flex items-center">
+                    <img src="https://flagcdn.com/w40/es.png" alt="Espagne" class="w-4 h-3 mr-1">
+                    <span>Espagne</span>
+                </div>
+            </div>
+            <div class="detail-item border-b pb-2">
+                <div class="text-xs text-gray-500">Type de réseau</div>
+                <div>4G/5G</div>
+            </div>
+            <div class="detail-item">
+                <div class="text-xs text-gray-500">Support technique</div>
+                <div>+34 900 123 456</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Écran Type d'eSIM -->
+<div x-show="currentFlow === 'management' && currentStep === 'esim_type'" class="mobile-screen">
+    <div class="screen-header flex items-center mb-4">
+        <button @click="goBack()" class="mr-2">
+            <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-orange-700">Type d'eSIM</h3>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="esim-type-info space-y-4">
+            <div class="info-section">
+                <h4 class="font-semibold text-gray-800 mb-2">Caractéristiques techniques</h4>
+                <div class="space-y-2">
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-gray-600 text-sm">Type de profil:</span>
+                        <span class="text-sm">Consommateur</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-gray-600 text-sm">Version:</span>
+                        <span class="text-sm">SGP.22 v2.2</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-gray-600 text-sm">Capacité:</span>
+                        <span class="text-sm">Data uniquement</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-gray-600 text-sm">Réseaux:</span>
+                        <span class="text-sm">4G/5G</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h4 class="font-semibold text-gray-800 mb-2">Compatibilité</h4>
+                <div class="text-sm mb-2">
+                    Cette eSIM est compatible avec les appareils suivants:
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="compatibility-item flex items-center">
+                        <svg class="h-4 w-4 text-green-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>iPhone (XR et +)</span>
+                    </div>
+                    <div class="compatibility-item flex items-center">
+                        <svg class="h-4 w-4 text-green-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Samsung (S20 et +)</span>
+                    </div>
+                    <div class="compatibility-item flex items-center">
+                        <svg class="h-4 w-4 text-green-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Google Pixel</span>
+                    </div>
+                    <div class="compatibility-item flex items-center">
+                        <svg class="h-4 w-4 text-green-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>iPad (Pro, Air)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Écran Informations MSISDN -->
+<div x-show="currentFlow === 'management' && currentStep === 'msisdn_info'" class="mobile-screen">
+    <div class="screen-header flex items-center mb-4">
+        <button @click="goBack()" class="mr-2">
+            <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-orange-700">MSISDN</h3>
+    </div>
+    <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
+        <div class="api-endpoint text-xs font-mono text-blue-800">GET /distributors/suppliers/{supplier_id}/sims/{sim_id}</div>
+        <div class="text-xs text-gray-600 mt-1">Récupération des informations MSISDN</div>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="msisdn-display mb-4 text-center">
+            <div class="text-xs text-gray-500 mb-1">Numéro de téléphone associé</div>
+            <div class="font-mono text-xl font-semibold">+34 612 345 678</div>
+            <div class="text-xs text-gray-500 mt-1">MSISDN: Numéro d'abonné mobile international</div>
+        </div>
+        <div class="msisdn-details divide-y">
+            <div class="detail-item py-2">
+                <div class="text-xs text-gray-500">Format local</div>
+                <div>612 345 678</div>
+            </div>
+            <div class="detail-item py-2">
+                <div class="text-xs text-gray-500">Opérateur d'attribution</div>
+                <div>Orange Spain</div>
+            </div>
+            <div class="detail-item py-2">
+                <div class="text-xs text-gray-500">Type de numéro</div>
+                <div>Mobile</div>
+            </div>
+            <div class="detail-item py-2">
+                <div class="text-xs text-gray-500">État</div>
+                <div class="text-green-600">Actif</div>
+            </div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded mt-4 text-xs text-gray-600">
+            <p>Ce numéro est associé à votre eSIM mais n'est pas utilisable pour les appels vocaux ou SMS avec ce forfait data uniquement.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Écran Informations d'utilisation -->
+<div x-show="currentFlow === 'management' && currentStep === 'usage_info'" class="mobile-screen">
+    <div class="screen-header flex items-center mb-4">
+        <button @click="goBack()" class="mr-2">
+            <svg class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-orange-700">Consommation</h3>
+    </div>
+    <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
+        <div class="api-endpoint text-xs font-mono text-blue-800">GET /distributors/suppliers/{supplier_id}/usagebalances</div>
+        <div class="text-xs text-gray-600 mt-1">Consultation du solde et de la consommation</div>
+    </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-4">
+        <div class="usage-header flex items-center justify-between mb-4">
+            <div>
+                <h4 class="font-semibold text-gray-800">Espagne Data 5GB</h4>
+                <div class="text-xs text-gray-500">Expire dans: 5 jours</div>
+            </div>
+            <button class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Rafraîchir</button>
+        </div>
+        <div class="data-usage mb-4">
+            <div class="flex justify-between text-sm mb-1">
+                <span>Données utilisées</span>
+                <span>1.2GB / 5GB</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 24%"></div>
+            </div>
+            <div class="text-xs text-gray-500 mt-1 text-right">76% restant</div>
+        </div>
+        <div class="daily-usage">
+            <h5 class="text-sm font-semibold mb-2">Historique de consommation</h5>
+            <div class="space-y-2">
+                <div class="usage-day flex items-center justify-between text-sm">
+                    <span>Aujourd'hui</span>
+                    <span class="font-mono">300MB</span>
+                </div>
+                <div class="usage-day flex items-center justify-between text-sm">
+                    <span>Hier</span>
+                    <span class="font-mono">450MB</span>
+                </div>
+                <div class="usage-day flex items-center justify-between text-sm">
+                    <span>11/04/2023</span>
+                    <span class="font-mono">320MB</span>
+                </div>
+                <div class="usage-day flex items-center justify-between text-sm">
+                    <span>10/04/2023</span>
+                    <span class="font-mono">130MB</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="text-orange-500 text-sm font-semibold">Télécharger le rapport complet</button>
+        </div>
+    </div>
+</div>
