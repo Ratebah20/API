@@ -2,42 +2,79 @@
 
 {% block content %}
 <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-3xl font-bold text-orange-600 mb-6">Sécurité et gestion des eSIM</h1>
-    
-    <div class="mb-8">
-        <p class="text-gray-700 mb-4">
-            Cette section explique les aspects de sécurité liés à l'API Orange Travel B2B, notamment 
-            la gestion sécurisée des eSIMs via le chiffrement RSA et les meilleures pratiques à suivre.
-        </p>
-    </div>
+    {% if g.get('lang_code') == 'en' %}
+        <h1 class="text-3xl font-bold text-orange-600 mb-6">eSIM Security and Management</h1>
+        
+        <div class="mb-8">
+            <p class="text-gray-700 mb-4">
+                This section explains the security aspects related to the Orange Travel B2B API, particularly 
+                the secure management of eSIMs via RSA encryption and the best practices to follow.
+            </p>
+        </div>
+    {% else %}
+        <h1 class="text-3xl font-bold text-orange-600 mb-6">Sécurité et gestion des eSIM</h1>
+        
+        <div class="mb-8">
+            <p class="text-gray-700 mb-4">
+                Cette section explique les aspects de sécurité liés à l'API Orange Travel B2B, notamment 
+                la gestion sécurisée des eSIMs via le chiffrement RSA et les meilleures pratiques à suivre.
+            </p>
+        </div>
+    {% endif %}
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <!-- Section Chiffrement RSA -->
         <div>
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Chiffrement RSA pour les eSIM</h2>
-            
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-lg font-semibold text-orange-700 mb-3">Pourquoi utiliser le chiffrement RSA ?</h3>
-                <p class="text-gray-700 mb-4">
-                    Les codes d'activation des eSIMs sont des données sensibles qui doivent être protégées. 
-                    Le chiffrement RSA assure que seul le destinataire légitime (vous, le distributeur) peut 
-                    déchiffrer ces codes avec sa clé privée.
-                </p>
+            {% if g.get('lang_code') == 'en' %}
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">RSA Encryption for eSIMs</h2>
                 
-                <h3 class="text-lg font-semibold text-orange-700 mb-3">Processus de configuration</h3>
-                <ol class="list-decimal list-inside text-gray-700 space-y-2">
-                    <li>Générer une paire de clés RSA (clé privée et publique)</li>
-                    <li>Transmettre uniquement votre clé publique à Orange via l'API</li>
-                    <li>Conserver en toute sécurité votre clé privée</li>
-                    <li>Recevoir les codes d'activation chiffrés</li>
-                    <li>Déchiffrer les codes avec votre clé privée</li>
-                </ol>
-            </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Why use RSA encryption?</h3>
+                    <p class="text-gray-700 mb-4">
+                        eSIM activation codes are sensitive data that must be protected. 
+                        RSA encryption ensures that only the legitimate recipient (you, the distributor) can 
+                        decrypt these codes with their private key.
+                    </p>
+                    
+                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Configuration Process</h3>
+                    <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                        <li>Generate an RSA key pair (private and public key)</li>
+                        <li>Transmit only your public key to Orange via the API</li>
+                        <li>Securely store your private key</li>
+                        <li>Receive encrypted activation codes</li>
+                        <li>Decrypt the codes with your private key</li>
+                    </ol>
+                </div>
+            {% else %}
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Chiffrement RSA pour les eSIM</h2>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Pourquoi utiliser le chiffrement RSA ?</h3>
+                    <p class="text-gray-700 mb-4">
+                        Les codes d'activation des eSIMs sont des données sensibles qui doivent être protégées. 
+                        Le chiffrement RSA assure que seul le destinataire légitime (vous, le distributeur) peut 
+                        déchiffrer ces codes avec sa clé privée.
+                    </p>
+                    
+                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Processus de configuration</h3>
+                    <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                        <li>Générer une paire de clés RSA (clé privée et publique)</li>
+                        <li>Transmettre uniquement votre clé publique à Orange via l'API</li>
+                        <li>Conserver en toute sécurité votre clé privée</li>
+                        <li>Recevoir les codes d'activation chiffrés</li>
+                        <li>Déchiffrer les codes avec votre clé privée</li>
+                    </ol>
+                </div>
+            {% endif %}
         </div>
         
         <!-- Section Démonstration -->
         <div x-data="{ step: 1 }">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Démonstration interactive</h2>
+            {% if g.get('lang_code') == 'en' %}
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Interactive Demonstration</h2>
+            {% else %}
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Démonstration interactive</h2>
+            {% endif %}
             
             <div class="bg-orange-50 p-4 rounded-lg relative min-h-[350px]">
                 <!-- Étapes du processus -->
@@ -46,7 +83,11 @@
                         @click="step = 1" 
                         :class="step === 1 ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-300'"
                         class="px-3 py-1 rounded text-sm">
-                        Génération
+                        {% if g.get('lang_code') == 'en' %}
+                            Generation
+                        {% else %}
+                            Génération
+                        {% endif %}
                     </button>
                     <button 
                         @click="step = 2" 
@@ -58,70 +99,132 @@
                         @click="step = 3" 
                         :class="step === 3 ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-300'"
                         class="px-3 py-1 rounded text-sm">
-                        Déchiffrement
+                        {% if g.get('lang_code') == 'en' %}
+                            Decryption
+                        {% else %}
+                            Déchiffrement
+                        {% endif %}
                     </button>
                 </div>
                 
                 <!-- Contenu des étapes -->
                 <div x-show="step === 1" class="transition">
-                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Génération des clés RSA</h3>
-                    <div class="bg-gray-800 text-green-300 p-3 rounded font-mono text-sm mb-4">
-                        <p># Générer une paire de clés RSA de 4096 bits</p>
-                        <p>openssl genrsa -out distributor_private.pem 4096</p>
-                        <p>openssl rsa -in distributor_private.pem -pubout -out distributor_public.pem</p>
-                    </div>
-                    <p class="text-gray-700 text-sm">
-                        Ces commandes génèrent une clé privée (à conserver en toute sécurité) et une clé publique 
-                        (à transmettre à Orange).
-                    </p>
+                    {% if g.get('lang_code') == 'en' %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">RSA Key Generation</h3>
+                        <div class="bg-gray-800 text-green-300 p-3 rounded font-mono text-sm mb-4">
+                            <p># Generate a 4096-bit RSA key pair</p>
+                            <p>openssl genrsa -out distributor_private.pem 4096</p>
+                            <p>openssl rsa -in distributor_private.pem -pubout -out distributor_public.pem</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            These commands generate a private key (to be kept secure) and a public key 
+                            (to be shared with Orange).
+                        </p>
+                    {% else %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">Génération des clés RSA</h3>
+                        <div class="bg-gray-800 text-green-300 p-3 rounded font-mono text-sm mb-4">
+                            <p># Générer une paire de clés RSA de 4096 bits</p>
+                            <p>openssl genrsa -out distributor_private.pem 4096</p>
+                            <p>openssl rsa -in distributor_private.pem -pubout -out distributor_public.pem</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            Ces commandes génèrent une clé privée (à conserver en toute sécurité) et une clé publique 
+                            (à transmettre à Orange).
+                        </p>
+                    {% endif %}
                 </div>
                 
                 <div x-show="step === 2" class="transition">
-                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Transmission de la clé publique</h3>
-                    <div class="bg-gray-800 text-blue-300 p-3 rounded font-mono text-sm mb-4">
-                        <p>POST /distributors/keys</p>
-                        <p>Content-Type: application/json</p>
-                        <p>Authorization: Bearer {access_token}</p>
-                        <p>{</p>
-                        <p>  "key_type": "rsa256",</p>
-                        <p>  "public_key_value": "-----BEGIN PUBLIC KEY-----\n...clé publique au format PEM...\n-----END PUBLIC KEY-----"</p>
-                        <p>}</p>
-                    </div>
-                    <p class="text-gray-700 text-sm">
-                        La clé publique est transmise à Orange via l'endpoint dédié pour être utilisée dans le chiffrement 
-                        des futurs codes d'activation eSIM.
-                    </p>
+                    {% if g.get('lang_code') == 'en' %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">Public Key Transmission</h3>
+                        <div class="bg-gray-800 text-blue-300 p-3 rounded font-mono text-sm mb-4">
+                            <p>POST /distributors/keys</p>
+                            <p>Content-Type: application/json</p>
+                            <p>Authorization: Bearer {access_token}</p>
+                            <p>{</p>
+                            <p>  "key_type": "rsa256",</p>
+                            <p>  "public_key_value": "-----BEGIN PUBLIC KEY-----\n...public key in PEM format...\n-----END PUBLIC KEY-----"</p>
+                            <p>}</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            The public key is transmitted to Orange via the dedicated endpoint to be used in the encryption 
+                            of future eSIM activation codes.
+                        </p>
+                    {% else %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">Transmission de la clé publique</h3>
+                        <div class="bg-gray-800 text-blue-300 p-3 rounded font-mono text-sm mb-4">
+                            <p>POST /distributors/keys</p>
+                            <p>Content-Type: application/json</p>
+                            <p>Authorization: Bearer {access_token}</p>
+                            <p>{</p>
+                            <p>  "key_type": "rsa256",</p>
+                            <p>  "public_key_value": "-----BEGIN PUBLIC KEY-----\n...clé publique au format PEM...\n-----END PUBLIC KEY-----"</p>
+                            <p>}</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            La clé publique est transmise à Orange via l'endpoint dédié pour être utilisée dans le chiffrement 
+                            des futurs codes d'activation eSIM.
+                        </p>
+                    {% endif %}
                 </div>
                 
                 <div x-show="step === 3" class="transition">
-                    <h3 class="text-lg font-semibold text-orange-700 mb-3">Déchiffrement des codes d'activation</h3>
-                    <div class="bg-gray-800 text-purple-300 p-3 rounded font-mono text-sm mb-4">
-                        <p># Code d'activation chiffré reçu lors d'une transaction eSIM</p>
-                        <p>encrypted_code = "base64_encoded_encrypted_data"</p>
-                        <p></p>
-                        <p># Déchiffrement avec la clé privée</p>
-                        <p>echo "$encrypted_code" | base64 -d | openssl pkeyutl -decrypt -inkey distributor_private.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256</p>
-                    </div>
-                    <p class="text-gray-700 text-sm">
-                        Lorsque vous recevez un code d'activation chiffré, utilisez votre clé privée pour le déchiffrer 
-                        et obtenir le code en clair qui pourra être utilisé par le client final.
-                    </p>
+                    {% if g.get('lang_code') == 'en' %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">Decryption of Activation Codes</h3>
+                        <div class="bg-gray-800 text-purple-300 p-3 rounded font-mono text-sm mb-4">
+                            <p># Encrypted activation code received during an eSIM transaction</p>
+                            <p>encrypted_code = "base64_encoded_encrypted_data"</p>
+                            <p></p>
+                            <p># Decryption with the private key</p>
+                            <p>echo "$encrypted_code" | base64 -d | openssl pkeyutl -decrypt -inkey distributor_private.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            When you receive an encrypted activation code, use your private key to decrypt it 
+                            and obtain the clear code that can be used by the end customer.
+                        </p>
+                    {% else %}
+                        <h3 class="text-lg font-semibold text-orange-700 mb-3">Déchiffrement des codes d'activation</h3>
+                        <div class="bg-gray-800 text-purple-300 p-3 rounded font-mono text-sm mb-4">
+                            <p># Code d'activation chiffré reçu lors d'une transaction eSIM</p>
+                            <p>encrypted_code = "base64_encoded_encrypted_data"</p>
+                            <p></p>
+                            <p># Déchiffrement avec la clé privée</p>
+                            <p>echo "$encrypted_code" | base64 -d | openssl pkeyutl -decrypt -inkey distributor_private.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            Lorsque vous recevez un code d'activation chiffré, utilisez votre clé privée pour le déchiffrer 
+                            et obtenir le code en clair qui pourra être utilisé par le client final.
+                        </p>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
     
     <div class="bg-blue-50 p-6 rounded-lg">
-        <h2 class="text-xl font-semibold text-blue-700 mb-3">Bonnes pratiques de sécurité</h2>
-        
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-            <li>Ne partagez <strong>jamais</strong> votre clé privée RSA</li>
-            <li>Stockez la clé privée de manière sécurisée (coffre-fort numérique, HSM)</li>
-            <li>Renouvelez régulièrement vos clés RSA (tous les 6 mois recommandé)</li>
-            <li>Utilisez toujours HTTPS/TLS pour les communications avec l'API</li>
-            <li>Protégez les codes d'activation déchiffrés en transit vers les utilisateurs finaux</li>
-            <li>Mettez en place une journalisation des opérations sensibles</li>
-        </ul>
+        {% if g.get('lang_code') == 'en' %}
+            <h2 class="text-xl font-semibold text-blue-700 mb-3">Security Best Practices</h2>
+            
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>Never share <strong>ever</strong> your RSA private key</li>
+                <li>Store the private key securely (digital vault, HSM)</li>
+                <li>Regularly renew your RSA keys (every 6 months recommended)</li>
+                <li>Always use HTTPS/TLS for communications with the API</li>
+                <li>Protect decrypted activation codes in transit to end users</li>
+                <li>Implement logging for sensitive operations</li>
+            </ul>
+        {% else %}
+            <h2 class="text-xl font-semibold text-blue-700 mb-3">Bonnes pratiques de sécurité</h2>
+            
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>Ne partagez <strong>jamais</strong> votre clé privée RSA</li>
+                <li>Stockez la clé privée de manière sécurisée (coffre-fort numérique, HSM)</li>
+                <li>Renouvelez régulièrement vos clés RSA (tous les 6 mois recommandé)</li>
+                <li>Utilisez toujours HTTPS/TLS pour les communications avec l'API</li>
+                <li>Protégez les codes d'activation déchiffrés en transit vers les utilisateurs finaux</li>
+                <li>Mettez en place une journalisation des opérations sensibles</li>
+            </ul>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

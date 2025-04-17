@@ -86,75 +86,8 @@ Nous avons résolu plusieurs défis techniques lors du développement :
 
 ## Prochaines étapes
 
-### Priorité n°1 : Intégration avec l'API réelle
-
-La priorité immédiate est de remplacer les données fictives par des appels réels à l'API Orange Travel B2B Sandbox. Comme nous utilisons une API de test, nous pouvons l'intégrer directement sans risque pour des environnements de production.
-
-#### Plan d'implémentation pour l'intégration API
-
-1. **Création d'un service API** :
-   ```javascript
-   // services/api.js
-   const API_BASE_URL = 'https://api.orange.com/travel-b2b-sandbox/v1';
-   
-   export const apiService = {
-       // Authentification
-       getToken: async () => {
-           // Appel à l'API OAuth pour obtenir un token
-       },
-       
-       // eSIM Purchase Flow
-       getCountryList: async () => {
-           // GET /countries
-       },
-       getOffers: async (countryCode) => {
-           // GET /countries/{countryCode}/offers
-       },
-       purchaseOffer: async (offerId, customerInfo) => {
-           // POST /purchase
-       },
-       
-       // eSIM Management Flow
-       getProfile: async (profileId) => {
-           // GET /profiles/{profileId}
-       },
-       getUsage: async (profileId) => {
-           // GET /profiles/{profileId}/usage
-       }
-   };
-   ```
-
-2. **Intégration des appels API dans les méthodes Alpine.js** :
-   ```javascript
-   Alpine.data('simulator', () => ({
-       // [...]
-       
-       async loadCountries() {
-           try {
-               this.loading = true;
-               this.countries = await apiService.getCountryList();
-               this.loading = false;
-           } catch (error) {
-               this.error = 'Erreur lors du chargement des pays';
-               console.error(error);
-           }
-       },
-       
-       // Autres méthodes intégrant l'API...
-   }))
-   ```
-
-3. **Gestion du flux d'authentification OAuth2** pour les appels API sécurisés
-
-4. **Mise en place d'indicateurs de chargement** pendant les appels API
-
-5. **Gestion des erreurs API** et affichage des messages appropriés
-
-6. **Stockage temporaire de session** pour conserver l'état entre les étapes du flux
-
-### Autres améliorations planifiées
-
-1. **Amélioration de l'UI/UX** : Ajouter des animations de transition
-2. **Tests complets** : Tester tous les scénarios d'utilisation avec l'API réelle
-3. **Documentation des API** : Lier chaque étape aux endpoints API correspondants
-4. **Mode développeur** : Ajouter un mode affichant les détails des requêtes API réelles
+1. **Enrichissement des simulations d'API** : Ajouter des réponses API plus détaillées
+2. **Amélioration de l'UI/UX** : Ajouter des animations de transition
+3. **Tests complets** : Tester tous les scénarios d'utilisation
+4. **Documentation des API** : Lier chaque étape aux endpoints API correspondants
+5. **Mode développeur** : Ajouter un mode affichant les détails des requêtes API simulées

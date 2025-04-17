@@ -2,12 +2,11 @@
 
 {% block content %}
 <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-3xl font-bold text-orange-600 mb-6">Simulateur d'écrans mobiles</h1>
+    <h1 class="text-3xl font-bold text-orange-600 mb-6">{{ _("Simulateur d'écrans mobiles") }}</h1>
     
     <div class="mb-8">
         <p class="text-gray-700 mb-4">
-            Ce simulateur vous permet de visualiser l'expérience utilisateur sur mobile pour les différentes 
-            fonctionnalités de l'API Orange Travel B2B. Choisissez un scénario pour voir la simulation.
+            {{ _("Ce simulateur vous permet de visualiser l'expérience utilisateur sur mobile pour les différentes fonctionnalités de l'API Orange Travel B2B. Choisissez un scénario pour voir la simulation.") }}
         </p>
     </div>
     
@@ -17,14 +16,14 @@
         <div class="flex flex-col">
             <!-- Sélection des scénarios -->
             <div class="bg-orange-50 rounded-lg p-4 mb-4">
-                <h3 class="text-lg font-semibold text-orange-700 mb-3">Scénarios disponibles</h3>
+                <h3 class="text-lg font-semibold text-orange-700 mb-3">{{ _("Scénarios disponibles") }}</h3>
                 <ul class="space-y-2">
                     <li>
                         <button 
                             @click="switchFlow('purchase', 'start')" 
                             :class="currentFlow === 'purchase' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'" 
                             class="w-full py-2 px-4 rounded transition">
-                            Achat et activation d'eSIM
+                            {{ _("Achat et activation d'eSIM") }}
                         </button>
                     </li>
                     <li>
@@ -32,7 +31,7 @@
                             @click="switchFlow('management', 'receive_profile')" 
                             :class="currentFlow === 'management' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'" 
                             class="w-full py-2 px-4 rounded transition">
-                            Gestion de l'eSIM
+                            {{ _("Gestion de l'eSIM") }}
                         </button>
                     </li>
                 </ul>
@@ -40,70 +39,70 @@
             
             <!-- Section d'informations API -->
             <div class="bg-blue-50 rounded-lg p-4">
-                <h3 class="text-lg font-semibold text-blue-700 mb-3">Endpoint API</h3>
+                <h3 class="text-lg font-semibold text-blue-700 mb-3">{{ _("Endpoint API") }}</h3>
                 <div class="api-reference" x-show="currentFlow === 'purchase'">
                     <div x-show="currentStep === 'start'">
-                        <p class="text-blue-800 font-mono text-sm">Aucun appel API à cette étape</p>
-                        <p class="text-sm mt-2">Initialisation de l'application.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Aucun appel API à cette étape") }}</p>
+                        <p class="text-sm mt-2">{{ _("Initialisation de l'application.") }}</p>
                     </div>
                     <div x-show="currentStep === 'access_travel'">
                         <p class="text-blue-800 font-mono text-sm">POST /oauth/v3/token</p>
-                        <p class="text-sm mt-2">Authentification et obtention du token d'accès.</p>
+                        <p class="text-sm mt-2">{{ _("Authentification et obtention du token d'accès.") }}</p>
                     </div>
                     <div x-show="currentStep === 'list_countries'">
                         <p class="text-blue-800 font-mono text-sm">GET /distributors/offers</p>
-                        <p class="text-sm mt-2">Récupération des offres disponibles, filtrées par pays.</p>
+                        <p class="text-sm mt-2">{{ _("Récupération des offres disponibles, filtrées par pays.") }}</p>
                     </div>
                     <div x-show="currentStep === 'select_country'">
-                        <p class="text-blue-800 font-mono text-sm">Manipulation côté client</p>
-                        <p class="text-sm mt-2">Aucun appel API, filtrage des données déjà reçues.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Manipulation côté client") }}</p>
+                        <p class="text-sm mt-2">{{ _("Aucun appel API, filtrage des données déjà reçues.") }}</p>
                     </div>
                     <div x-show="currentStep === 'select_offer'">
                         <p class="text-blue-800 font-mono text-sm">GET /distributors/offers/{offer_id}</p>
-                        <p class="text-sm mt-2">Récupération des détails de l'offre sélectionnée.</p>
+                        <p class="text-sm mt-2">{{ _("Récupération des détails de l'offre sélectionnée.") }}</p>
                     </div>
                     <div x-show="currentStep === 'receive_esim'">
                         <p class="text-blue-800 font-mono text-sm">POST /distributors/transactions</p>
-                        <p class="text-sm mt-2">Création d'une transaction pour obtenir une eSIM.</p>
+                        <p class="text-sm mt-2">{{ _("Création d'une transaction pour obtenir une eSIM.") }}</p>
                     </div>
                     <div x-show="currentStep === 'decrypt_esim'">
-                        <p class="text-blue-800 font-mono text-sm">Utilisation de la clé privée</p>
-                        <p class="text-sm mt-2">Déchiffrement du code d'activation à l'aide de la clé privée du distributeur.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Utilisation de la clé privée") }}</p>
+                        <p class="text-sm mt-2">{{ _("Déchiffrement du code d'activation à l'aide de la clé privée du distributeur.") }}</p>
                     </div>
                     <div x-show="currentStep === 'install_esim'">
-                        <p class="text-blue-800 font-mono text-sm">Redirection système</p>
-                        <p class="text-sm mt-2">Redirection vers les paramètres du téléphone pour installer le profil eSIM.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Redirection système") }}</p>
+                        <p class="text-sm mt-2">{{ _("Redirection vers les paramètres du téléphone pour installer le profil eSIM.") }}</p>
                     </div>
                     <div x-show="currentStep === 'activate_esim'">
-                        <p class="text-blue-800 font-mono text-sm">Opération système</p>
-                        <p class="text-sm mt-2">Activation du profil eSIM installé sur l'appareil.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Opération système") }}</p>
+                        <p class="text-sm mt-2">{{ _("Activation du profil eSIM installé sur l'appareil.") }}</p>
                     </div>
                 </div>
                 
                 <div class="api-reference" x-show="currentFlow === 'management'">
                     <div x-show="currentStep === 'receive_profile'">
-                        <p class="text-blue-800 font-mono text-sm">Affichage des détails de l'eSIM</p>
-                        <p class="text-sm mt-2">Informations sur le profil eSIM déjà installé.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Affichage des détails de l'eSIM") }}</p>
+                        <p class="text-sm mt-2">{{ _("Informations sur le profil eSIM déjà installé.") }}</p>
                     </div>
                     <div x-show="currentStep === 'my_esim'">
-                        <p class="text-blue-800 font-mono text-sm">Navigation interne</p>
-                        <p class="text-sm mt-2">Accès à la section de gestion des eSIM.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Navigation interne") }}</p>
+                        <p class="text-sm mt-2">{{ _("Accès à la section de gestion des eSIM.") }}</p>
                     </div>
                     <div x-show="currentStep === 'supplier_info'">
                         <p class="text-blue-800 font-mono text-sm">GET /distributors/suppliers/{supplier_id}</p>
-                        <p class="text-sm mt-2">Récupération des informations sur le fournisseur de l'eSIM.</p>
+                        <p class="text-sm mt-2">{{ _("Récupération des informations sur le fournisseur de l'eSIM.") }}</p>
                     </div>
                     <div x-show="currentStep === 'esim_type'">
-                        <p class="text-blue-800 font-mono text-sm">Affichage des propriétés</p>
-                        <p class="text-sm mt-2">Affichage des caractéristiques spécifiques de l'eSIM.</p>
+                        <p class="text-blue-800 font-mono text-sm">{{ _("Affichage des propriétés") }}</p>
+                        <p class="text-sm mt-2">{{ _("Affichage des caractéristiques spécifiques de l'eSIM.") }}</p>
                     </div>
                     <div x-show="currentStep === 'msisdn_info'">
                         <p class="text-blue-800 font-mono text-sm">GET /distributors/suppliers/{supplier_id}/sims/{sim_id}</p>
-                        <p class="text-sm mt-2">Récupération du numéro MSISDN associé à l'eSIM, si disponible.</p>
+                        <p class="text-sm mt-2">{{ _("Récupération du numéro MSISDN associé à l'eSIM, si disponible.") }}</p>
                     </div>
                     <div x-show="currentStep === 'usage_info'">
                         <p class="text-blue-800 font-mono text-sm">GET /distributors/suppliers/{supplier_id}/usagebalances</p>
-                        <p class="text-sm mt-2">Consultation du solde de données et de la date d'expiration.</p>
+                        <p class="text-sm mt-2">{{ _("Récupération des informations de consommation pour l'eSIM.") }}</p>
                     </div>
                 </div>
             </div>

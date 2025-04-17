@@ -3,7 +3,7 @@
 <!-- Étape 9 -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 9 : Statut de la SIM/eSIM</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Étape 9 : Statut de la SIM/eSIM") }}</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -13,27 +13,25 @@
     </div>
     <div x-show="open" class="p-6 bg-white">
         <p class="text-gray-700 mb-4">
-            Pour assurer un suivi efficace des SIM et eSIM, l'API Orange Travel B2B propose un endpoint dédié
-            permettant de récupérer le statut actuel d'une carte SIM ou eSIM.
+            {{ _("Pour assurer un suivi efficace des SIM et eSIM, l'API Orange Travel B2B propose un endpoint dédié permettant de récupérer le statut actuel d'une carte SIM ou eSIM.") }}
         </p>
         
         <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-4">
-            <h5 class="text-orange-700 font-medium mb-1">SIM physiques et eSIM</h5>
+            <h5 class="text-orange-700 font-medium mb-1">{{ _("SIM physiques et eSIM") }}</h5>
             <p class="text-gray-700 text-sm">
-                L'API Orange Travel B2B prend en charge deux types de cartes :
+                {{ _("L'API Orange Travel B2B prend en charge deux types de cartes :") }}
                 <ul class="list-disc list-inside text-sm text-gray-700 mt-2 ml-2">
-                    <li><strong>Cartes SIM physiques</strong> : Cartes traditionnelles qui doivent être insérées physiquement dans l'appareil</li>
-                    <li><strong>eSIM</strong> : Cartes SIM électroniques intégrées directement dans l'appareil et activées à distance</li>
+                    <li><strong>{{ _("Cartes SIM physiques") }}</strong> : {{ _("Cartes traditionnelles qui doivent être insérées physiquement dans l'appareil") }}</li>
+                    <li><strong>{{ _("eSIM") }}</strong> : {{ _("Cartes SIM électroniques intégrées directement dans l'appareil et activées à distance") }}</li>
                 </ul>
-                Certains états et opérations comme <code>not installed</code> ou <code>uninstalled</code> ne s'appliquent qu'aux eSIM, 
-                tandis que d'autres comme <code>available</code> ou <code>suspended</code> s'appliquent aux deux types. Dans les exemples d'API ci-dessous, 
-                nous préciserons les différences d'utilisation quand elles existent.
+                {{ _("Certains états et opérations comme") }} <code>not installed</code> {{ _("ou") }} <code>uninstalled</code> {{ _("ne s'appliquent qu'aux eSIM") }}, 
+                {{ _("tandis que d'autres comme") }} <code>available</code> {{ _("ou") }} <code>suspended</code> {{ _("s'appliquent aux deux types. Dans les exemples d'API ci-dessous, nous préciserons les différences d'utilisation quand elles existent.") }}
             </p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Vérification du statut</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">{{ _("Vérification du statut") }}</h4>
         <p class="text-gray-700 mb-3">
-            Pour vérifier le statut, vous devez spécifier l'ID du fournisseur et l'ID de la transaction associée.
+            {{ _("Pour vérifier le statut, vous devez spécifier l'ID du fournisseur et l'ID de la transaction associée.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -41,17 +39,16 @@
         </div>
         
         <p class="text-gray-700 mb-3">
-            Pour les SIM physiques ou les eSIM récupérées par lot, vous pouvez utiliser le paramètre <code>simId</code> au lieu de <code>transaction</code> :
+            {{ _("Pour les SIM physiques ou les eSIM récupérées par lot, vous pouvez utiliser le paramètre") }} <code>simId</code> {{ _("au lieu de") }} <code>transaction</code> :
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/suppliers/{supplier_id}/simstatus?simId={sim_id}</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Réponse de l'API") }}</h4>
         <p class="text-gray-700 mb-3">
-            La réponse contient le statut de la SIM/eSIM ainsi que des informations complémentaires comme les dates d'activation 
-            et d'expiration.
+            {{ _("La réponse contient le statut de la SIM/eSIM ainsi que des informations complémentaires comme les dates d'activation et d'expiration.") }}
         </p>
         
         <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -63,59 +60,58 @@
             <p>}</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Valeurs possibles du statut</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Valeurs possibles du statut") }}</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">free</p>
-                <p class="text-sm text-gray-700">La SIM/eSIM n'est associée à aucun forfait <span class="text-blue-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-blue-700">{{ _("free") }}</p>
+                <p class="text-sm text-gray-700">{{ _("La SIM/eSIM n'est associée à aucun forfait") }} <span class="text-blue-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-green-50">
-                <p class="font-medium text-green-700">available</p>
-                <p class="text-sm text-gray-700">La carte est active et peut être utilisée normalement <span class="text-green-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-green-700">{{ _("available") }}</p>
+                <p class="text-sm text-gray-700">{{ _("La carte est active et peut être utilisée normalement") }} <span class="text-green-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-yellow-50">
-                <p class="font-medium text-yellow-700">not installed</p>
-                <p class="text-sm text-gray-700">L'eSIM n'a pas encore été installée sur un appareil <span class="text-yellow-600 text-xs">(eSIM uniquement)</span></p>
+                <p class="font-medium text-yellow-700">{{ _("not installed") }}</p>
+                <p class="text-sm text-gray-700">{{ _("L'eSIM n'a pas encore été installée sur un appareil") }} <span class="text-yellow-600 text-xs">({{ _("eSIM uniquement") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-yellow-50">
-                <p class="font-medium text-yellow-700">uninstalled</p>
-                <p class="text-sm text-gray-700">L'eSIM a été désinstallée de l'appareil initial <span class="text-yellow-600 text-xs">(eSIM uniquement)</span></p>
+                <p class="font-medium text-yellow-700">{{ _("uninstalled") }}</p>
+                <p class="text-sm text-gray-700">{{ _("L'eSIM a été désinstallée de l'appareil initial") }} <span class="text-yellow-600 text-xs">({{ _("eSIM uniquement") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">suspended fraud</p>
-                <p class="text-sm text-gray-700">Suspendue pour suspicion de fraude <span class="text-red-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-red-700">{{ _("suspended fraud") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Suspendue pour suspicion de fraude") }} <span class="text-red-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">suspended kyc default</p>
-                <p class="text-sm text-gray-700">Suspendue car le KYC n'a pas été complété <span class="text-red-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-red-700">{{ _("suspended kyc default") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Suspendue car le KYC n'a pas été complété") }} <span class="text-red-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">suspended by operator</p>
-                <p class="text-sm text-gray-700">Désactivée par le fournisseur <span class="text-red-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-red-700">{{ _("suspended by operator") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Désactivée par le fournisseur") }} <span class="text-red-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">suspended following a theft or loss</p>
-                <p class="text-sm text-gray-700">Désactivée suite à un vol ou une perte <span class="text-red-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-red-700">{{ _("suspended following a theft or loss") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Désactivée suite à un vol ou une perte") }} <span class="text-red-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-gray-50">
-                <p class="font-medium text-gray-700">expired</p>
-                <p class="text-sm text-gray-700">La période de validité est terminée <span class="text-gray-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-gray-700">{{ _("expired") }}</p>
+                <p class="text-sm text-gray-700">{{ _("La période de validité est terminée") }} <span class="text-gray-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-gray-50">
-                <p class="font-medium text-gray-700">revoked by operator</p>
-                <p class="text-sm text-gray-700">Révoquée par l'opérateur <span class="text-gray-600 text-xs">(tous types)</span></p>
+                <p class="font-medium text-gray-700">{{ _("revoked by operator") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Révoquée par l'opérateur") }} <span class="text-gray-600 text-xs">({{ _("tous types") }})</span></p>
             </div>
             <div class="border p-3 rounded bg-purple-50">
-                <p class="font-medium text-purple-700">sim swap</p>
-                <p class="text-sm text-gray-700">La SIM a été changée pour un nouvel appareil <span class="text-purple-600 text-xs">(SIM physique uniquement)</span></p>
+                <p class="font-medium text-purple-700">{{ _("sim swap") }}</p>
+                <p class="text-sm text-gray-700">{{ _("La SIM a été changée pour un nouvel appareil") }} <span class="text-purple-600 text-xs">({{ _("SIM physique uniquement") }})</span></p>
             </div>
         </div>
         
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h5 class="text-blue-700 font-medium mb-1">Conseil</h5>
+            <h5 class="text-blue-700 font-medium mb-1">{{ _("Conseil") }}</h5>
             <p class="text-gray-700 text-sm">
-                Effectuez des vérifications régulières de statut pour les cartes actives afin de détecter rapidement tout problème 
-                et d'informer vos clients en conséquence.
+                {{ _("Effectuez des vérifications régulières de statut pour les cartes actives afin de détecter rapidement tout problème et d'informer vos clients en conséquence.") }}
             </p>
         </div>
     </div>
@@ -124,7 +120,7 @@
 <!-- Étape 10 - Comptage des transactions -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 10 : Comptage et statistiques des transactions</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Étape 10 : Comptage et statistiques des transactions") }}</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -134,47 +130,45 @@
     </div>
     <div x-show="open" class="p-6 bg-white">
         <p class="text-gray-700 mb-4">
-            Pour faciliter la génération de rapports et statistiques, l'API Orange Travel B2B propose un endpoint 
-            dédié au comptage des transactions selon divers critères de filtrage.
+            {{ _("Pour faciliter la génération de rapports et statistiques, l'API Orange Travel B2B propose un endpoint dédié au comptage des transactions selon divers critères de filtrage.") }}
         </p>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Comptage des transactions</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">{{ _("Comptage des transactions") }}</h4>
         <p class="text-gray-700 mb-3">
-            Cet endpoint permet d'obtenir rapidement le nombre total de transactions correspondant à des critères 
-            spécifiques sans avoir à récupérer et compter les transactions individuelles.
+            {{ _("Cet endpoint permet d'obtenir rapidement le nombre total de transactions correspondant à des critères spécifiques sans avoir à récupérer et compter les transactions individuelles.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/transactions/count?startDate=2023-01-01&endDate=2023-12-31</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Paramètres de filtrage disponibles</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Paramètres de filtrage disponibles") }}</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">startDate et endDate</p>
-                <p class="text-sm text-gray-700">Période de comptage (format ISO)</p>
+                <p class="font-medium text-blue-700">{{ _("startDate et endDate") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Période de comptage (format ISO)") }}</p>
             </div>
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">status</p>
-                <p class="text-sm text-gray-700">Filtrer par statut de transaction</p>
+                <p class="font-medium text-blue-700">{{ _("status") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Filtrer par statut de transaction") }}</p>
             </div>
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">offer</p>
-                <p class="text-sm text-gray-700">Filtrer par ID d'offre</p>
+                <p class="font-medium text-blue-700">{{ _("offer") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Filtrer par ID d'offre") }}</p>
             </div>
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">supplier</p>
-                <p class="text-sm text-gray-700">Filtrer par ID de fournisseur</p>
+                <p class="font-medium text-blue-700">{{ _("supplier") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Filtrer par ID de fournisseur") }}</p>
             </div>
             <div class="border p-3 rounded bg-blue-50">
-                <p class="font-medium text-blue-700">user</p>
-                <p class="text-sm text-gray-700">Filtrer par ID d'utilisateur</p>
+                <p class="font-medium text-blue-700">{{ _("user") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Filtrer par ID d'utilisateur") }}</p>
             </div>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Réponse de l'API") }}</h4>
         <p class="text-gray-700 mb-3">
-            La réponse contient simplement le nombre total de transactions correspondant aux critères spécifiés.
+            {{ _("La réponse contient simplement le nombre total de transactions correspondant aux critères spécifiés.") }}
         </p>
         
         <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -184,11 +178,9 @@
         </div>
         
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h5 class="text-blue-700 font-medium mb-1">Conseil d'utilisation</h5>
+            <h5 class="text-blue-700 font-medium mb-1">{{ _("Conseil d'utilisation") }}</h5>
             <p class="text-gray-700 text-sm">
-                Cet endpoint est particulièrement utile pour les tableaux de bord administratifs et les rapports périodiques. 
-                Vous pouvez l'utiliser pour afficher des statistiques par période, par type d'offre ou par statut sans 
-                avoir à charger toutes les données des transactions.
+                {{ _("Cet endpoint est particulièrement utile pour les tableaux de bord administratifs et les rapports périodiques. Vous pouvez l'utiliser pour afficher des statistiques par période, par type d'offre ou par statut sans avoir à charger toutes les données des transactions.") }}
             </p>
         </div>
     </div>
@@ -197,7 +189,7 @@
 <!-- Étape 11 -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 11 : Gestion des consommations</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Étape 11 : Gestion des consommations") }}</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -207,21 +199,19 @@
     </div>
     <div x-show="open" class="p-6 bg-white">
         <p class="text-gray-700 mb-4">
-            Pour permettre aux utilisateurs de suivre leur consommation de données, d'appels et de SMS, l'API Orange Travel B2B 
-            propose un endpoint dédié à la récupération des consommations restantes.
+            {{ _("Pour permettre aux utilisateurs de suivre leur consommation de données, d'appels et de SMS, l'API Orange Travel B2B propose un endpoint dédié à la récupération des consommations restantes.") }}
         </p>
         
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
-            <h5 class="text-yellow-700 font-medium mb-1">Disponibilité</h5>
+            <h5 class="text-yellow-700 font-medium mb-1">{{ _("Disponibilité") }}</h5>
             <p class="text-gray-700 text-sm">
-                Cette fonctionnalité n'est disponible que pour les fournisseurs Welcome Travelers et Orange France. 
-                Les autres fournisseurs ne supportent pas cette fonctionnalité pour le moment.
+                {{ _("Cette fonctionnalité n'est disponible que pour les fournisseurs Welcome Travelers et Orange France. Les autres fournisseurs ne supportent pas cette fonctionnalité pour le moment.") }}
             </p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Récupération des consommations restantes</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Récupération des consommations restantes") }}</h4>
         <p class="text-gray-700 mb-3">
-            Pour récupérer les consommations, utilisez l'endpoint suivant en spécifiant l'ID du fournisseur et l'ID de la transaction.
+            {{ _("Pour récupérer les consommations, utilisez l'endpoint suivant en spécifiant l'ID du fournisseur et l'ID de la transaction.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -229,18 +219,16 @@
         </div>
         
         <p class="text-gray-700 mb-3">
-            De même que pour le statut, vous pouvez utiliser le paramètre <code>simId</code> pour les SIM physiques ou les eSIM 
-            récupérées par lot :
+            {{ _("De même que pour le statut, vous pouvez utiliser le paramètre") }} <code>simId</code> {{ _("pour les SIM physiques ou les eSIM récupérées par lot :") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/suppliers/{supplier_id}/usagebalances?simId={sim_id}</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Réponse de l'API</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Réponse de l'API") }}</h4>
         <p class="text-gray-700 mb-3">
-            La réponse contient des informations détaillées sur les consommations restantes, organisées par "buckets" 
-            (enveloppes de consommation).
+            {{ _("La réponse contient des informations détaillées sur les consommations restantes, organisées par 'buckets' (enveloppes de consommation).") }}
         </p>
         
         <div class="bg-gray-800 text-blue-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -263,20 +251,17 @@
         </div>
         
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h5 class="text-blue-700 font-medium mb-1">Conseil d'implémentation</h5>
+            <h5 class="text-blue-700 font-medium mb-1">{{ _("Conseil d'implémentation") }}</h5>
             <p class="text-gray-700 text-sm">
-                Intégrez cette fonctionnalité dans votre application pour permettre à vos clients de surveiller 
-                facilement leur consommation et d'éviter les mauvaises surprises. Vous pouvez également mettre 
-                en place des alertes lorsque les consommations atteignent certains seuils.
+                {{ _("Intégrez cette fonctionnalité dans votre application pour permettre à vos clients de surveiller facilement leur consommation et d'éviter les mauvaises surprises. Vous pouvez également mettre en place des alertes lorsque les consommations atteignent certains seuils.") }}
             </p>
         </div>
         
         <!-- Notification pour les statistiques globales -->
         <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mt-4">
-            <h5 class="text-indigo-700 font-medium mb-1">Fonctionnalité avancée</h5>
+            <h5 class="text-indigo-700 font-medium mb-1">{{ _("Fonctionnalité avancée") }}</h5>
             <p class="text-gray-700 text-sm">
-                En plus des consommations individuelles, vous pouvez également accéder aux <a href="{{ url_for('main.global_stats') }}" class="text-orange-500 hover:text-orange-700 underline">statistiques globales de consommation</a> 
-                par région ou par pays. Cette fonctionnalité permet d'analyser les tendances et d'optimiser vos offres.
+                {{ _("En plus des consommations individuelles, vous pouvez également accéder aux") }} <a href="{{ url_for('main.global_stats') }}" class="text-orange-500 hover:text-orange-700 underline">{{ _("statistiques globales de consommation") }}</a> {{ _("par région ou par pays. Cette fonctionnalité permet d'analyser les tendances et d'optimiser vos offres.") }}
             </p>
         </div>
     </div>
@@ -285,7 +270,7 @@
 <!-- Étape 11 -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 11 : Gestion des transactions</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Étape 11 : Gestion des transactions") }}</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -295,55 +280,52 @@
     </div>
     <div x-show="open" class="p-6 bg-white">
         <p class="text-gray-700 mb-4">
-            La gestion efficace des transactions est essentielle pour suivre les activités, générer des rapports et 
-            résoudre d'éventuels problèmes. L'API Orange Travel B2B propose plusieurs endpoints pour faciliter cette gestion.
+            {{ _("La gestion efficace des transactions est essentielle pour suivre les activités, générer des rapports et résoudre d'éventuels problèmes. L'API Orange Travel B2B propose plusieurs endpoints pour faciliter cette gestion.") }}
         </p>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Liste des transactions</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">{{ _("Liste des transactions") }}</h4>
         <p class="text-gray-700 mb-3">
-            Pour récupérer la liste des transactions, utilisez l'endpoint suivant. Vous pouvez utiliser divers filtres pour 
-            affiner les résultats.
+            {{ _("Pour récupérer la liste des transactions, utilisez l'endpoint suivant. Vous pouvez utiliser divers filtres pour affiner les résultats.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/transactions</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Paramètres de filtrage disponibles</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Paramètres de filtrage disponibles") }}</h4>
         <div class="bg-gray-100 p-4 rounded-lg mb-4">
             <ul class="list-disc list-inside text-gray-700 text-sm space-y-2">
-                <li><code>offset</code> : Décalage pour la pagination</li>
-                <li><code>limit</code> : Nombre maximal de transactions à retourner</li>
-                <li><code>startDate</code> : Date de début (format YYYY-MM-DD)</li>
-                <li><code>endDate</code> : Date de fin (format YYYY-MM-DD)</li>
-                <li><code>status</code> : Filtre par statut (created, pending, ok, ko, expired)</li>
-                <li><code>offer</code> : Filtre par identifiant d'offre</li>
-                <li><code>supplier</code> : Filtre par identifiant de fournisseur</li>
-                <li><code>user</code> : Filtre par identifiant utilisateur</li>
+                <li><code>offset</code> : {{ _("Décalage pour la pagination") }}</li>
+                <li><code>limit</code> : {{ _("Nombre maximal de transactions à retourner") }}</li>
+                <li><code>startDate</code> : {{ _("Date de début (format YYYY-MM-DD)") }}</li>
+                <li><code>endDate</code> : {{ _("Date de fin (format YYYY-MM-DD)") }}</li>
+                <li><code>status</code> : {{ _("Filtre par statut (created, pending, ok, ko, expired)") }}</li>
+                <li><code>offer</code> : {{ _("Filtre par identifiant d'offre") }}</li>
+                <li><code>supplier</code> : {{ _("Filtre par identifiant de fournisseur") }}</li>
+                <li><code>user</code> : {{ _("Filtre par identifiant utilisateur") }}</li>
             </ul>
         </div>
         
         <p class="text-gray-700 mb-3">
-            Exemple de requête avec filtres :
+            {{ _("Exemple de requête avec filtres :") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/transactions?startDate=2023-01-01&endDate=2023-01-31&status=ok&limit=10</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Détails d'une transaction spécifique</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Détails d'une transaction spécifique") }}</h4>
         <p class="text-gray-700 mb-3">
-            Pour récupérer les détails complets d'une transaction spécifique, utilisez l'identifiant de la transaction.
+            {{ _("Pour récupérer les détails complets d'une transaction spécifique, utilisez l'identifiant de la transaction.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
             <p>GET /distributors/transactions/{transaction_id}</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Comptage des transactions</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Comptage des transactions") }}</h4>
         <p class="text-gray-700 mb-3">
-            Si vous avez besoin de connaître le nombre total de transactions sans récupérer les données complètes, 
-            utilisez l'endpoint dédié au comptage.
+            {{ _("Si vous avez besoin de connaître le nombre total de transactions sans récupérer les données complètes, utilisez l'endpoint dédié au comptage.") }}
         </p>
         
         <div class="bg-gray-800 text-green-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -351,11 +333,9 @@
         </div>
         
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h5 class="text-blue-700 font-medium mb-1">Bonnes pratiques</h5>
+            <h5 class="text-blue-700 font-medium mb-1">{{ _("Bonnes pratiques") }}</h5>
             <p class="text-gray-700 text-sm">
-                Pour optimiser les performances, utilisez toujours des filtres appropriés et limitez le nombre de résultats 
-                si vous n'avez pas besoin de récupérer toutes les transactions. Pour les rapports, considérez l'utilisation 
-                du comptage et de la pagination.
+                {{ _("Pour optimiser les performances, utilisez toujours des filtres appropriés et limitez le nombre de résultats si vous n'avez pas besoin de récupérer toutes les transactions. Pour les rapports, considérez l'utilisation du comptage et de la pagination.") }}
             </p>
         </div>
     </div>
@@ -364,7 +344,7 @@
 <!-- Étape 12 -->
 <div x-data="{ open: false }" class="border rounded-lg overflow-hidden mb-4">
     <div @click="open = !open" class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-orange-700">Étape 12 : Gestion des erreurs</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Étape 12 : Gestion des erreurs") }}</h3>
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v11.586l4.293-4.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 15.586V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
@@ -374,13 +354,12 @@
     </div>
     <div x-show="open" class="p-6 bg-white">
         <p class="text-gray-700 mb-4">
-            Une gestion efficace des erreurs est essentielle pour assurer la robustesse de votre intégration avec l'API Orange Travel B2B. 
-            Cette dernière étape vous présente les différents types d'erreurs et comment les traiter.
+            {{ _("Une gestion efficace des erreurs est essentielle pour assurer la robustesse de votre intégration avec l'API Orange Travel B2B. Cette dernière étape vous présente les différents types d'erreurs et comment les traiter.") }}
         </p>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">Format des réponses d'erreur</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-4 mb-3">{{ _("Format des réponses d'erreur") }}</h4>
         <p class="text-gray-700 mb-3">
-            Toutes les erreurs sont retournées avec un code HTTP approprié et un corps JSON contenant des informations détaillées.
+            {{ _("Toutes les erreurs sont retournées avec un code HTTP approprié et un corps JSON contenant des informations détaillées.") }}
         </p>
         
         <div class="bg-gray-800 text-red-300 p-4 rounded-lg mb-4 font-mono text-sm overflow-x-auto">
@@ -391,91 +370,91 @@
             <p>}</p>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Principaux codes d'erreur HTTP</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Principaux codes d'erreur HTTP") }}</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">401 Unauthorized</p>
-                <p class="text-sm text-gray-700">Problème d'authentification ou token expiré</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Régénérer un token valide</p>
+                <p class="font-medium text-red-700">{{ _("401 Unauthorized") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Problème d'authentification ou token expiré") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Régénérer un token valide") }}</p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">400 Bad Request</p>
-                <p class="text-sm text-gray-700">Requête mal formée ou paramètres invalides</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Vérifier les paramètres de la requête</p>
+                <p class="font-medium text-red-700">{{ _("400 Bad Request") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Requête mal formée ou paramètres invalides") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Vérifier les paramètres de la requête") }}</p>
             </div>
             <div class="border p-3 rounded bg-orange-50">
-                <p class="font-medium text-orange-700">404 Not Found</p>
-                <p class="text-sm text-gray-700">Ressource non trouvée (URL incorrecte ou ID invalide)</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Vérifier l'URL et les identifiants utilisés</p>
+                <p class="font-medium text-orange-700">{{ _("404 Not Found") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Ressource non trouvée (URL incorrecte ou ID invalide)") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Vérifier l'URL et les identifiants utilisés") }}</p>
             </div>
             <div class="border p-3 rounded bg-red-50">
-                <p class="font-medium text-red-700">429 Too Many Requests</p>
-                <p class="text-sm text-gray-700">Dépassement de la limite de requêtes</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Implémenter un backoff exponentiel</p>
+                <p class="font-medium text-red-700">{{ _("429 Too Many Requests") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Dépassement de la limite de requêtes") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Implémenter un backoff exponentiel") }}</p>
             </div>
             <div class="border p-3 rounded bg-purple-50">
-                <p class="font-medium text-purple-700">500 Internal Server Error</p>
-                <p class="text-sm text-gray-700">Erreur interne du serveur</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Contacter le support d'Orange</p>
+                <p class="font-medium text-purple-700">{{ _("500 Internal Server Error") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Erreur interne du serveur") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Contacter le support d'Orange") }}</p>
             </div>
             <div class="border p-3 rounded bg-gray-50">
-                <p class="font-medium text-gray-700">503 Service Unavailable</p>
-                <p class="text-sm text-gray-700">Service temporairement indisponible</p>
-                <p class="text-xs text-gray-500 mt-1">Solution : Réessayer plus tard avec un backoff</p>
+                <p class="font-medium text-gray-700">{{ _("503 Service Unavailable") }}</p>
+                <p class="text-sm text-gray-700">{{ _("Service temporairement indisponible") }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ _("Solution : Réessayer plus tard avec un backoff") }}</p>
             </div>
         </div>
         
-        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">Stratégies de gestion des erreurs</h4>
+        <h4 class="text-md font-semibold text-gray-800 mt-6 mb-3">{{ _("Stratégies de gestion des erreurs") }}</h4>
         <div class="bg-gray-100 p-4 rounded-lg mb-4">
             <ol class="list-decimal list-inside text-gray-700 text-sm space-y-2">
-                <li><strong>Validation préalable</strong> : Validez vos données avant d'envoyer des requêtes</li>
-                <li><strong>Gestion des 401</strong> : Implémentez un mécanisme de rafraîchissement automatique des tokens</li>
-                <li><strong>Retries avec backoff</strong> : Pour les erreurs 429 et 503, implémentez un système de réessais avec délai croissant</li>
-                <li><strong>Logging</strong> : Enregistrez toutes les erreurs pour faciliter le diagnostic</li>
-                <li><strong>Monitoring</strong> : Mettez en place des alertes pour détecter les problèmes récurrents</li>
+                <li><strong>{{ _("Validation préalable") }}</strong> : {{ _("Validez vos données avant d'envoyer des requêtes") }}</li>
+                <li><strong>{{ _("Gestion des 401") }}</strong> : {{ _("Implémentez un mécanisme de rafraîchissement automatique des tokens") }}</li>
+                <li><strong>{{ _("Retries avec backoff") }}</strong> : {{ _("Pour les erreurs 429 et 503, implémentez un système de réessais avec délai croissant") }}</li>
+                <li><strong>{{ _("Logging") }}</strong> : {{ _("Enregistrez toutes les erreurs pour faciliter le diagnostic") }}</li>
+                <li><strong>{{ _("Monitoring") }}</strong> : {{ _("Mettez en place des alertes pour détecter les problèmes récurrents") }}</li>
             </ol>
         </div>
         
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h5 class="text-blue-700 font-medium mb-1">Code d'exemple pour la gestion des erreurs</h5>
+            <h5 class="text-blue-700 font-medium mb-1">{{ _("Code d'exemple pour la gestion des erreurs") }}</h5>
             <pre class="bg-gray-800 text-green-300 p-3 rounded-lg mt-2 font-mono text-xs overflow-x-auto">
 function handleApiError(error) {
   if (error.response) {
-    // La requête a été faite et le serveur a répondu avec un code d'état hors de la plage 2xx
+    // {{ _("La requête a été faite et le serveur a répondu avec un code d'état hors de la plage 2xx") }}
     const status = error.response.status;
     const data = error.response.data;
     
     switch (status) {
       case 401:
-        // Problème d'authentification
+        // {{ _("Problème d'authentification") }}
         refreshToken().then(() => {
-          // Réessayer la requête avec le nouveau token
+          // {{ _("Réessayer la requête avec le nouveau token") }}
         });
         break;
       case 400:
-        // Erreur de validation
-        console.error('Erreur de validation:', data.description);
-        // Informer l'utilisateur du problème spécifique
+        // {{ _("Erreur de validation") }}
+        console.error('{{ _("Erreur de validation:") }}', data.description);
+        // {{ _("Informer l'utilisateur du problème spécifique") }}
         break;
       case 429:
-        // Trop de requêtes
+        // {{ _("Trop de requêtes") }}
         const retryAfter = error.response.headers['retry-after'] || 5;
         setTimeout(() => {
-          // Réessayer la requête après le délai
+          // {{ _("Réessayer la requête après le délai") }}
         }, retryAfter * 1000);
         break;
       default:
-        // Autres erreurs
-        console.error(`Erreur ${status}:`, data.description);
-        // Informer l'utilisateur qu'une erreur s'est produite
+        // {{ _("Autres erreurs") }}
+        console.error(`{{ _("Erreur") }} ${status}:`, data.description);
+        // {{ _("Informer l'utilisateur qu'une erreur s'est produite") }}
     }
   } else if (error.request) {
-    // La requête a été faite mais aucune réponse n'a été reçue
-    console.error('Pas de réponse du serveur');
-    // Vérifier la connectivité réseau
+    // {{ _("La requête a été faite mais aucune réponse n'a été reçue") }}
+    console.error('{{ _("Pas de réponse du serveur") }}');
+    // {{ _("Vérifier la connectivité réseau") }}
   } else {
-    // Une erreur s'est produite lors de la configuration de la requête
-    console.error('Erreur de configuration:', error.message);
+    // {{ _("Une erreur s'est produite lors de la configuration de la requête") }}
+    console.error('{{ _("Erreur de configuration:") }}', error.message);
   }
 }
             </pre>

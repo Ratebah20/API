@@ -2,19 +2,18 @@
 
 {% block content %}
 <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-3xl font-bold text-orange-600 mb-6">Testeur d'API</h1>
+    <h1 class="text-3xl font-bold text-orange-600 mb-6">{{ _("Testeur d'API") }}</h1>
     
     <div class="mb-8">
         <p class="text-gray-700 mb-4">
-            Cet outil vous permet de tester directement les différents endpoints de l'API Orange Travel B2B
-            et de visualiser les réponses de manière formatée.
+            {{ _("Cet outil vous permet de tester directement les différents endpoints de l'API Orange Travel B2B et de visualiser les réponses de manière formatée.") }}
         </p>
         
         {% if not session.get('access_token') %}
             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
-                <p>Vous devez vous authentifier avant de pouvoir tester l'API.</p>
+                <p>{{ _("Vous devez vous authentifier avant de pouvoir tester l'API.") }}</p>
                 <a href="/test_auth" class="inline-block mt-2 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition">
-                    S'authentifier
+                    {{ _("S'authentifier") }}
                 </a>
             </div>
         {% endif %}
@@ -23,159 +22,159 @@
     <div x-data="{ endpoint: 'countries' }" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Panneau de sélection d'endpoint -->
         <div class="bg-orange-50 rounded-lg p-4">
-            <h2 class="text-lg font-semibold text-orange-700 mb-4">Sélectionner un endpoint</h2>
+            <h2 class="text-lg font-semibold text-orange-700 mb-4">{{ _("Sélectionner un endpoint") }}</h2>
             
             <div class="space-y-2">
-                <h3 class="font-semibold text-gray-700">Informations de base</h3>
+                <h3 class="font-semibold text-gray-700">{{ _("Informations de base") }}</h3>
                 <button 
                     @click="endpoint = 'live'"
                     :class="endpoint === 'live' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Test de connexion
+                    {{ _("Test de connexion") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'countries'"
                     :class="endpoint === 'countries' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Liste des pays
+                    {{ _("Liste des pays") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'currencies'"
                     :class="endpoint === 'currencies' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Liste des devises
+                    {{ _("Liste des devises") }}
                 </button>
                 
-                <h3 class="font-semibold text-gray-700 mt-4">Gestion des offres</h3>
+                <h3 class="font-semibold text-gray-700 mt-4">{{ _("Gestion des offres") }}</h3>
                 <button 
                     @click="endpoint = 'offers'"
                     :class="endpoint === 'offers' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Liste des offres
+                    {{ _("Liste des offres") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'offers/{offer_id}'"
                     :class="endpoint === 'offers/{offer_id}' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Détails d'une offre
+                    {{ _("Détails d'une offre") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'offers/customize/{offer_id}'"
                     :class="endpoint === 'offers/customize/{offer_id}' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Personnaliser une offre
+                    {{ _("Personnaliser une offre") }}
                 </button>
                 
-                <h3 class="font-semibold text-gray-700 mt-4">Gestion des transactions</h3>
+                <h3 class="font-semibold text-gray-700 mt-4">{{ _("Gestion des transactions") }}</h3>
                 <button 
                     @click="endpoint = 'transactions'"
                     :class="endpoint === 'transactions' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Liste des transactions
+                    {{ _("Liste des transactions") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'transactions_post'"
                     :class="endpoint === 'transactions_post' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Créer une transaction
+                    {{ _("Créer une transaction") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'transactions/{transaction_id}'"
                     :class="endpoint === 'transactions/{transaction_id}' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Détails d'une transaction
+                    {{ _("Détails d'une transaction") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'transactions_count'"
                     :class="endpoint === 'transactions_count' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Nombre de transactions
+                    {{ _("Nombre de transactions") }}
                 </button>
                 
-                <h3 class="font-semibold text-gray-700 mt-4">Gestion des fournisseurs et eSIM</h3>
+                <h3 class="font-semibold text-gray-700 mt-4">{{ _("Gestion des fournisseurs et eSIM") }}</h3>
                 <button 
                     @click="endpoint = 'suppliers'"
                     :class="endpoint === 'suppliers' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Liste des fournisseurs
+                    {{ _("Liste des fournisseurs") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'suppliers/simstatus'"
                     :class="endpoint === 'suppliers/simstatus' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Statut d'une SIM/eSIM
+                    {{ _("Statut d'une SIM/eSIM") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'suppliers/usagebalances'"
                     :class="endpoint === 'suppliers/usagebalances' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Consommations d'une SIM
+                    {{ _("Consommations d'une SIM") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'suppliers/globalbalances'"
                     :class="endpoint === 'suppliers/globalbalances' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Statistiques globales
+                    {{ _("Statistiques globales") }}
                 </button>
                 
-                <h3 class="font-semibold text-gray-700 mt-4">Gestion des clés RSA</h3>
+                <h3 class="font-semibold text-gray-700 mt-4">{{ _("Gestion des clés RSA") }}</h3>
                 <button 
                     @click="endpoint = 'keys'"
                     :class="endpoint === 'keys' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Récupérer clé publique
+                    {{ _("Récupérer clé publique") }}
                 </button>
                 
                 <button 
                     @click="endpoint = 'keys_post'"
                     :class="endpoint === 'keys_post' ? 'bg-orange-500 text-white' : 'bg-white text-orange-500 border border-orange-500'"
                     class="w-full py-2 px-4 rounded transition">
-                    Configurer clé publique
+                    {{ _("Configurer clé publique") }}
                 </button>
             </div>
             
             <!-- Paramètres spécifiques aux endpoints -->
             <div class="mt-6">
-                <h3 class="font-semibold text-gray-700 mb-2">Paramètres</h3>
+                <h3 class="font-semibold text-gray-700 mb-2">{{ _("Paramètres") }}</h3>
                 
                 <!-- Paramètres pour test de connexion -->
                 <div x-show="endpoint === 'live'" class="space-y-3">
-                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                    <p class="text-sm text-gray-600">{{ _("Aucun paramètre requis pour cet endpoint.") }}</p>
                 </div>
                 
                 <!-- Paramètres pour pays et devises -->
                 <div x-show="endpoint === 'countries' || endpoint === 'currencies'" class="space-y-3">
-                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                    <p class="text-sm text-gray-600">{{ _("Aucun paramètre requis pour cet endpoint.") }}</p>
                 </div>
                 
                 <!-- Paramètres pour liste des offres -->
                 <div x-show="endpoint === 'offers'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint renvoie la liste complète des offres disponibles pour le distributeur. Les offres peuvent être de différents types :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint renvoie la liste complète des offres disponibles pour le distributeur. Les offres peuvent être de différents types :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li><span class="font-semibold">Recharges (topup)</span> : Crédit, données, minutes ou SMS</li>
-                            <li><span class="font-semibold">eSIM</span> : Cartes SIM virtuelles avec différents forfaits</li>
-                            <li><span class="font-semibold">Cartes SIM</span> : Cartes SIM physiques</li>
+                            <li><span class="font-semibold">{{ _("Recharges (topup)") }}</span> : {{ _("Crédit, données, minutes ou SMS") }}</li>
+                            <li><span class="font-semibold">{{ _("eSIM") }}</span> : {{ _("Cartes SIM virtuelles avec différents forfaits") }}</li>
+                            <li><span class="font-semibold">{{ _("Cartes SIM") }}</span> : {{ _("Cartes SIM physiques") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Utilisez la pagination pour gérer de grandes listes d'offres.</p>
+                        <p class="text-sm text-blue-700">{{ _("Utilisez la pagination pour gérer de grandes listes d'offres.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Page</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Page") }}</label>
                         <input id="offers-page" type="number" min="1" value="1" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Nombre par page</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Nombre par page") }}</label>
                         <input id="offers-perPage" type="number" min="1" max="50" value="10" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -183,18 +182,18 @@
                 <!-- Paramètres pour détails d'offre -->
                 <div x-show="endpoint === 'offers/{offer_id}'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint renvoie les détails complets d'une offre spécifique, notamment :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint renvoie les détails complets d'une offre spécifique, notamment :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Informations sur le produit associé (type, couverture, validité)</li>
-                            <li>Prix et frais de distribution</li>
-                            <li>Solde du bucket (pour les offres de type topup)</li>
-                            <li>Métadonnées spécifiques au type de produit</li>
+                            <li>{{ _("Informations sur le produit associé (type, couverture, validité)") }}</li>
+                            <li>{{ _("Prix et frais de distribution") }}</li>
+                            <li>{{ _("Solde du bucket (pour les offres de type topup)") }}</li>
+                            <li>{{ _("Métadonnées spécifiques au type de produit") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Ces informations sont essentielles avant de créer une transaction.</p>
+                        <p class="text-sm text-blue-700">{{ _("Ces informations sont essentielles avant de créer une transaction.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de l'offre") }} <span class="text-red-500">*</span></label>
                         <input id="offer-id" type="text" placeholder="ex: OFF123456" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -202,30 +201,30 @@
                 <!-- Paramètres pour personnalisation d'offre -->
                 <div x-show="endpoint === 'offers/customize/{offer_id}'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de personnaliser certains paramètres d'une offre existante :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de personnaliser certains paramètres d'une offre existante :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Nom personnalisé pour l'affichage côté client</li>
-                            <li>Marge (markup) appliquée au prix de base</li>
-                            <li>Devise de la marge</li>
-                            <li>Métadonnées personnalisées</li>
+                            <li>{{ _("Nom personnalisé pour l'affichage côté client") }}</li>
+                            <li>{{ _("Marge (markup) appliquée au prix de base") }}</li>
+                            <li>{{ _("Devise de la marge") }}</li>
+                            <li>{{ _("Métadonnées personnalisées") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Cette personnalisation n'affecte pas les caractéristiques techniques du produit sous-jacent.</p>
+                        <p class="text-sm text-blue-700">{{ _("Cette personnalisation n'affecte pas les caractéristiques techniques du produit sous-jacent.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de l'offre") }} <span class="text-red-500">*</span></label>
                         <input id="customize-offer-id" type="text" placeholder="ex: OFF123456" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Nom personnalisé</label>
-                        <input id="customize-name" type="text" placeholder="Nom personnalisé de l'offre" class="w-full border rounded p-2">
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Nom personnalisé") }}</label>
+                        <input id="customize-name" type="text" placeholder="{{ _("Nom personnalisé de l'offre") }}" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Frais de service</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Frais de service") }}</label>
                         <input id="customize-markup" type="number" step="0.01" min="0" placeholder="5.99" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Devise des frais</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Devise des frais") }}</label>
                         <select id="customize-markup-currency" class="w-full border rounded p-2">
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
@@ -236,39 +235,39 @@
                 <!-- Paramètres pour transactions -->
                 <div x-show="endpoint === 'transactions'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint renvoie l'historique des transactions avec possibilité de filtrage :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint renvoie l'historique des transactions avec possibilité de filtrage :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Filtrage par période (startDate, endDate)</li>
-                            <li>Filtrage par statut (created, pending, ok, ko, expired)</li>
-                            <li>Pagination pour gérer de grands volumes</li>
+                            <li>{{ _("Filtrage par période (startDate, endDate)") }}</li>
+                            <li>{{ _("Filtrage par statut (created, pending, ok, ko, expired)") }}</li>
+                            <li>{{ _("Pagination pour gérer de grands volumes") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Les transactions peuvent concerner des recharges, des activations d'eSIM ou des cartes SIM physiques.</p>
+                        <p class="text-sm text-blue-700">{{ _("Les transactions peuvent concerner des recharges, des activations d'eSIM ou des cartes SIM physiques.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de début</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de début") }}</label>
                         <input id="transactions-startDate" type="date" value="2023-01-01" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de fin</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de fin") }}</label>
                         <input id="transactions-endDate" type="date" value="2025-12-31" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Statut") }}</label>
                         <select id="transactions-status" class="w-full border rounded p-2">
-                            <option value="">Tous</option>
-                            <option value="created">Créée</option>
-                            <option value="pending">En attente</option>
-                            <option value="ok">Réussie</option>
-                            <option value="ko">Échouée</option>
+                            <option value="">{{ _("Tous") }}</option>
+                            <option value="created">{{ _("Créée") }}</option>
+                            <option value="pending">{{ _("En attente") }}</option>
+                            <option value="ok">{{ _("Réussie") }}</option>
+                            <option value="ko">{{ _("Échouée") }}</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Page</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Page") }}</label>
                         <input id="transactions-page" type="number" min="1" value="1" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Nombre par page</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Nombre par page") }}</label>
                         <input id="transactions-perPage" type="number" min="1" max="50" value="10" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -276,18 +275,18 @@
                 <!-- Paramètres pour détails d'une transaction -->
                 <div x-show="endpoint === 'transactions/{transaction_id}'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint renvoie les détails complets d'une transaction spécifique :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint renvoie les détails complets d'une transaction spécifique :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Statut actuel et historique des changements</li>
-                            <li>Informations sur l'offre et le produit associés</li>
-                            <li>Détails de facturation et prix</li>
-                            <li>Paramètres spécifiques (MSISDN, ICCID, codes d'activation pour eSIM, etc.)</li>
+                            <li>{{ _("Statut actuel et historique des changements") }}</li>
+                            <li>{{ _("Informations sur l'offre et le produit associés") }}</li>
+                            <li>{{ _("Détails de facturation et prix") }}</li>
+                            <li>{{ _("Paramètres spécifiques (MSISDN, ICCID, codes d'activation pour eSIM, etc.)") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Pour les transactions d'eSIM, les données sensibles sont chiffrées avec la clé RSA du distributeur.</p>
+                        <p class="text-sm text-blue-700">{{ _("Pour les transactions d'eSIM, les données sensibles sont chiffrées avec la clé RSA du distributeur.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de la transaction") }} <span class="text-red-500">*</span></label>
                         <input id="transaction-details-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -295,81 +294,81 @@
                 <!-- Paramètres pour création de transaction -->
                 <div x-show="endpoint === 'transactions_post'" class="space-y-3" x-data="{transactionType: 'orange-topup'}">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de créer une nouvelle transaction. Le type de transaction détermine les paramètres requis :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de créer une nouvelle transaction. Le type de transaction détermine les paramètres requis :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li><span class="font-semibold">Recharge Orange/Espagne</span> : Nécessite un MSISDN (numéro de téléphone)</li>
-                            <li><span class="font-semibold">Recharge Welcome Travelers</span> : Nécessite le NSCE (numéro court)</li>
-                            <li><span class="font-semibold">eSIM</span> : Uniquement l'ID de l'offre est nécessaire</li>
+                            <li><span class="font-semibold">{{ _("Recharge Orange/Espagne") }}</span> : {{ _("Nécessite un MSISDN (numéro de téléphone)") }}</li>
+                            <li><span class="font-semibold">{{ _("Recharge Welcome Travelers") }}</span> : {{ _("Nécessite le NSCE (numéro court)") }}</li>
+                            <li><span class="font-semibold">{{ _("eSIM") }}</span> : {{ _("Uniquement l'ID de l'offre est nécessaire") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">L'ID de l'offre est toujours obligatoire et doit correspondre à une offre active.</p>
+                        <p class="text-sm text-blue-700">{{ _("L'ID de l'offre est toujours obligatoire et doit correspondre à une offre active.") }}</p>
                         <div class="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded">
-                            <p class="text-xs text-yellow-700">Pour les transactions eSIM, les codes d'activation retournés sont chiffrés avec la clé publique RSA du distributeur et doivent être déchiffrés avec la clé privée correspondante.</p>
+                            <p class="text-xs text-yellow-700">{{ _("Pour les transactions eSIM, les codes d'activation retournés sont chiffrés avec la clé publique RSA du distributeur et doivent être déchiffrés avec la clé privée correspondante.") }}</p>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de l'offre <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de l'offre") }} <span class="text-red-500">*</span></label>
                         <input id="create-transaction-offer-id" type="text" placeholder="ex: 7b977bd5-c7dc-4681-bf33-c4bd2eadc266" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Type de transaction <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Type de transaction") }} <span class="text-red-500">*</span></label>
                         <select id="create-transaction-type" x-model="transactionType" class="w-full border rounded p-2">
-                            <option value="orange-topup">Recharge Orange/Espagne (MSISDN)</option>
-                            <option value="welcome-topup">Recharge Welcome Travelers (NSCE)</option>
-                            <option value="esim">Activation eSIM</option>
+                            <option value="orange-topup">{{ _("Recharge Orange/Espagne (MSISDN)") }}</option>
+                            <option value="welcome-topup">{{ _("Recharge Welcome Travelers (NSCE)") }}</option>
+                            <option value="esim">{{ _("Activation eSIM") }}</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID utilisateur (optionnel)</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID utilisateur (optionnel)") }}</label>
                         <input id="create-transaction-user-id" type="text" placeholder="ex: 635768534667763" class="w-full border rounded p-2">
                     </div>
                     <!-- Paramètres pour recharge Orange/Espagne -->
                     <div x-show="transactionType === 'orange-topup'">
-                        <label class="block text-sm text-gray-600 mb-1">Numéro de téléphone (MSISDN) <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Numéro de téléphone (MSISDN)") }} <span class="text-red-500">*</span></label>
                         <input id="create-transaction-msisdn" type="text" placeholder="ex: 684587587" class="w-full border rounded p-2">
-                        <p class="text-xs text-gray-500 mt-1">Format : 9 derniers chiffres du numéro (sans préfixe international)</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ _("Format : 9 derniers chiffres du numéro (sans préfixe international)") }}</p>
                     </div>
                     <!-- Paramètres pour recharge Welcome Travelers -->
                     <div x-show="transactionType === 'welcome-topup'">
-                        <label class="block text-sm text-gray-600 mb-1">NSCE (ID court de la SIM) <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("NSCE (ID court de la SIM)") }} <span class="text-red-500">*</span></label>
                         <input id="create-transaction-simid" type="text" placeholder="ex: 2431649196826" class="w-full border rounded p-2">
-                        <p class="text-xs text-gray-500 mt-1">Utilisez le NSCE de la SIM (visible dans les détails de transaction)</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ _("Utilisez le NSCE de la SIM (visible dans les détails de transaction)") }}</p>
                     </div>
                     <!-- Paramètres pour eSIM (aucun paramètre supplémentaire requis) -->
                     <div x-show="transactionType === 'esim'" class="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                        <p class="text-sm text-gray-600">Aucun paramètre supplémentaire n'est requis pour l'activation d'une eSIM. Les codes d'activation seront générés automatiquement et retournés dans la réponse (chiffrés).</p>
+                        <p class="text-sm text-gray-600">{{ _("Aucun paramètre supplémentaire n'est requis pour l'activation d'une eSIM. Les codes d'activation seront générés automatiquement et retournés dans la réponse (chiffrés).") }}</p>
                     </div>
                 </div>
                 
                 <!-- Paramètres pour comptage des transactions -->
                 <div x-show="endpoint === 'transactions_count'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de compter le nombre de transactions selon différents critères :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de compter le nombre de transactions selon différents critères :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Comptage par période (startDate, endDate)</li>
-                            <li>Comptage par statut (created, pending, ok, ko, expired)</li>
-                            <li>Utile pour les statistiques et rapports</li>
+                            <li>{{ _("Comptage par période (startDate, endDate)") }}</li>
+                            <li>{{ _("Comptage par statut (created, pending, ok, ko, expired)") }}</li>
+                            <li>{{ _("Utile pour les statistiques et rapports") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Cette fonction est particulièrement utile pour les tableaux de bord et les rapports d'activité.</p>
+                        <p class="text-sm text-blue-700">{{ _("Cette fonction est particulièrement utile pour les tableaux de bord et les rapports d'activité.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de début</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de début") }}</label>
                         <input id="transactions-count-startDate" type="date" value="2023-01-01" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de fin</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de fin") }}</label>
                         <input id="transactions-count-endDate" type="date" value="2025-01-01" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Statut</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Statut") }}</label>
                         <select id="transactions-count-status" class="w-full border rounded p-2">
-                            <option value="">Tous</option>
-                            <option value="created">Créée</option>
-                            <option value="pending">En attente</option>
-                            <option value="ok">Réussie</option>
-                            <option value="ko">Échouée</option>
-                            <option value="expired">Expirée</option>
+                            <option value="">{{ _("Tous") }}</option>
+                            <option value="created">{{ _("Créée") }}</option>
+                            <option value="pending">{{ _("En attente") }}</option>
+                            <option value="ok">{{ _("Réussie") }}</option>
+                            <option value="ko">{{ _("Échouée") }}</option>
+                            <option value="expired">{{ _("Expirée") }}</option>
                         </select>
                     </div>
                 </div>
@@ -415,42 +414,42 @@
                 <!-- Paramètres pour liste des fournisseurs -->
                 <div x-show="endpoint === 'suppliers'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint renvoie la liste des fournisseurs disponibles pour le distributeur :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint renvoie la liste des fournisseurs disponibles pour le distributeur :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Fournisseurs d'eSIM (opérateurs virtuels)</li>
-                            <li>Fournisseurs de recharges (opérateurs locaux)</li>
-                            <li>Statut de chaque fournisseur (approved, revoked, pending)</li>
+                            <li>{{ _("Fournisseurs d'eSIM (opérateurs virtuels)") }}</li>
+                            <li>{{ _("Fournisseurs de recharges (opérateurs locaux)") }}</li>
+                            <li>{{ _("Statut de chaque fournisseur (approved, revoked, pending)") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">L'ID du fournisseur est nécessaire pour les opérations liées aux SIM et aux recharges.</p>
+                        <p class="text-sm text-blue-700">{{ _("L'ID du fournisseur est nécessaire pour les opérations liées aux SIM et aux recharges.") }}</p>
                     </div>
-                    <p class="text-sm text-gray-600">Aucun paramètre requis pour cet endpoint.</p>
+                    <p class="text-sm text-gray-600">{{ _("Aucun paramètre requis pour cet endpoint.") }}</p>
                 </div>
                 
                 <!-- Paramètres pour statut SIM -->
                 <div x-show="endpoint === 'suppliers/simstatus'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de vérifier le statut d'une carte SIM/eSIM. Les statuts possibles incluent :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de vérifier le statut d'une carte SIM/eSIM. Les statuts possibles incluent :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li><span class="font-semibold">free</span> : Disponible</li>
-                            <li><span class="font-semibold">not installed</span> : Non installée</li>
-                            <li><span class="font-semibold">available</span> : Disponible et active</li>
-                            <li><span class="font-semibold">suspended</span> : Suspendue (diverses raisons)</li>
-                            <li><span class="font-semibold">expired</span> : Expirée</li>
+                            <li><span class="font-semibold">{{ _("free") }}</span> : {{ _("Disponible") }}</li>
+                            <li><span class="font-semibold">{{ _("not installed") }}</span> : {{ _("Non installée") }}</li>
+                            <li><span class="font-semibold">{{ _("available") }}</span> : {{ _("Disponible et active") }}</li>
+                            <li><span class="font-semibold">{{ _("suspended") }}</span> : {{ _("Suspendue (diverses raisons)") }}</li>
+                            <li><span class="font-semibold">{{ _("expired") }}</span> : {{ _("Expirée") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Vous pouvez identifier la SIM soit par l'ID de transaction, soit par l'ICCID directement.</p>
+                        <p class="text-sm text-blue-700">{{ _("Vous pouvez identifier la SIM soit par l'ID de transaction, soit par l'ICCID directement.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID du fournisseur") }} <span class="text-red-500">*</span></label>
                         <input id="sim-status-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de la transaction") }} <span class="text-red-500">*</span></label>
                         <input id="sim-status-transaction-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ICCID (optionnel)</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ICCID (optionnel)") }}</label>
                         <input id="sim-status-iccid" type="text" placeholder="ex: 89123456789012345678" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -458,26 +457,26 @@
                 <!-- Paramètres pour consommations SIM -->
                 <div x-show="endpoint === 'suppliers/usagebalances'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de consulter les consommations et soldes restants d'une carte SIM/eSIM :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de consulter les consommations et soldes restants d'une carte SIM/eSIM :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Données restantes (Mo/Go)</li>
-                            <li>Temps d'appel restant (minutes/heures)</li>
-                            <li>SMS restants</li>
-                            <li>Dates d'activation et d'expiration</li>
+                            <li>{{ _("Données restantes (Mo/Go)") }}</li>
+                            <li>{{ _("Temps d'appel restant (minutes/heures)") }}</li>
+                            <li>{{ _("SMS restants") }}</li>
+                            <li>{{ _("Dates d'activation et d'expiration") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Ces informations sont essentielles pour suivre l'utilisation et déterminer si une recharge est nécessaire.</p>
+                        <p class="text-sm text-blue-700">{{ _("Ces informations sont essentielles pour suivre l'utilisation et déterminer si une recharge est nécessaire.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID du fournisseur") }} <span class="text-red-500">*</span></label>
                         <input id="usage-balances-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID de la transaction <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID de la transaction") }} <span class="text-red-500">*</span></label>
                         <input id="usage-balances-transaction-id" type="text" placeholder="ex: TRA123456" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ICCID (optionnel)</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ICCID (optionnel)") }}</label>
                         <input id="usage-balances-iccid" type="text" placeholder="ex: 89123456789012345678" class="w-full border rounded p-2">
                     </div>
                 </div>
@@ -485,32 +484,32 @@
                 <!-- Paramètres pour statistiques globales -->
                 <div x-show="endpoint === 'suppliers/globalbalances'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint fournit des statistiques globales de consommation pour une période donnée :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint fournit des statistiques globales de consommation pour une période donnée :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Consommation totale par région ou pays (selon zoneLevel)</li>
-                            <li>Période maximale de 6 mois</li>
-                            <li>Détails par type de consommation (data, voix, SMS)</li>
+                            <li>{{ _("Consommation totale par région ou pays (selon zoneLevel)") }}</li>
+                            <li>{{ _("Période maximale de 6 mois") }}</li>
+                            <li>{{ _("Détails par type de consommation (data, voix, SMS)") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">Ces statistiques sont particulièrement utiles pour analyser les tendances d'utilisation et optimiser les offres.</p>
+                        <p class="text-sm text-blue-700">{{ _("Ces statistiques sont particulièrement utiles pour analyser les tendances d'utilisation et optimiser les offres.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">ID du fournisseur <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("ID du fournisseur") }} <span class="text-red-500">*</span></label>
                         <input id="global-balances-supplier-id" type="text" placeholder="ex: SUPPLIER123" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de début <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de début") }} <span class="text-red-500">*</span></label>
                         <input id="global-balances-start-date" type="date" value="2023-01-01" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Date de fin <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Date de fin") }} <span class="text-red-500">*</span></label>
                         <input id="global-balances-end-date" type="date" value="2025-12-31" class="w-full border rounded p-2">
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Niveau de zone <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Niveau de zone") }} <span class="text-red-500">*</span></label>
                         <select id="global-balances-zone-level" class="w-full border rounded p-2">
-                            <option value="region">Région</option>
-                            <option value="country">Pays</option>
+                            <option value="region">{{ _("Région") }}</option>
+                            <option value="country">{{ _("Pays") }}</option>
                         </select>
                     </div>
                 </div>
@@ -518,20 +517,20 @@
                 <!-- Paramètres pour récupération de clé RSA -->
                 <div x-show="endpoint === 'keys'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de récupérer la clé publique RSA actuellement configurée :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de récupérer la clé publique RSA actuellement configurée :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Utilisée pour vérifier que la bonne clé est configurée</li>
-                            <li>Option d'encodage en base64 disponible</li>
-                            <li>Essentielle pour le système de chiffrement des données sensibles</li>
+                            <li>{{ _("Utilisée pour vérifier que la bonne clé est configurée") }}</li>
+                            <li>{{ _("Option d'encodage en base64 disponible") }}</li>
+                            <li>{{ _("Essentielle pour le système de chiffrement des données sensibles") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700">La clé publique est utilisée par l'API pour chiffrer les données sensibles comme les codes d'activation d'eSIM.</p>
+                        <p class="text-sm text-blue-700">{{ _("La clé publique est utilisée par l'API pour chiffrer les données sensibles comme les codes d'activation d'eSIM.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Encodage</label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Encodage") }}</label>
                         <select id="keys-get-encoding" class="w-full border rounded p-2">
-                            <option value="">Par défaut</option>
-                            <option value="base64">Base64</option>
+                            <option value="">{{ _("Par défaut") }}</option>
+                            <option value="base64">{{ _("Base64") }}</option>
                         </select>
                     </div>
                 </div>
@@ -539,30 +538,30 @@
                 <!-- Paramètres pour configuration de clé RSA -->
                 <div x-show="endpoint === 'keys_post'" class="space-y-3">
                     <div class="bg-blue-50 p-3 rounded-lg mb-4 border border-blue-200">
-                        <h4 class="font-semibold text-blue-800 mb-2">Guide du développeur</h4>
-                        <p class="text-sm text-blue-700 mb-2">Cet endpoint permet de configurer une nouvelle clé publique RSA pour le chiffrement :</p>
+                        <h4 class="font-semibold text-blue-800 mb-2">{{ _("Guide du développeur") }}</h4>
+                        <p class="text-sm text-blue-700 mb-2">{{ _("Cet endpoint permet de configurer une nouvelle clé publique RSA pour le chiffrement :") }}</p>
                         <ul class="list-disc list-inside text-sm text-blue-700 mb-2 ml-2">
-                            <li>Remplace la clé précédemment configurée</li>
-                            <li>Doit être au format PEM standard</li>
-                            <li>La clé privée correspondante doit être conservée de manière sécurisée côté client</li>
+                            <li>{{ _("Remplace la clé précédemment configurée") }}</li>
+                            <li>{{ _("Doit être au format PEM standard") }}</li>
+                            <li>{{ _("La clé privée correspondante doit être conservée de manière sécurisée côté client") }}</li>
                         </ul>
-                        <p class="text-sm text-blue-700"><strong>Important</strong> : Après changement de clé, les données précédemment chiffrées ne pourront plus être déchiffrées avec la nouvelle clé privée.</p>
+                        <p class="text-sm text-blue-700"><strong>{{ _("Important") }}</strong> : {{ _("Après changement de clé, les données précédemment chiffrées ne pourront plus être déchiffrées avec la nouvelle clé privée.") }}</p>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Type de clé <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Type de clé") }} <span class="text-red-500">*</span></label>
                         <select id="keys-set-type" class="w-full border rounded p-2">
                             <option value="rsa256">RSA 256</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-600 mb-1">Valeur de la clé publique <span class="text-red-500">*</span></label>
+                        <label class="block text-sm text-gray-600 mb-1">{{ _("Valeur de la clé publique") }} <span class="text-red-500">*</span></label>
                         <textarea id="keys-set-value" rows="4" placeholder="-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----" class="w-full border rounded p-2 font-mono text-sm"></textarea>
                     </div>
                 </div>
                 
                 <div class="mt-4">
                     <button id="execute-btn" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
-                        Exécuter la requête
+                        {{ _("Exécuter la requête") }}
                     </button>
                 </div>
             </div>
@@ -572,7 +571,7 @@
         <div class="lg:col-span-2">
             <div class="bg-gray-800 rounded-lg p-4 text-white h-full">
                 <div class="flex justify-between items-center mb-3">
-                    <h3 class="text-lg font-semibold">Réponse API</h3>
+                    <h3 class="text-lg font-semibold">{{ _("Réponse API") }}</h3>
                     <span class="text-xs px-2 py-1 bg-green-500 rounded">200 OK</span>
                 </div>
                 
@@ -591,11 +590,11 @@
     </div>
     
     <div class="mt-8 p-4 bg-gray-100 rounded-lg">
-        <h3 class="text-lg font-semibold text-gray-800 mb-2">Fonctionnalités à venir</h3>
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ _("Fonctionnalités à venir") }}</h3>
         <ul class="list-disc list-inside text-gray-700 space-y-1">
-            <li>Sauvegarde des requêtes précédentes</li>
-            <li>Génération de code pour différents langages de programmation</li>
-            <li>Mode comparaison des réponses</li>
+            <li>{{ _("Sauvegarde des requêtes précédentes") }}</li>
+            <li>{{ _("Génération de code pour différents langages de programmation") }}</li>
+            <li>{{ _("Mode comparaison des réponses") }}</li>
         </ul>
     </div>
 </div>

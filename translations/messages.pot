@@ -1,0 +1,459 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Orange Travel B2B Simulator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-17 19:00+0200\n"
+"PO-Revision-Date: 2025-04-17 19:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "Simulateur d'écrans mobiles"
+msgstr ""
+
+msgid "Ce simulateur vous permet de visualiser l'expérience utilisateur sur mobile pour les différentes fonctionnalités de l'API Orange Travel B2B. Choisissez un scénario pour voir la simulation."
+msgstr ""
+
+msgid "Scénarios disponibles"
+msgstr ""
+
+msgid "Achat et activation d'eSIM"
+msgstr ""
+
+msgid "Gestion de l'eSIM"
+msgstr ""
+
+msgid "Endpoint API"
+msgstr ""
+
+msgid "Connectivité internationale"
+msgstr ""
+
+msgid "Bienvenue"
+msgstr ""
+
+msgid "Accédez à internet partout dans le monde avec nos solutions eSIM"
+msgstr ""
+
+msgid "Commencer"
+msgstr ""
+
+msgid "Lancement de l'application"
+msgstr ""
+
+msgid "Authentification en cours..."
+msgstr ""
+
+msgid "Authentification avec les identifiants du distributeur"
+msgstr ""
+
+msgid "Continuer"
+msgstr ""
+
+msgid "Appel API pour l'authentification"
+msgstr ""
+
+msgid "Choisissez votre destination"
+msgstr ""
+
+msgid "Récupération des destinations disponibles"
+msgstr ""
+
+msgid "France"
+msgstr ""
+
+msgid "Espagne"
+msgstr ""
+
+msgid "Italie"
+msgstr ""
+
+msgid "Allemagne"
+msgstr ""
+
+msgid "Filtrage des offres disponibles pour l'Espagne"
+msgstr ""
+
+msgid "Offres disponibles"
+msgstr ""
+
+msgid "Espagne Data 5GB"
+msgstr ""
+
+msgid "Espagne Data 10GB"
+msgstr ""
+
+msgid "7 jours - Data: 5GB - Validité: 7 jours"
+msgstr ""
+
+msgid "14 jours - Data: 10GB - Validité: 14 jours"
+msgstr ""
+
+msgid "Détails de l'offre"
+msgstr ""
+
+msgid "Récupération des détails de l'offre"
+msgstr ""
+
+msgid "Prix:"
+msgstr ""
+
+msgid "Données:"
+msgstr ""
+
+msgid "Validité:"
+msgstr ""
+
+msgid "7 jours"
+msgstr ""
+
+msgid "Couverture:"
+msgstr ""
+
+msgid "Type:"
+msgstr ""
+
+msgid "Data uniquement"
+msgstr ""
+
+msgid "Acheter"
+msgstr ""
+
+msgid "Achat en cours"
+msgstr ""
+
+msgid "Création d'une transaction"
+msgstr ""
+
+msgid "Achat effectué avec succès"
+msgstr ""
+
+msgid "Transaction ID:"
+msgstr ""
+
+msgid "eSIM profil crypté reçu"
+msgstr ""
+
+msgid "Déchiffrer le profil eSIM"
+msgstr ""
+
+msgid "Déchiffrement"
+msgstr ""
+
+msgid "Opération de déchiffrement"
+msgstr ""
+
+msgid "Utilisation de la clé privée"
+msgstr ""
+
+msgid "Déchiffrement en cours..."
+msgstr ""
+
+msgid "---- BEGIN eSIM PROFILE ----"
+msgstr ""
+
+msgid "ICCID:"
+msgstr ""
+
+msgid "---- END eSIM PROFILE ----"
+msgstr ""
+
+msgid "Installer le profil eSIM"
+msgstr ""
+
+msgid "Installation"
+msgstr ""
+
+msgid "Redirection système"
+msgstr ""
+
+msgid "Installation via paramètres du téléphone"
+msgstr ""
+
+msgid "Paramètres système"
+msgstr ""
+
+msgid "Voulez-vous installer ce profil eSIM ?"
+msgstr ""
+
+msgid "Annuler"
+msgstr ""
+
+msgid "Installer"
+msgstr ""
+
+msgid "L'installation de l'eSIM nécessite une redirection vers les paramètres système"
+msgstr ""
+
+msgid "Activation"
+msgstr ""
+
+msgid "Activation système"
+msgstr ""
+
+msgid "Activation du profil eSIM"
+msgstr ""
+
+msgid "eSIM activée avec succès"
+msgstr ""
+
+msgid "Votre eSIM est maintenant prête à être utilisée"
+msgstr ""
+
+msgid "Nom:"
+msgstr ""
+
+msgid "État:"
+msgstr ""
+
+msgid "Actif"
+msgstr ""
+
+msgid "Gérer mon eSIM"
+msgstr ""
+
+msgid "Profil eSIM"
+msgstr ""
+
+msgid "eSIM active"
+msgstr ""
+
+msgid "Plan:"
+msgstr ""
+
+msgid "Data 5GB"
+msgstr ""
+
+msgid "5 jours restants"
+msgstr ""
+
+msgid "Gérer cette eSIM"
+msgstr ""
+
+msgid "Informations fournisseur"
+msgstr ""
+
+msgid "Type d'eSIM"
+msgstr ""
+
+msgid "MSISDN (numéro)"
+msgstr ""
+
+msgid "Solde et consommation"
+msgstr ""
+
+msgid "Fournisseur"
+msgstr ""
+
+msgid "Informations sur le fournisseur de l'eSIM"
+msgstr ""
+
+msgid "Orange Spain"
+msgstr ""
+
+msgid "ID Fournisseur"
+msgstr ""
+
+msgid "Pays d'opération"
+msgstr ""
+
+msgid "Type de réseau"
+msgstr ""
+
+msgid "4G/5G"
+msgstr ""
+
+msgid "Support technique"
+msgstr ""
+
+msgid "Caractéristiques techniques"
+msgstr ""
+
+msgid "Type de profil:"
+msgstr ""
+
+msgid "Consommateur"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "Capacité:"
+msgstr ""
+
+msgid "Réseaux:"
+msgstr ""
+
+msgid "Compatibilité"
+msgstr ""
+
+msgid "Cette eSIM est compatible avec les appareils suivants:"
+msgstr ""
+
+msgid "iPhone 12 et +"
+msgstr ""
+
+msgid "Samsung Galaxy S21 et +"
+msgstr ""
+
+msgid "Google Pixel 6 et +"
+msgstr ""
+
+msgid "Numéro associé"
+msgstr ""
+
+msgid "Ce profil eSIM a le numéro téléphonique suivant:"
+msgstr ""
+
+msgid "Non disponible"
+msgstr ""
+
+msgid "Certaines eSIM de type données uniquement n'ont pas de numéro associé."
+msgstr ""
+
+msgid "Consommation"
+msgstr ""
+
+msgid "Données utilisées:"
+msgstr ""
+
+msgid "sur"
+msgstr ""
+
+msgid "Temps restant:"
+msgstr ""
+
+msgid "Expire le:"
+msgstr ""
+
+msgid "Dernière mise à jour:"
+msgstr ""
+
+msgid "Manipulation côté client"
+msgstr ""
+
+msgid "Aucun appel API à cette étape"
+msgstr ""
+
+msgid "Récupération des offres disponibles, filtrées par pays."
+msgstr ""
+
+msgid "Aucun appel API, filtrage des données déjà reçues."
+msgstr ""
+
+msgid "Récupération des détails de l'offre sélectionnée."
+msgstr ""
+
+msgid "Création d'une transaction pour obtenir une eSIM."
+msgstr ""
+
+msgid "Déchiffrement du code d'activation à l'aide de la clé privée du distributeur."
+msgstr ""
+
+msgid "Redirection vers les paramètres du téléphone pour installer le profil eSIM."
+msgstr ""
+
+msgid "Activation du profil eSIM installé sur l'appareil."
+msgstr ""
+
+msgid "Affichage des détails de l'eSIM"
+msgstr ""
+
+msgid "Informations sur le profil eSIM déjà installé."
+msgstr ""
+
+msgid "Navigation interne"
+msgstr ""
+
+msgid "Accès à la section de gestion des eSIM."
+msgstr ""
+
+msgid "Récupération des informations sur le fournisseur de l'eSIM."
+msgstr ""
+
+msgid "Affichage des propriétés"
+msgstr ""
+
+msgid "Affichage des caractéristiques spécifiques de l'eSIM."
+msgstr ""
+
+msgid "Récupération du numéro MSISDN associé à l'eSIM, si disponible."
+msgstr ""
+
+msgid "Récupération des informations de consommation pour l'eSIM."
+msgstr ""
+
+msgid "Initialisation de l'application."
+msgstr ""
+
+msgid "Authentification et obtention du token d'accès."
+msgstr ""
+
+msgid "Récupération des informations MSISDN"
+msgstr ""
+
+msgid "Numéro de téléphone associé"
+msgstr ""
+
+msgid "MSISDN: Numéro d'abonné mobile international"
+msgstr ""
+
+msgid "Format local"
+msgstr ""
+
+msgid "Opérateur d'attribution"
+msgstr ""
+
+msgid "Type de numéro"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Ce numéro est associé à votre eSIM mais n'est pas utilisable pour les appels vocaux ou SMS avec ce forfait data uniquement."
+msgstr ""
+
+msgid "Consultation du solde et de la consommation"
+msgstr ""
+
+msgid "Expire dans:"
+msgstr ""
+
+msgid "jours"
+msgstr ""
+
+msgid "Rafraîchir"
+msgstr ""
+
+msgid "Données utilisées"
+msgstr ""
+
+msgid "restant"
+msgstr ""
+
+msgid "Historique de consommation"
+msgstr ""
+
+msgid "Aujourd'hui"
+msgstr ""
+
+msgid "Hier"
+msgstr ""
+
+msgid "Télécharger le rapport complet"
+msgstr ""
+
+msgid "iPhone (XR et +)"
+msgstr ""
+
+msgid "Samsung (S20 et +)"
+msgstr ""
+
+msgid "Google Pixel"
+msgstr ""
+
+msgid "iPad (Pro, Air)"
+msgstr ""

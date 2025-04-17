@@ -1,0 +1,4 @@
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/octet-stream "access plus 1 year"
+</IfModule>

@@ -1,0 +1,2937 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Orange Travel B2B Simulator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-17 19:00+0200\n"
+"PO-Revision-Date: 2025-04-17 19:00+0200\n"
+"Last-Translator: \n"
+"Language: en\n"
+"Language-Team: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Simulateur d'écrans mobiles"
+msgstr "Mobile Screen Simulator"
+
+msgid ""
+"Ce simulateur vous permet de visualiser l'expérience utilisateur sur "
+"mobile pour les différentes fonctionnalités de l'API Orange Travel B2B. "
+"Choisissez un scénario pour voir la simulation."
+msgstr ""
+"This simulator allows you to visualize the mobile user experience for the"
+" various features of the Orange Travel B2B API. Choose a scenario to see "
+"the simulation."
+
+msgid "Scénarios disponibles"
+msgstr "Available scenarios"
+
+msgid "Achat et activation d'eSIM"
+msgstr "eSIM Purchase and Activation"
+
+msgid "Gestion de l'eSIM"
+msgstr "eSIM Management"
+
+msgid "Endpoint API"
+msgstr "API Endpoint"
+
+msgid "Connectivité internationale"
+msgstr "International connectivity"
+
+msgid "Bienvenue"
+msgstr "Welcome"
+
+msgid "Accédez à internet partout dans le monde avec nos solutions eSIM"
+msgstr "Access the internet anywhere in the world with our eSIM solutions"
+
+msgid "Commencer"
+msgstr "Start"
+
+msgid "Lancement de l'application"
+msgstr "Application launch"
+
+msgid "Authentification en cours..."
+msgstr "Authentication in progress..."
+
+msgid "Authentification avec les identifiants du distributeur"
+msgstr "Authentication with distributor credentials"
+
+msgid "Continuer"
+msgstr "Continue"
+
+msgid "Appel API pour l'authentification"
+msgstr "API call for authentication"
+
+msgid "Choisissez votre destination"
+msgstr "Choose your destination"
+
+msgid "Récupération des destinations disponibles"
+msgstr "Retrieving available destinations"
+
+msgid "France"
+msgstr "France"
+
+msgid "Espagne"
+msgstr "Spain"
+
+msgid "Italie"
+msgstr "Italy"
+
+msgid "Allemagne"
+msgstr "Germany"
+
+msgid "Filtrage des offres disponibles pour l'Espagne"
+msgstr "Filtering offers available for Spain"
+
+msgid "Offres disponibles"
+msgstr "Available offers"
+
+msgid "Espagne Data 5GB"
+msgstr "Spain Data 5GB"
+
+msgid "Espagne Data 10GB"
+msgstr "Spain Data 10GB"
+
+msgid "7 jours - Data: 5GB - Validité: 7 jours"
+msgstr "7 days - Data: 5GB - Validity: 7 days"
+
+msgid "14 jours - Data: 10GB - Validité: 14 jours"
+msgstr "14 days - Data: 10GB - Validity: 14 days"
+
+msgid "Détails de l'offre"
+msgstr "Offer details"
+
+msgid "Récupération des détails de l'offre"
+msgstr "Retrieving offer details"
+
+msgid "Prix:"
+msgstr "Price:"
+
+msgid "Données:"
+msgstr "Data:"
+
+msgid "Validité:"
+msgstr "Validity:"
+
+msgid "7 jours"
+msgstr "7 days"
+
+msgid "Couverture:"
+msgstr "Coverage:"
+
+msgid "Type:"
+msgstr "Type:"
+
+msgid "Data uniquement"
+msgstr "Data only"
+
+msgid "Acheter"
+msgstr "Buy"
+
+msgid "Achat en cours"
+msgstr "Purchase in progress"
+
+msgid "Création d'une transaction"
+msgstr "Creating a transaction"
+
+msgid "Achat effectué avec succès"
+msgstr "Purchase successfully completed"
+
+msgid "Transaction ID:"
+msgstr "Transaction ID:"
+
+msgid "eSIM profil crypté reçu"
+msgstr "Encrypted eSIM profile received"
+
+msgid "Déchiffrer le profil eSIM"
+msgstr "Decrypt eSIM profile"
+
+msgid "Déchiffrement"
+msgstr "Decryption"
+
+msgid "Opération de déchiffrement"
+msgstr "Decryption operation"
+
+msgid "Utilisation de la clé privée"
+msgstr "Using the private key"
+
+msgid "Déchiffrement en cours..."
+msgstr "Decryption in progress..."
+
+msgid "---- BEGIN eSIM PROFILE ----"
+msgstr "---- BEGIN eSIM PROFILE ----"
+
+msgid "ICCID:"
+msgstr "ICCID:"
+
+msgid "---- END eSIM PROFILE ----"
+msgstr "---- END eSIM PROFILE ----"
+
+msgid "Installer le profil eSIM"
+msgstr "Install eSIM profile"
+
+msgid "Installation"
+msgstr "Installation"
+
+msgid "Redirection système"
+msgstr "System redirection"
+
+msgid "Installation via paramètres du téléphone"
+msgstr "Installation via phone settings"
+
+msgid "Paramètres système"
+msgstr "System settings"
+
+msgid "Voulez-vous installer ce profil eSIM ?"
+msgstr "Do you want to install this eSIM profile?"
+
+msgid "Annuler"
+msgstr "Cancel"
+
+msgid "Installer"
+msgstr "Install"
+
+msgid ""
+"L'installation de l'eSIM nécessite une redirection vers les paramètres "
+"système"
+msgstr "eSIM installation requires redirection to system settings"
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Activation système"
+msgstr "System activation"
+
+msgid "Activation du profil eSIM"
+msgstr "Activating eSIM profile"
+
+msgid "eSIM activée avec succès"
+msgstr "eSIM successfully activated"
+
+msgid "Votre eSIM est maintenant prête à être utilisée"
+msgstr "Your eSIM is now ready to use"
+
+msgid "Nom:"
+msgstr "Name:"
+
+msgid "État:"
+msgstr "Status:"
+
+msgid "Actif"
+msgstr "Active"
+
+msgid "Gérer mon eSIM"
+msgstr "Manage my eSIM"
+
+msgid "Profil eSIM"
+msgstr "eSIM Profile"
+
+msgid "eSIM active"
+msgstr "Active eSIM"
+
+msgid "Plan:"
+msgstr "Plan:"
+
+msgid "Data 5GB"
+msgstr "Data 5GB"
+
+msgid "5 jours restants"
+msgstr "5 days remaining"
+
+msgid "Gérer cette eSIM"
+msgstr "Manage this eSIM"
+
+msgid "Informations fournisseur"
+msgstr "Supplier Information"
+
+msgid "Type d'eSIM"
+msgstr "eSIM Type"
+
+msgid "MSISDN (numéro)"
+msgstr "MSISDN (number)"
+
+msgid "Solde et consommation"
+msgstr "Balance and Usage"
+
+msgid "Fournisseur"
+msgstr "Supplier"
+
+msgid "Informations sur le fournisseur de l'eSIM"
+msgstr "Information about the eSIM supplier"
+
+msgid "Orange Spain"
+msgstr "Orange Spain"
+
+msgid "ID Fournisseur"
+msgstr "Supplier ID"
+
+msgid "Pays d'opération"
+msgstr "Operating Country"
+
+msgid "Type de réseau"
+msgstr "Network Type"
+
+msgid "4G/5G"
+msgstr "4G/5G"
+
+msgid "Support technique"
+msgstr "Technical Support"
+
+msgid "Caractéristiques techniques"
+msgstr "Technical Specifications"
+
+msgid "Type de profil:"
+msgstr "Profile Type:"
+
+msgid "Consommateur"
+msgstr "Consumer"
+
+msgid "Version:"
+msgstr "Version:"
+
+msgid "Capacité:"
+msgstr "Capacity:"
+
+msgid "Réseaux:"
+msgstr "Networks:"
+
+msgid "Compatibilité"
+msgstr "Compatibility"
+
+msgid "Cette eSIM est compatible avec les appareils suivants:"
+msgstr "This eSIM is compatible with the following devices:"
+
+msgid "iPhone 12 et +"
+msgstr "iPhone 12 and later"
+
+msgid "Samsung Galaxy S21 et +"
+msgstr "Samsung Galaxy S21 and later"
+
+msgid "Google Pixel 6 et +"
+msgstr "Google Pixel 6 and later"
+
+msgid "Numéro associé"
+msgstr "Associated Number"
+
+msgid "Ce profil eSIM a le numéro téléphonique suivant:"
+msgstr "This eSIM profile has the following phone number:"
+
+msgid "Non disponible"
+msgstr "Not available"
+
+msgid "Certaines eSIM de type données uniquement n'ont pas de numéro associé."
+msgstr "Some data-only eSIMs do not have an associated number."
+
+msgid "Consommation"
+msgstr "Usage"
+
+msgid "Données utilisées:"
+msgstr "Data used:"
+
+msgid "sur"
+msgstr "of"
+
+msgid "Temps restant:"
+msgstr "Time remaining:"
+
+msgid "Expire le:"
+msgstr "Expires on:"
+
+msgid "Dernière mise à jour:"
+msgstr "Last updated:"
+
+msgid "Manipulation côté client"
+msgstr "Client-side processing"
+
+msgid "Aucun appel API à cette étape"
+msgstr "No API call at this step"
+
+msgid "Récupération des offres disponibles, filtrées par pays."
+msgstr "Retrieving available offers, filtered by country."
+
+msgid "Aucun appel API, filtrage des données déjà reçues."
+msgstr "No API call, filtering data already received."
+
+msgid "Récupération des détails de l'offre sélectionnée."
+msgstr "Retrieving selected offer details."
+
+msgid "Création d'une transaction pour obtenir une eSIM."
+msgstr "Creating a transaction to obtain an eSIM."
+
+msgid ""
+"Déchiffrement du code d'activation à l'aide de la clé privée du "
+"distributeur."
+msgstr "Decryption of activation code using the distributor's private key."
+
+msgid ""
+"Redirection vers les paramètres du téléphone pour installer le profil "
+"eSIM."
+msgstr "Redirecting to phone settings to install the eSIM profile."
+
+msgid "Activation du profil eSIM installé sur l'appareil."
+msgstr "Activating the eSIM profile installed on the device."
+
+msgid "Affichage des détails de l'eSIM"
+msgstr "Displaying eSIM details"
+
+msgid "Informations sur le profil eSIM déjà installé."
+msgstr "Information about the already installed eSIM profile."
+
+msgid "Navigation interne"
+msgstr "Internal navigation"
+
+msgid "Accès à la section de gestion des eSIM."
+msgstr "Access to the eSIM management section."
+
+msgid "Récupération des informations sur le fournisseur de l'eSIM."
+msgstr "Retrieving information about the eSIM supplier."
+
+msgid "Affichage des propriétés"
+msgstr "Displaying properties"
+
+msgid "Affichage des caractéristiques spécifiques de l'eSIM."
+msgstr "Displaying specific characteristics of the eSIM."
+
+msgid "Récupération du numéro MSISDN associé à l'eSIM, si disponible."
+msgstr "Retrieving the MSISDN number associated with the eSIM, if available."
+
+msgid "Récupération des informations de consommation pour l'eSIM."
+msgstr "Retrieving usage information for the eSIM."
+
+msgid "Initialisation de l'application."
+msgstr "Application initialization."
+
+msgid "Authentification et obtention du token d'accès."
+msgstr "Authentication and obtaining access token."
+
+msgid "Récupération des informations MSISDN"
+msgstr "Retrieving MSISDN information"
+
+msgid "Numéro de téléphone associé"
+msgstr "Associated phone number"
+
+msgid "MSISDN: Numéro d'abonné mobile international"
+msgstr "MSISDN: Mobile Subscriber ISDN Number"
+
+msgid "Format local"
+msgstr "Local format"
+
+msgid "Opérateur d'attribution"
+msgstr "Allocation operator"
+
+msgid "Type de numéro"
+msgstr "Number type"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid ""
+"Ce numéro est associé à votre eSIM mais n'est pas utilisable pour les "
+"appels vocaux ou SMS avec ce forfait data uniquement."
+msgstr ""
+"This number is associated with your eSIM but cannot be used for voice "
+"calls or SMS with this data-only plan."
+
+msgid "Consultation du solde et de la consommation"
+msgstr "Balance and usage information"
+
+msgid "Expire dans:"
+msgstr "Expires in:"
+
+msgid "jours"
+msgstr "days"
+
+msgid "Rafraîchir"
+msgstr "Refresh"
+
+msgid "Données utilisées"
+msgstr "Data used"
+
+msgid "restant"
+msgstr "remaining"
+
+msgid "Historique de consommation"
+msgstr "Usage history"
+
+msgid "Aujourd'hui"
+msgstr "Today"
+
+msgid "Hier"
+msgstr "Yesterday"
+
+msgid "Télécharger le rapport complet"
+msgstr "Download complete report"
+
+msgid "iPhone (XR et +)"
+msgstr "iPhone (XR and later)"
+
+msgid "Samsung (S20 et +)"
+msgstr "Samsung (S20 and later)"
+
+msgid "Google Pixel"
+msgstr "Google Pixel"
+
+msgid "iPad (Pro, Air)"
+msgstr "iPad (Pro, Air)"
+
+msgid "Testeur d'API"
+msgstr "API Tester"
+
+msgid ""
+"Cet outil vous permet de tester directement les différents endpoints de "
+"l'API Orange Travel B2B et de visualiser les réponses de manière "
+"formatée."
+msgstr ""
+"This tool allows you to directly test the different endpoints of the "
+"Orange Travel B2B API and view the responses in a formatted way."
+
+msgid "Vous devez vous authentifier avant de pouvoir tester l'API."
+msgstr "You must authenticate before you can test the API."
+
+msgid "S'authentifier"
+msgstr "Authenticate"
+
+msgid "Sélectionner un endpoint"
+msgstr "Select an endpoint"
+
+msgid "Informations de base"
+msgstr "Basic information"
+
+msgid "Gestion des offres"
+msgstr "Offer management"
+
+msgid "Gestion des transactions"
+msgstr "Transaction management"
+
+msgid "Gestion des fournisseurs et eSIM"
+msgstr "Supplier and eSIM management"
+
+msgid "Gestion des clés RSA"
+msgstr "RSA key management"
+
+msgid "Test de connexion"
+msgstr "Connection Test"
+
+msgid "Liste des pays"
+msgstr "Country list"
+
+msgid "Liste des devises"
+msgstr "Currency list"
+
+msgid "Liste des offres"
+msgstr "Offer list"
+
+msgid "Détails d'une offre"
+msgstr "Offer details"
+
+msgid "Personnaliser une offre"
+msgstr "Customize an offer"
+
+msgid "Liste des transactions"
+msgstr "Transaction List"
+
+msgid "Créer une transaction"
+msgstr "Create a transaction"
+
+msgid "Détails d'une transaction"
+msgstr "Details of a transaction"
+
+msgid "Nombre de transactions"
+msgstr "Transaction count"
+
+msgid "Liste des fournisseurs"
+msgstr "Supplier list"
+
+msgid "Statut d'une SIM/eSIM"
+msgstr "SIM/eSIM status"
+
+msgid "Consommations d'une SIM"
+msgstr "SIM usage"
+
+msgid "Statistiques globales"
+msgstr "Global statistics"
+
+msgid "Récupérer clé publique"
+msgstr "Get public key"
+
+msgid "Configurer clé publique"
+msgstr "Configure public key"
+
+msgid "Paramètres"
+msgstr "Parameters"
+
+msgid "Aucun paramètre requis pour cet endpoint."
+msgstr "No parameters required for this endpoint."
+
+msgid "Guide du développeur"
+msgstr "Developer Guide"
+
+msgid ""
+"Cet endpoint renvoie la liste complète des offres disponibles pour le "
+"distributeur. Les offres peuvent être de différents types :"
+msgstr ""
+"This endpoint returns the complete list of offers available to the "
+"distributor. Offers can be of different types:"
+
+msgid "Recharges (topup)"
+msgstr "Top-ups (topup)"
+
+msgid "eSIM"
+msgstr "eSIM"
+
+msgid "Cartes SIM"
+msgstr "SIM cards"
+
+msgid "Crédit, données, minutes ou SMS"
+msgstr "Credit, data, minutes or SMS"
+
+msgid "Cartes SIM virtuelles avec différents forfaits"
+msgstr "Virtual SIM cards with different plans"
+
+msgid "Cartes SIM physiques"
+msgstr "Physical SIM cards"
+
+msgid "Utilisez la pagination pour gérer de grandes listes d'offres."
+msgstr "Use pagination to manage large lists of offers."
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Nombre par page"
+msgstr "Items per page"
+
+msgid "ID de l'offre"
+msgstr "Offer ID"
+
+msgid "Nom personnalisé"
+msgstr "Custom name"
+
+msgid "Frais de service"
+msgstr "Service fee"
+
+msgid "Devise des frais"
+msgstr "Fee currency"
+
+msgid "Date de début"
+msgstr "Start date"
+
+msgid "Date de fin"
+msgstr "End date"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Tous"
+msgstr "All"
+
+msgid "Créée"
+msgstr "Created"
+
+msgid "En attente"
+msgstr "Pending"
+
+msgid "Réussie"
+msgstr "Successful"
+
+msgid "Échouée"
+msgstr "Failed"
+
+msgid "Expirée"
+msgstr "Expired"
+
+msgid "ID de la transaction"
+msgstr "Transaction ID"
+
+msgid "Type de transaction"
+msgstr "Transaction type"
+
+msgid "ID utilisateur (optionnel)"
+msgstr "User ID (optional)"
+
+msgid "Numéro de téléphone (MSISDN)"
+msgstr "Phone number (MSISDN)"
+
+msgid "Format : 9 derniers chiffres du numéro (sans préfixe international)"
+msgstr "Format: Last 9 digits of the number (without international prefix)"
+
+msgid "NSCE (ID court de la SIM)"
+msgstr "NSCE (SIM short ID)"
+
+msgid "Utilisez le NSCE de la SIM (visible dans les détails de transaction)"
+msgstr "Use the SIM's NSCE (visible in transaction details)"
+
+msgid ""
+"Aucun paramètre supplémentaire n'est requis pour l'activation d'une eSIM."
+" Les codes d'activation seront générés automatiquement et retournés dans "
+"la réponse (chiffrés)."
+msgstr ""
+"No additional parameters are required for eSIM activation. Activation "
+"codes will be automatically generated and returned in the response "
+"(encrypted)."
+
+msgid "ID du client"
+msgstr "Client ID"
+
+msgid "Prénom du client"
+msgstr "Client's first name"
+
+msgid "Nom du client"
+msgstr "Client's last name"
+
+msgid "Email du client"
+msgstr "Client's email"
+
+msgid "Date de naissance"
+msgstr "Birth date"
+
+msgid "ID du fournisseur"
+msgstr "Supplier ID"
+
+msgid "ICCID (optionnel)"
+msgstr "ICCID (optional)"
+
+msgid "Niveau de zone"
+msgstr "Zone level"
+
+msgid "Région"
+msgstr "Region"
+
+msgid "Pays"
+msgstr "Country"
+
+msgid "Encodage"
+msgstr "Encoding"
+
+msgid "Par défaut"
+msgstr "Default"
+
+msgid "Base64"
+msgstr "Base64"
+
+msgid "Type de clé"
+msgstr "Key type"
+
+msgid "Valeur de la clé publique"
+msgstr "Public key value"
+
+msgid "Exécuter la requête"
+msgstr "Execute request"
+
+msgid "Réponse API"
+msgstr "API Response"
+
+msgid "Fonctionnalités à venir"
+msgstr "Upcoming features"
+
+msgid "Sauvegarde des requêtes précédentes"
+msgstr "Save previous requests"
+
+msgid "Génération de code pour différents langages de programmation"
+msgstr "Code generation for different programming languages"
+
+msgid "Mode comparaison des réponses"
+msgstr "Response comparison mode"
+
+msgid ""
+"Cet endpoint renvoie les détails complets d'une offre spécifique, "
+"notamment :"
+msgstr "This endpoint returns the complete details of a specific offer, including:"
+
+msgid "Informations sur le produit associé (type, couverture, validité)"
+msgstr "Information about the associated product (type, coverage, validity)"
+
+msgid "Prix et frais de distribution"
+msgstr "Price and distribution fees"
+
+msgid "Solde du bucket (pour les offres de type topup)"
+msgstr "Bucket balance (for topup offers)"
+
+msgid "Métadonnées spécifiques au type de produit"
+msgstr "Metadata specific to the product type"
+
+msgid "Ces informations sont essentielles avant de créer une transaction."
+msgstr "This information is essential before creating a transaction."
+
+msgid ""
+"Cet endpoint permet de personnaliser certains paramètres d'une offre "
+"existante :"
+msgstr ""
+"This endpoint allows you to customize certain parameters of an existing "
+"offer:"
+
+msgid "Nom personnalisé pour l'affichage côté client"
+msgstr "Custom name for client-side display"
+
+msgid "Marge (markup) appliquée au prix de base"
+msgstr "Markup applied to the base price"
+
+msgid "Devise de la marge"
+msgstr "Markup currency"
+
+msgid "Métadonnées personnalisées"
+msgstr "Custom Metadata"
+
+msgid ""
+"Cette personnalisation n'affecte pas les caractéristiques techniques du "
+"produit sous-jacent."
+msgstr ""
+"This customization does not affect the technical characteristics of the "
+"underlying product."
+
+msgid ""
+"Cet endpoint renvoie l'historique des transactions avec possibilité de "
+"filtrage :"
+msgstr "This endpoint returns the transaction history with filtering options:"
+
+msgid "Filtrage par période (startDate, endDate)"
+msgstr "Filtering by period (startDate, endDate)"
+
+msgid "Filtrage par statut (created, pending, ok, ko, expired)"
+msgstr "Filtering by status (created, pending, ok, ko, expired)"
+
+msgid "Pagination pour gérer de grands volumes"
+msgstr "Pagination to manage large volumes"
+
+msgid ""
+"Les transactions peuvent concerner des recharges, des activations d'eSIM "
+"ou des cartes SIM physiques."
+msgstr ""
+"Transactions can involve recharges, eSIM activations, or physical SIM "
+"cards."
+
+msgid "Cet endpoint renvoie les détails complets d'une transaction spécifique :"
+msgstr "This endpoint returns the complete details of a specific transaction:"
+
+msgid "Statut actuel et historique des changements"
+msgstr "Current status and change history"
+
+msgid "Informations sur l'offre et le produit associés"
+msgstr "Information about the associated offer and product"
+
+msgid "Détails de facturation et prix"
+msgstr "Billing details and prices"
+
+msgid "Paramètres spécifiques (MSISDN, ICCID, codes d'activation pour eSIM, etc.)"
+msgstr "Specific parameters (MSISDN, ICCID, activation codes for eSIM, etc.)"
+
+msgid ""
+"Pour les transactions d'eSIM, les données sensibles sont chiffrées avec "
+"la clé RSA du distributeur."
+msgstr ""
+"For eSIM transactions, sensitive data is encrypted with the distributor's"
+" RSA key."
+
+msgid ""
+"Cet endpoint permet de créer une nouvelle transaction. Le type de "
+"transaction détermine les paramètres requis :"
+msgstr ""
+"This endpoint allows you to create a new transaction. The transaction "
+"type determines the required parameters:"
+
+msgid "Recharge Orange/Espagne"
+msgstr "Orange/Spain Top-up"
+
+msgid "Nécessite un MSISDN (numéro de téléphone)"
+msgstr "Requires an MSISDN (phone number)"
+
+msgid "Recharge Welcome Travelers"
+msgstr "Welcome Travelers Top-up"
+
+msgid "Nécessite le NSCE (numéro court)"
+msgstr "Requires the NSCE (short number)"
+
+msgid "Uniquement l'ID de l'offre est nécessaire"
+msgstr "Only the offer ID is required"
+
+msgid ""
+"L'ID de l'offre est toujours obligatoire et doit correspondre à une offre"
+" active."
+msgstr "The offer ID is always mandatory and must correspond to an active offer."
+
+msgid ""
+"Pour les transactions eSIM, les codes d'activation retournés sont "
+"chiffrés avec la clé publique RSA du distributeur et doivent être "
+"déchiffrés avec la clé privée correspondante."
+msgstr ""
+"For eSIM transactions, the returned activation codes are encrypted with "
+"the distributor's RSA public key and must be decrypted with the "
+"corresponding private key."
+
+msgid ""
+"Cet endpoint permet de compter le nombre de transactions selon différents"
+" critères :"
+msgstr ""
+"This endpoint allows you to count the number of transactions according to"
+" different criteria:"
+
+msgid "Comptage par période (startDate, endDate)"
+msgstr "Counting by period (startDate, endDate)"
+
+msgid "Comptage par statut (created, pending, ok, ko, expired)"
+msgstr "Counting by status (created, pending, ok, ko, expired)"
+
+msgid "Utile pour les statistiques et rapports"
+msgstr "Useful for statistics and reports"
+
+msgid ""
+"Cette fonction est particulièrement utile pour les tableaux de bord et "
+"les rapports d'activité."
+msgstr "This function is particularly useful for dashboards and activity reports."
+
+msgid ""
+"Cet endpoint permet de créer différents types de transactions selon le "
+"type de produit associé à l'offre :"
+msgstr ""
+"This endpoint allows you to create different types of transactions "
+"depending on the type of product associated with the offer:"
+
+msgid "Recharge (topup)"
+msgstr "Top-up"
+
+msgid "Recharge de crédit, données, minutes ou SMS pour une carte SIM existante"
+msgstr "Credit, data, minutes or SMS top-up for an existing SIM card"
+
+msgid "Fourniture d'une carte SIM virtuelle avec un profil prédéfini"
+msgstr "Provision of a virtual SIM card with a predefined profile"
+
+msgid "Activation d'une carte SIM physique"
+msgstr "Activation of a physical SIM card"
+
+msgid ""
+"Les paramètres requis varient selon le type d'opération. Pour une "
+"recharge, le paramètre"
+msgstr ""
+"The required parameters vary according to the type of operation. For a "
+"top-up, the parameter"
+
+msgid ""
+"Cet endpoint renvoie la liste des fournisseurs disponibles pour le "
+"distributeur :"
+msgstr "This endpoint returns the list of suppliers available to the distributor:"
+
+msgid "Fournisseurs d'eSIM (opérateurs virtuels)"
+msgstr "eSIM suppliers (virtual operators)"
+
+msgid "Fournisseurs de recharges (opérateurs locaux)"
+msgstr "Top-up suppliers (local operators)"
+
+msgid "Statut de chaque fournisseur (approved, revoked, pending)"
+msgstr "Status of each supplier (approved, revoked, pending)"
+
+msgid ""
+"L'ID du fournisseur est nécessaire pour les opérations liées aux SIM et "
+"aux recharges."
+msgstr "The supplier ID is necessary for operations related to SIMs and top-ups."
+
+msgid ""
+"Cet endpoint permet de vérifier le statut d'une carte SIM/eSIM. Les "
+"statuts possibles incluent :"
+msgstr ""
+"This endpoint allows you to check the status of a SIM/eSIM card. Possible"
+" statuses include:"
+
+msgid "free"
+msgstr "free"
+
+msgid "not installed"
+msgstr "not installed"
+
+msgid "available"
+msgstr "available"
+
+msgid "suspended"
+msgstr "suspended"
+
+msgid "Disponible"
+msgstr "Available"
+
+msgid "Non installée"
+msgstr "Not installed"
+
+msgid "Disponible et active"
+msgstr "Available and active"
+
+msgid "Suspendue (diverses raisons)"
+msgstr "Suspended (various reasons)"
+
+msgid ""
+"Vous pouvez identifier la SIM soit par l'ID de transaction, soit par "
+"l'ICCID directement."
+msgstr ""
+"You can identify the SIM either by the transaction ID or directly by the "
+"ICCID."
+
+msgid ""
+"Cet endpoint permet de consulter les consommations et soldes restants "
+"d'une carte SIM/eSIM :"
+msgstr ""
+"This endpoint allows you to consult the consumption and remaining "
+"balances of a SIM/eSIM card:"
+
+msgid "Données restantes (Mo/Go)"
+msgstr "Remaining data (MB/GB)"
+
+msgid "Temps d'appel restant (minutes/heures)"
+msgstr "Remaining call time (minutes/hours)"
+
+msgid "SMS restants"
+msgstr "Remaining SMS"
+
+msgid "Dates d'activation et d'expiration"
+msgstr "Activation and expiration dates"
+
+msgid ""
+"Ces informations sont essentielles pour suivre l'utilisation et "
+"déterminer si une recharge est nécessaire."
+msgstr ""
+"This information is essential for tracking usage and determining if a "
+"top-up is necessary."
+
+msgid ""
+"Cet endpoint fournit des statistiques globales de consommation pour une "
+"période donnée :"
+msgstr "This endpoint provides global consumption statistics for a given period:"
+
+msgid "Consommation totale par région ou pays (selon zoneLevel)"
+msgstr "Total consumption by region or country (according to zoneLevel)"
+
+msgid "Période maximale de 6 mois"
+msgstr "Maximum period of 6 months"
+
+msgid "Détails par type de consommation (data, voix, SMS)"
+msgstr "Details by consumption type (data, voice, SMS)"
+
+msgid ""
+"Ces statistiques sont particulièrement utiles pour analyser les tendances"
+" d'utilisation et optimiser les offres."
+msgstr ""
+"These statistics are particularly useful for analyzing usage trends and "
+"optimizing offers."
+
+msgid ""
+"Cet endpoint permet de récupérer la clé publique RSA actuellement "
+"configurée :"
+msgstr ""
+"This endpoint allows you to retrieve the currently configured RSA public "
+"key:"
+
+msgid "Utilisée pour vérifier que la bonne clé est configurée"
+msgstr "Used to verify that the correct key is configured"
+
+msgid "Option d'encodage en base64 disponible"
+msgstr "Base64 encoding option available"
+
+msgid "Essentielle pour le système de chiffrement des données sensibles"
+msgstr "Essential for the sensitive data encryption system"
+
+msgid ""
+"La clé publique est utilisée par l'API pour chiffrer les données "
+"sensibles comme les codes d'activation d'eSIM."
+msgstr ""
+"The public key is used by the API to encrypt sensitive data such as eSIM "
+"activation codes."
+
+msgid ""
+"Cet endpoint permet de configurer une nouvelle clé publique RSA pour le "
+"chiffrement :"
+msgstr "This endpoint allows you to configure a new RSA public key for encryption:"
+
+msgid "Remplace la clé précédemment configurée"
+msgstr "Replaces the previously configured key"
+
+msgid "Doit être au format PEM standard"
+msgstr "Must be in standard PEM format"
+
+msgid ""
+"La clé privée correspondante doit être conservée de manière sécurisée "
+"côté client"
+msgstr "The corresponding private key must be securely stored on the client side"
+
+msgid "Important"
+msgstr "Important"
+
+msgid ""
+"Après changement de clé, les données précédemment chiffrées ne pourront "
+"plus être déchiffrées avec la nouvelle clé privée."
+msgstr ""
+"After changing the key, previously encrypted data can no longer be "
+"decrypted with the new private key."
+
+msgid "DOM chargé, initialisation du testeur API"
+msgstr "DOM loaded, initializing API tester"
+
+msgid "Bouton d'exécution:"
+msgstr "Execute button:"
+
+msgid "Zone de résultat:"
+msgstr "Result area:"
+
+msgid "Label de statut:"
+msgstr "Status label:"
+
+msgid "Le bouton d'exécution n'a pas été trouvé!"
+msgstr "The execute button was not found!"
+
+msgid "ID de l'offre requis"
+msgstr "Offer ID required"
+
+msgid "L'ID de l'offre est obligatoire"
+msgstr "The offer ID is mandatory"
+
+msgid ""
+"Le numéro de téléphone (MSISDN) est obligatoire pour une recharge "
+"Orange/Espagne"
+msgstr "The phone number (MSISDN) is mandatory for an Orange/Spain top-up"
+
+msgid "Recharge Orange/Espagne (MSISDN)"
+msgstr "Orange/Spain Top-up (MSISDN)"
+
+msgid "Recharge Welcome Travelers (NSCE)"
+msgstr "Welcome Travelers Top-up (NSCE)"
+
+msgid "Activation eSIM"
+msgstr "eSIM Activation"
+
+msgid "Guide d'intégration en 12 étapes"
+msgstr "12-Step Integration Guide"
+
+msgid ""
+"Ce guide interactif vous présente les 12 étapes nécessaires pour intégrer"
+" l'API Orange Travel B2B dans votre système. Chaque étape contient des "
+"explications détaillées et des exemples concrets."
+msgstr ""
+"This interactive guide presents the 12 steps necessary to integrate the "
+"Orange Travel B2B API into your system. Each step contains detailed "
+"explanations and concrete examples."
+
+msgid "Étapes 1-4 : Bases et configuration"
+msgstr "Steps 1-4: Basics and Configuration"
+
+msgid "Étapes 5-8 : Transactions et eSIM"
+msgstr "Steps 5-8: Transactions and eSIM"
+
+msgid "Étapes 9-12 : Suivi et gestion"
+msgstr "Steps 9-12: Monitoring and Management"
+
+msgid "Bases et configuration"
+msgstr "Basics and Configuration"
+
+msgid "Transactions et eSIM"
+msgstr "Transactions and eSIM"
+
+msgid "Suivi et gestion"
+msgstr "Monitoring and Management"
+
+msgid "Ressources complémentaires"
+msgstr "Additional Resources"
+
+msgid "Essayez les endpoints directement depuis votre navigateur"
+msgstr "Try endpoints directly from your browser"
+
+msgid "Visualisez l'expérience utilisateur sur mobile"
+msgstr "Visualize the user experience on mobile"
+
+msgid "Étape 1 : Créer un compte développeur"
+msgstr "Step 1: Create a Developer Account"
+
+msgid ""
+"Inscrivez-vous sur le portail développeur d'Orange pour obtenir vos "
+"identifiants API."
+msgstr "Sign up on the Orange Developer Portal to get your API credentials."
+
+msgid "Accédez au portail"
+msgstr "Access the portal"
+
+msgid "Créez un compte et validez votre email"
+msgstr "Create an account and validate your email"
+
+msgid "Souscrivez à l'offre Travel B2B API"
+msgstr "Subscribe to the Travel B2B API offer"
+
+msgid "Récupérez vos clés d'API dans la section 'Mes applications'"
+msgstr "Retrieve your API keys in the 'My Applications' section"
+
+msgid "Étape 2 : Configurer l'authentification OAuth 2.0"
+msgstr "Step 2: Configure OAuth 2.0 Authentication"
+
+msgid "Implémentez le flux OAuth 2.0 pour sécuriser vos appels API."
+msgstr "Implement the OAuth 2.0 flow to secure your API calls."
+
+msgid "Utilisez le flux client_credentials"
+msgstr "Use the client_credentials flow"
+
+msgid "Envoyez une requête POST à https://api.orange.com/oauth/v3/token"
+msgstr "Send a POST request to https://api.orange.com/oauth/v3/token"
+
+msgid "Incluez vos client_id et client_secret"
+msgstr "Include your client_id and client_secret"
+
+msgid "Stockez le token retourné (valide 1 heure)"
+msgstr "Store the returned token (valid for 1 hour)"
+
+msgid "Exemple de code"
+msgstr "Code example"
+
+msgid "Étape 3 : Explorer les endpoints disponibles"
+msgstr "Step 3: Explore Available Endpoints"
+
+msgid "Familiarisez-vous avec les différents endpoints et leurs fonctionnalités."
+msgstr ""
+"Familiarize yourself with the different endpoints and their "
+"functionalities."
+
+msgid "Endpoints de base"
+msgstr "Basic endpoints"
+
+msgid "GET /live - Test de connexion"
+msgstr "GET /live - Connection test"
+
+msgid "GET /countries - Liste des pays couverts"
+msgstr "GET /countries - List of covered countries"
+
+msgid "GET /currencies - Devises supportées"
+msgstr "GET /currencies - Supported currencies"
+
+msgid "Endpoints principaux"
+msgstr "Main endpoints"
+
+msgid "GET /offers - Liste des offres disponibles"
+msgstr "GET /offers - List of available offers"
+
+msgid "POST /transactions - Créer une transaction"
+msgstr "POST /transactions - Create a transaction"
+
+#, python-brace-format
+msgid "GET /transactions/{id} - Détails d'une transaction"
+msgstr "GET /transactions/{id} - Transaction details"
+
+msgid "Étape 4 : Configurer votre clé RSA"
+msgstr "Step 4: Configure Your RSA Key"
+
+msgid ""
+"Générez et configurez une paire de clés RSA pour le chiffrement des "
+"données sensibles."
+msgstr "Generate and configure an RSA key pair for encrypting sensitive data."
+
+msgid "Pourquoi utiliser RSA ?"
+msgstr "Why use RSA?"
+
+msgid "Les codes d'activation d'eSIM sont des données sensibles"
+msgstr "eSIM activation codes are sensitive data"
+
+msgid "Le chiffrement RSA assure leur protection"
+msgstr "RSA encryption ensures their protection"
+
+msgid "Étapes de configuration"
+msgstr "Configuration steps"
+
+msgid "Générez une paire de clés RSA (2048 bits minimum)"
+msgstr "Generate an RSA key pair (2048 bits minimum)"
+
+msgid "Envoyez votre clé publique via POST /keys"
+msgstr "Send your public key via POST /keys"
+
+msgid "Conservez votre clé privée en sécurité"
+msgstr "Keep your private key secure"
+
+msgid "Étape 5 : Récupérer la liste des offres"
+msgstr "Step 5: Retrieve the List of Offers"
+
+msgid "Obtenez et affichez les offres disponibles pour vos clients."
+msgstr "Get and display the offers available to your customers."
+
+msgid "Appel API"
+msgstr "API Call"
+
+msgid "GET /offers avec pagination (page, perPage)"
+msgstr "GET /offers with pagination (page, perPage)"
+
+msgid "Filtrage possible par type (topup, esim, sim)"
+msgstr "Possible filtering by type (topup, esim, sim)"
+
+msgid "Traitement des résultats"
+msgstr "Processing results"
+
+msgid "Affichez les offres par catégorie"
+msgstr "Display offers by category"
+
+msgid "Stockez les IDs d'offres pour les transactions"
+msgstr "Store offer IDs for transactions"
+
+msgid "Mettez en cache les résultats (TTL recommandé: 1h)"
+msgstr "Cache results (recommended TTL: 1h)"
+
+msgid "Étape 6 : Créer une transaction"
+msgstr "Step 6: Create a Transaction"
+
+msgid ""
+"Implémentez le processus d'achat pour permettre à vos clients d'acquérir "
+"des offres."
+msgstr "Implement the purchase process to allow your customers to acquire offers."
+
+msgid "Préparer les données"
+msgstr "Prepare the data"
+
+msgid "ID de l'offre (obligatoire)"
+msgstr "Offer ID (required)"
+
+msgid "ID utilisateur (recommandé pour le suivi)"
+msgstr "User ID (recommended for tracking)"
+
+msgid "Paramètres spécifiques selon le type d'offre"
+msgstr "Specific parameters depending on the offer type"
+
+msgid "Envoyer la requête"
+msgstr "Send the request"
+
+msgid "POST /transactions avec le token OAuth"
+msgstr "POST /transactions with the OAuth token"
+
+msgid "Format JSON pour le corps de la requête"
+msgstr "JSON format for the request body"
+
+msgid "Gérer la réponse"
+msgstr "Handle the response"
+
+msgid "Stockez l'ID de transaction retourné"
+msgstr "Store the returned transaction ID"
+
+msgid "Vérifiez le statut initial (généralement 'created')"
+msgstr "Check the initial status (usually 'created')"
+
+msgid "Étape 7 : Gérer les codes d'activation eSIM"
+msgstr "Step 7: Manage eSIM Activation Codes"
+
+msgid "Déchiffrez et présentez les codes d'activation eSIM à vos utilisateurs."
+msgstr "Decrypt and present eSIM activation codes to your users."
+
+msgid "Récupérer les codes chiffrés"
+msgstr "Retrieve encrypted codes"
+
+#, python-brace-format
+msgid "GET /transactions/{id} après création réussie"
+msgstr "GET /transactions/{id} after successful creation"
+
+msgid "Les codes sont dans le champ 'encrypted_activation_code'"
+msgstr "Codes are in the 'encrypted_activation_code' field"
+
+msgid "Déchiffrement côté client"
+msgstr "Client-side decryption"
+
+msgid "Utilisez votre clé privée RSA pour déchiffrer"
+msgstr "Use your private RSA key to decrypt"
+
+msgid "Le résultat est un objet JSON avec les codes"
+msgstr "The result is a JSON object with the codes"
+
+msgid "Présentation à l'utilisateur"
+msgstr "Presentation to the user"
+
+msgid "Code QR pour installation facile"
+msgstr "QR code for easy installation"
+
+msgid "Instructions manuelles (code d'activation + confirmation)"
+msgstr "Manual instructions (activation code + confirmation)"
+
+msgid "Étape 8 : Implémenter le webhook de notification"
+msgstr "Step 8: Implement the Notification Webhook"
+
+msgid ""
+"Configurez un endpoint pour recevoir les mises à jour de statut des "
+"transactions."
+msgstr "Configure an endpoint to receive transaction status updates."
+
+msgid "Créer l'endpoint webhook"
+msgstr "Create the webhook endpoint"
+
+msgid "Endpoint accessible publiquement (HTTPS obligatoire)"
+msgstr "Publicly accessible endpoint (HTTPS required)"
+
+msgid "Méthode POST acceptant du JSON"
+msgstr "POST method accepting JSON"
+
+msgid "Enregistrer l'URL"
+msgstr "Register the URL"
+
+msgid "Contactez le support Orange pour enregistrer votre URL"
+msgstr "Contact Orange support to register your URL"
+
+msgid "Traiter les notifications"
+msgstr "Process notifications"
+
+msgid "Vérifiez la signature dans l'en-tête X-Signature"
+msgstr "Check the signature in the X-Signature header"
+
+msgid "Mettez à jour le statut des transactions dans votre système"
+msgstr "Update transaction status in your system"
+
+msgid "Répondez avec un code 200 pour confirmer la réception"
+msgstr "Respond with a 200 code to confirm receipt"
+
+msgid "Étape 9 : Vérifier le statut des transactions"
+msgstr "Step 9: Check Transaction Status"
+
+msgid "Implémentez un mécanisme pour suivre et afficher l'état des transactions."
+msgstr "Implement a mechanism to track and display transaction status."
+
+msgid "Méthode pull (active)"
+msgstr "Pull method (active)"
+
+#, python-brace-format
+msgid "GET /transactions/{id} périodiquement"
+msgstr "GET /transactions/{id} periodically"
+
+msgid "Intervalle recommandé: 30s initialement, puis espacé"
+msgstr "Recommended interval: 30s initially, then spaced out"
+
+msgid "Statuts possibles"
+msgstr "Possible statuses"
+
+msgid "created: Transaction créée"
+msgstr "created: Transaction created"
+
+msgid "pending: En cours de traitement"
+msgstr "pending: Processing"
+
+msgid "ok: Réussie"
+msgstr "ok: Successful"
+
+msgid "ko: Échouée"
+msgstr "ko: Failed"
+
+msgid "expired: Expirée"
+msgstr "expired: Expired"
+
+msgid "Interface utilisateur"
+msgstr "User interface"
+
+msgid "Affichez le statut actuel de manière claire"
+msgstr "Display the current status clearly"
+
+msgid "Prévoyez des messages d'erreur explicites"
+msgstr "Provide explicit error messages"
+
+msgid "Étape 10 : Consulter les consommations"
+msgstr "Step 10: Check Usage"
+
+msgid ""
+"Permettez à vos utilisateurs de suivre leur consommation de données, "
+"minutes et SMS."
+msgstr "Allow your users to track their data, minutes, and SMS usage."
+
+msgid "Récupérer les informations"
+msgstr "Retrieve information"
+
+msgid "GET /suppliers/usagebalances avec l'ID de transaction"
+msgstr "GET /suppliers/usagebalances with transaction ID"
+
+msgid "Alternative: utiliser l'ICCID si disponible"
+msgstr "Alternative: use ICCID if available"
+
+msgid "Données retournées"
+msgstr "Returned data"
+
+msgid "Minutes d'appel disponibles"
+msgstr "Available call minutes"
+
+msgid "Date d'expiration"
+msgstr "Expiration date"
+
+msgid "Affichage utilisateur"
+msgstr "User display"
+
+msgid "Graphiques de consommation"
+msgstr "Usage graphs"
+
+msgid "Alertes de seuil (80%, 90%, 100%)"
+msgstr "Threshold alerts (80%, 90%, 100%)"
+
+msgid "Étape 11 : Implémenter les recharges"
+msgstr "Step 11: Implement Top-ups"
+
+msgid ""
+"Ajoutez la possibilité pour vos clients de recharger leurs forfaits "
+"existants."
+msgstr "Add the ability for your customers to top up their existing plans."
+
+msgid "Types de recharge"
+msgstr "Top-up types"
+
+msgid "Recharge de données"
+msgstr "Data top-up"
+
+msgid "Extension de validité"
+msgstr "Validity extension"
+
+msgid "Crédit supplémentaire"
+msgstr "Additional credit"
+
+msgid "Processus de recharge"
+msgstr "Top-up process"
+
+msgid "Identifiez l'offre de recharge appropriée"
+msgstr "Identify the appropriate top-up offer"
+
+msgid "Créez une transaction avec l'ID de la SIM/eSIM"
+msgstr "Create a transaction with the SIM/eSIM ID"
+
+msgid "POST /transactions avec paramètre 'simId'"
+msgstr "POST /transactions with 'simId' parameter"
+
+msgid "Confirmez l'application de la recharge"
+msgstr "Confirm the application of the top-up"
+
+msgid "Étape 12 : Mettre en place le reporting"
+msgstr "Step 12: Set Up Reporting"
+
+msgid ""
+"Implémentez des outils de reporting pour suivre les ventes et "
+"l'utilisation."
+msgstr "Implement reporting tools to track sales and usage."
+
+msgid "Collecte de données"
+msgstr "Data collection"
+
+msgid "GET /transactions avec filtres de date"
+msgstr "GET /transactions with date filters"
+
+msgid "GET /transactions_count pour les statistiques"
+msgstr "GET /transactions_count for statistics"
+
+msgid "GET /suppliers/globalbalances pour la consommation"
+msgstr "GET /suppliers/globalbalances for consumption"
+
+msgid "Rapports recommandés"
+msgstr "Recommended reports"
+
+msgid "Ventes quotidiennes/hebdomadaires/mensuelles"
+msgstr "Daily/weekly/monthly sales"
+
+msgid "Répartition par type d'offre"
+msgstr "Distribution by offer type"
+
+msgid "Taux de conversion et d'abandon"
+msgstr "Conversion and abandonment rates"
+
+msgid "Consommation moyenne par utilisateur"
+msgstr "Average consumption per user"
+
+msgid "Visualisation"
+msgstr "Visualization"
+
+msgid "Tableaux de bord interactifs"
+msgstr "Interactive dashboards"
+
+msgid "Exportation au format CSV/Excel"
+msgstr "Export in CSV/Excel format"
+
+msgid "Alertes sur seuils critiques"
+msgstr "Alerts on critical thresholds"
+
+msgid "Voir plus"
+msgstr "See more"
+
+msgid "Copier"
+msgstr "Copy"
+
+msgid "Copié !"
+msgstr "Copied!"
+
+msgid ""
+"Vous pouvez facilement vérifier que votre connexion à l'API fonctionne "
+"avec l'endpoint"
+msgstr "You can easily verify that your API connection works with the endpoint"
+
+msgid "Cet endpoint vous permettra également de connaître la version de l'API."
+msgstr "This endpoint will also let you know the API version."
+
+msgid "Requête"
+msgstr "Request"
+
+msgid "Réponse attendue"
+msgstr "Expected response"
+
+msgid "Documentation API"
+msgstr "API Documentation"
+
+msgid "Selon la documentation OpenAPI, cet endpoint est décrit comme"
+msgstr "According to the OpenAPI documentation, this endpoint is described as"
+
+msgid "dans le tag"
+msgstr "in the tag"
+
+msgid "Résolution d'erreurs courantes"
+msgstr "Common Error Resolution"
+
+msgid ""
+"Si vous obtenez une erreur 404 NOT FOUND, vérifiez que vous utilisez bien"
+" la base URL complète et correcte mentionnée ci-dessus."
+msgstr ""
+"If you get a 404 NOT FOUND error, verify that you are using the complete "
+"and correct base URL mentioned above."
+
+msgid "Utilisation du token"
+msgstr "Token Usage"
+
+msgid "Pour chaque appel API, ajoutez l'en-tête suivant :"
+msgstr "For each API call, add the following header:"
+
+msgid "Sécurité"
+msgstr "Security"
+
+msgid ""
+"Ne partagez jamais vos identifiants client_id et client_secret. Stockez-"
+"les de manière sécurisée et ne les incluez pas dans le code côté client."
+msgstr ""
+"Never share your client_id and client_secret credentials. Store them "
+"securely and do not include them in client-side code."
+
+msgid "Récupère toutes les offres disponibles pour votre compte distributeur."
+msgstr "Retrieves all offers available for your distributor account."
+
+msgid "Paramètres :"
+msgstr "Parameters:"
+
+msgid "Numéro de page"
+msgstr "Page number"
+
+msgid "Nombre d'éléments par page"
+msgstr "Number of items per page"
+
+msgid "Type d'offre (topup, esim, sim)"
+msgstr "Offer type (topup, esim, sim)"
+
+msgid "Crée une nouvelle transaction pour l'achat d'une offre."
+msgstr "Creates a new transaction for purchasing an offer."
+
+msgid "Corps de la requête :"
+msgstr "Request body:"
+
+msgid "ID utilisateur pour le suivi (recommandé)"
+msgstr "User ID for tracking (recommended)"
+
+msgid "Informations supplémentaires (optionnel)"
+msgstr "Additional information (optional)"
+
+msgid "Récupère les détails complets d'une transaction spécifique."
+msgstr "Retrieves the complete details of a specific transaction."
+
+msgid "Réponse :"
+msgstr "Response:"
+
+msgid "Statut de la transaction (created, pending, ok, ko, expired)"
+msgstr "Transaction status (created, pending, ok, ko, expired)"
+
+msgid "Date de création"
+msgstr "Creation date"
+
+msgid "Code d'activation chiffré (pour eSIM)"
+msgstr "Encrypted activation code (for eSIM)"
+
+msgid "Documentation complète"
+msgstr "Complete Documentation"
+
+msgid ""
+"Consultez la documentation OpenAPI complète pour découvrir tous les "
+"endpoints disponibles et leurs paramètres détaillés."
+msgstr ""
+"Consult the complete OpenAPI documentation to discover all available "
+"endpoints and their detailed parameters."
+
+msgid "Schema OpenAPI"
+msgstr "OpenAPI Schema"
+
+msgid "Selon la documentation, la personnalisation de l'offre utilise le schema"
+msgstr "According to the documentation, offer customization uses the schema"
+
+msgid "qui définit les champs modifiables."
+msgstr "which defines the editable fields."
+
+msgid "Requête d'authentification"
+msgstr "Authentication Request"
+
+msgid "Génération d'une paire de clés RSA (exemple avec OpenSSL)"
+msgstr "Generating an RSA key pair (example with OpenSSL)"
+
+msgid "openssl genrsa -out private_key.pem 2048"
+msgstr "openssl genrsa -out private_key.pem 2048"
+
+msgid "openssl rsa -in private_key.pem -pubout -out public_key.pem"
+msgstr "openssl rsa -in private_key.pem -pubout -out public_key.pem"
+
+msgid "# Envoi de la clé publique à l'API"
+msgstr "# Sending the public key to the API"
+
+msgid "POST /keys"
+msgstr "POST /keys"
+
+msgid "Content-Type: application/json"
+msgstr "Content-Type: application/json"
+
+#, python-brace-format
+msgid ""
+"{ \"public_key\": \"-----BEGIN PUBLIC "
+"KEY-----\\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...\\n-----END "
+"PUBLIC KEY-----\" }"
+msgstr ""
+"{ \"public_key\": \"-----BEGIN PUBLIC "
+"KEY-----\\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...\\n-----END "
+"PUBLIC KEY-----\" }"
+
+msgid "Processus de déchiffrement"
+msgstr "Decryption Process"
+
+msgid ""
+"Lorsque vous recevez un code d'activation chiffré, vous devrez le "
+"déchiffrer avec votre clé privée. Ce processus se fait entièrement côté "
+"client pour garantir la sécurité des données."
+msgstr ""
+"When you receive an encrypted activation code, you will need to decrypt "
+"it with your private key. This process takes place entirely on the client"
+" side to ensure data security."
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Ne partagez JAMAIS votre clé privée"
+msgstr "NEVER share your private key"
+
+msgid "Stockez-la dans un environnement sécurisé"
+msgstr "Store it in a secure environment"
+
+msgid "Prévoyez une procédure de rotation des clés"
+msgstr "Plan a key rotation procedure"
+
+msgid "Utilisez une longueur de clé d'au moins 2048 bits"
+msgstr "Use a key length of at least 2048 bits"
+
+msgid ""
+"Pour créer une transaction de recharge, vous devez fournir l'identifiant "
+"de l'offre et le numéro de téléphone du client final (MSISDN) dans la "
+"requête."
+msgstr ""
+"To create a top-up transaction, you must provide the offer ID and the end"
+" customer's phone number (MSISDN) in the request."
+
+msgid "Points importants"
+msgstr "Important points"
+
+msgid ""
+"Vérifiez toujours le stock disponible (bucket) avant de créer une "
+"transaction"
+msgstr "Always check available stock (bucket) before creating a transaction"
+
+msgid ""
+"Assurez-vous que le numéro MSISDN est au format international (ex: "
+"33612345678 pour la France)"
+msgstr ""
+"Make sure the MSISDN number is in international format (e.g.: 33612345678"
+" for France)"
+
+msgid ""
+"Le statut de la transaction indiquera si la recharge a été effectuée avec"
+" succès"
+msgstr "The transaction status will indicate if the top-up was successful"
+
+msgid "Réponse de l'API"
+msgstr "API Response"
+
+msgid ""
+"La réponse contient toutes les informations sur la transaction créée, y "
+"compris son statut et les détails de la recharge effectuée."
+msgstr ""
+"The response contains all information about the created transaction, "
+"including its status and details of the completed top-up."
+
+msgid "Exemple de réponse"
+msgstr "Response example"
+
+msgid "Étape 6 : Gestion sécurisée des eSIM"
+msgstr "Step 6: Secure eSIM Management"
+
+msgid ""
+"Les codes d'activation des eSIM sont des données sensibles qui doivent "
+"être protégées. L'API Orange Travel B2B utilise le chiffrement RSA pour "
+"sécuriser ces codes, et seul le distributeur peut les déchiffrer avec sa "
+"clé privée."
+msgstr ""
+"eSIM activation codes are sensitive data that must be protected. The "
+"Orange Travel B2B API uses RSA encryption to secure these codes, and only"
+" the distributor can decrypt them with their private key."
+
+msgid "Génération des clés RSA"
+msgstr "RSA Key Generation"
+
+msgid ""
+"Première étape : générer une paire de clés RSA (clé privée et clé "
+"publique)."
+msgstr "First step: generate an RSA key pair (private key and public key)."
+
+msgid "# Génération d'une paire de clés RSA de 4096 bits"
+msgstr "# Generation of a 4096-bit RSA key pair"
+
+msgid ""
+"La clé privée ne doit JAMAIS être partagée ou exposée. Conservez-la dans "
+"un emplacement sécurisé. Seule la clé publique est transmise à Orange via"
+" l'API."
+msgstr ""
+"The private key should NEVER be shared or exposed. Keep it in a secure "
+"location. Only the public key is transmitted to Orange via the API."
+
+msgid "Enregistrement de la clé publique"
+msgstr "Registering the Public Key"
+
+msgid ""
+"Transmettez votre clé publique à l'API Orange Travel B2B pour qu'elle "
+"soit utilisée pour le chiffrement des codes d'activation eSIM."
+msgstr ""
+"Transmit your public key to the Orange Travel B2B API to be used for "
+"encrypting eSIM activation codes."
+
+msgid "Remarque"
+msgstr "Note"
+
+msgid "Vous pouvez utiliser le paramètre"
+msgstr "You can use the parameter"
+
+msgid "avec la valeur"
+msgstr "with the value"
+
+msgid "si votre clé publique est encodée en base64."
+msgstr "if your public key is base64 encoded."
+
+msgid "Étape 7 : Transaction eSIM"
+msgstr "Step 7: eSIM Transaction"
+
+msgid ""
+"Une fois que vous avez configuré votre clé publique, vous pouvez créer "
+"des transactions eSIM. Contrairement aux transactions de topup, les "
+"transactions eSIM ne nécessitent pas de paramètre MSISDN."
+msgstr ""
+"Once you have configured your public key, you can create eSIM "
+"transactions. Unlike topup transactions, eSIM transactions do not require"
+" an MSISDN parameter."
+
+msgid "Création d'une transaction eSIM"
+msgstr "Creating an eSIM Transaction"
+
+msgid ""
+"La requête pour une transaction eSIM est plus simple que pour une "
+"recharge, car seul l'identifiant de l'offre est requis."
+msgstr ""
+"The request for an eSIM transaction is simpler than for a top-up, as only"
+" the offer ID is required."
+
+msgid "Réponse avec code d'activation chiffré"
+msgstr "Response with Encrypted Activation Code"
+
+msgid ""
+"La réponse contient toutes les informations sur la transaction eSIM, y "
+"compris le code d'activation chiffré avec votre clé publique RSA."
+msgstr ""
+"The response contains all information about the eSIM transaction, "
+"including the activation code encrypted with your RSA public key."
+
+msgid "Déchiffrement du code d'activation"
+msgstr "Decryption of the Activation Code"
+
+msgid "Vous devez déchiffrer le code d'activation en utilisant votre clé privée."
+msgstr "You must decrypt the activation code using your private key."
+
+msgid "# Déchiffrement avec la clé privée"
+msgstr "# Decryption with the private key"
+
+msgid ""
+"Le code d'activation déchiffré doit être transmis au client final de "
+"manière sécurisée. Il permettra d'installer l'eSIM sur son appareil. Le "
+"code ressemble généralement à \"LPA:1$smdp.provider.com$ACTIVATION-"
+"CODE\"."
+msgstr ""
+"The decrypted activation code must be transmitted to the end customer "
+"securely. It will allow them to install the eSIM on their device. The "
+"code typically looks like \"LPA:1$smdp.provider.com$ACTIVATION-CODE\"."
+
+msgid "Étape 8 : Vérification d'identité KYC"
+msgstr "Step 8: KYC Identity Verification"
+
+msgid ""
+"KYC (Know Your Customer) est un processus obligatoire pour certains "
+"produits eSIM et SIM. Ce processus permet de vérifier l'identité du "
+"client final et est généralement requis dans les 30 jours suivant "
+"l'achat."
+msgstr ""
+"KYC (Know Your Customer) is a mandatory process for certain eSIM and SIM "
+"products. This process verifies the identity of the end customer and is "
+"generally required within 30 days of purchase."
+
+msgid "Processus KYC"
+msgstr "KYC Process"
+
+msgid ""
+"Selon le fournisseur, le processus KYC peut varier. Les clients doivent "
+"être informés de la nécessité de compléter la vérification d'identité "
+"pour continuer à utiliser le service."
+msgstr ""
+"Depending on the provider, the KYC process may vary. Customers must be "
+"informed of the need to complete identity verification to continue using "
+"the service."
+
+msgid "Orange France"
+msgstr "Orange France"
+
+msgid "URL de vérification KYC :"
+msgstr "KYC verification URL:"
+
+msgid "Welcome Travelers"
+msgstr "Welcome Travelers"
+
+msgid "Informations requises pour le KYC"
+msgstr "Information Required for KYC"
+
+msgid "Pièce d'identité valide (passeport, carte d'identité)"
+msgstr "Valid ID (passport, identity card)"
+
+msgid "Informations personnelles (nom, prénom, date de naissance)"
+msgstr "Personal information (last name, first name, date of birth)"
+
+msgid "Numéro de transaction ou autre identifiant fournit lors de l'achat"
+msgstr "Transaction number or other identifier provided at the time of purchase"
+
+msgid ""
+"Dans certains cas, une photo du visage (selfie) pour la vérification "
+"biométrique"
+msgstr "In some cases, a face photo (selfie) for biometric verification"
+
+msgid ""
+"Si le KYC n'est pas complété dans les délais requis (généralement 30 "
+"jours), la ligne peut être suspendue ou désactivée. Il est donc crucial "
+"d'informer vos clients de cette exigence lors de l'achat."
+msgstr ""
+"If the KYC is not completed within the required timeframe (generally 30 "
+"days), the line may be suspended or deactivated. It is therefore crucial "
+"to inform your customers of this requirement at the time of purchase."
+
+msgid "Étape 9 : Statut de la SIM/eSIM"
+msgstr "Step 9: SIM/eSIM Status"
+
+msgid ""
+"Pour assurer un suivi efficace des SIM et eSIM, l'API Orange Travel B2B "
+"propose un endpoint dédié permettant de récupérer le statut actuel d'une "
+"carte SIM ou eSIM."
+msgstr ""
+"To ensure efficient tracking of SIMs and eSIMs, the Orange Travel B2B API"
+" offers a dedicated endpoint for retrieving the current status of a SIM "
+"card or eSIM."
+
+msgid "SIM physiques et eSIM"
+msgstr "Physical SIMs and eSIMs"
+
+msgid "L'API Orange Travel B2B prend en charge deux types de cartes :"
+msgstr "The Orange Travel B2B API supports two types of cards:"
+
+msgid ""
+"Cartes traditionnelles qui doivent être insérées physiquement dans "
+"l'appareil"
+msgstr "Traditional cards that must be physically inserted into the device"
+
+msgid ""
+"Cartes SIM électroniques intégrées directement dans l'appareil et "
+"activées à distance"
+msgstr ""
+"Electronic SIM cards integrated directly into the device and activated "
+"remotely"
+
+msgid "Certains états et opérations comme"
+msgstr "Some states and operations like"
+
+msgid "ou"
+msgstr "or"
+
+msgid "ne s'appliquent qu'aux eSIM"
+msgstr "only apply to eSIMs"
+
+msgid "tandis que d'autres comme"
+msgstr "while others like"
+
+msgid ""
+"s'appliquent aux deux types. Dans les exemples d'API ci-dessous, nous "
+"préciserons les différences d'utilisation quand elles existent."
+msgstr ""
+"apply to both types. In the API examples below, we will specify the "
+"differences in usage when they exist."
+
+msgid "Vérification du statut"
+msgstr "Status Verification"
+
+msgid ""
+"Pour vérifier le statut, vous devez spécifier l'ID du fournisseur et l'ID"
+" de la transaction associée."
+msgstr ""
+"To check the status, you must specify the supplier ID and the associated "
+"transaction ID."
+
+msgid ""
+"Pour les SIM physiques ou les eSIM récupérées par lot, vous pouvez "
+"utiliser le paramètre"
+msgstr "For physical SIMs or eSIMs retrieved in batches, you can use the parameter"
+
+msgid "au lieu de"
+msgstr "instead of"
+
+msgid ""
+"La réponse contient le statut de la SIM/eSIM ainsi que des informations "
+"complémentaires comme les dates d'activation et d'expiration."
+msgstr ""
+"The response contains the status of the SIM/eSIM as well as complementary"
+" information such as activation and expiration dates."
+
+msgid "Valeurs possibles du statut"
+msgstr "Possible Status Values"
+
+msgid "La SIM/eSIM n'est associée à aucun forfait"
+msgstr "The SIM/eSIM is not associated with any plan"
+
+msgid "tous types"
+msgstr "all types"
+
+msgid "La carte est active et peut être utilisée normalement"
+msgstr "The card is active and can be used normally"
+
+msgid "L'eSIM n'a pas encore été installée sur un appareil"
+msgstr "The eSIM has not yet been installed on a device"
+
+msgid "eSIM uniquement"
+msgstr "eSIM only"
+
+msgid "uninstalled"
+msgstr "uninstalled"
+
+msgid "L'eSIM a été désinstallée de l'appareil initial"
+msgstr "The eSIM has been uninstalled from the initial device"
+
+msgid "suspended fraud"
+msgstr "suspended fraud"
+
+msgid "Suspendue pour suspicion de fraude"
+msgstr "Suspended for suspicion of fraud"
+
+msgid "suspended kyc default"
+msgstr "suspended kyc default"
+
+msgid "Suspendue car le KYC n'a pas été complété"
+msgstr "Suspended because KYC has not been completed"
+
+msgid "suspended by operator"
+msgstr "suspended by operator"
+
+msgid "Désactivée par le fournisseur"
+msgstr "Deactivated by the provider"
+
+msgid "suspended following a theft or loss"
+msgstr "suspended following a theft or loss"
+
+msgid "Désactivée suite à un vol ou une perte"
+msgstr "Deactivated following a theft or loss"
+
+msgid "expired"
+msgstr "expired"
+
+msgid "La période de validité est terminée"
+msgstr "The validity period has ended"
+
+msgid "revoked by operator"
+msgstr "revoked by operator"
+
+msgid "Révoquée par l'opérateur"
+msgstr "Revoked by the operator"
+
+msgid "sim swap"
+msgstr "sim swap"
+
+msgid "La SIM a été changée pour un nouvel appareil"
+msgstr "The SIM has been changed for a new device"
+
+msgid "SIM physique uniquement"
+msgstr "Physical SIM only"
+
+msgid "Conseil"
+msgstr "Tip"
+
+msgid ""
+"Effectuez des vérifications régulières de statut pour les cartes actives "
+"afin de détecter rapidement tout problème et d'informer vos clients en "
+"conséquence."
+msgstr ""
+"Perform regular status checks for active cards to quickly detect any "
+"issues and inform your customers accordingly."
+
+msgid "Étape 10 : Comptage et statistiques des transactions"
+msgstr "Step 10: Transaction Counting and Statistics"
+
+msgid ""
+"Pour faciliter la génération de rapports et statistiques, l'API Orange "
+"Travel B2B propose un endpoint dédié au comptage des transactions selon "
+"divers critères de filtrage."
+msgstr ""
+"To facilitate report generation and statistics, the Orange Travel B2B API"
+" offers an endpoint dedicated to counting transactions according to "
+"various filtering criteria."
+
+msgid "Comptage des transactions"
+msgstr "Transaction Counting"
+
+msgid ""
+"Cet endpoint permet d'obtenir rapidement le nombre total de transactions "
+"correspondant à des critères spécifiques sans avoir à récupérer et "
+"compter les transactions individuelles."
+msgstr ""
+"This endpoint allows you to quickly get the total number of transactions "
+"corresponding to specific criteria without having to retrieve and count "
+"individual transactions."
+
+msgid "Paramètres de filtrage disponibles"
+msgstr "Available Filtering Parameters"
+
+msgid "startDate et endDate"
+msgstr "startDate and endDate"
+
+msgid "Période de comptage (format ISO)"
+msgstr "Counting period (ISO format)"
+
+msgid "status"
+msgstr "status"
+
+msgid "Filtrer par statut de transaction"
+msgstr "Filter by transaction status"
+
+msgid "offer"
+msgstr "offer"
+
+msgid "Filtrer par ID d'offre"
+msgstr "Filter by offer ID"
+
+msgid "supplier"
+msgstr "supplier"
+
+msgid "Filtrer par ID de fournisseur"
+msgstr "Filter by supplier ID"
+
+msgid "user"
+msgstr "user"
+
+msgid "Filtrer par ID d'utilisateur"
+msgstr "Filter by user ID"
+
+msgid ""
+"La réponse contient simplement le nombre total de transactions "
+"correspondant aux critères spécifiés."
+msgstr ""
+"The response simply contains the total number of transactions matching "
+"the specified criteria."
+
+msgid "Conseil d'utilisation"
+msgstr "Usage Tip"
+
+msgid ""
+"Cet endpoint est particulièrement utile pour les tableaux de bord "
+"administratifs et les rapports périodiques. Vous pouvez l'utiliser pour "
+"afficher des statistiques par période, par type d'offre ou par statut "
+"sans avoir à charger toutes les données des transactions."
+msgstr ""
+"This endpoint is particularly useful for administrative dashboards and "
+"periodic reports. You can use it to display statistics by period, by "
+"offer type, or by status without having to load all the transaction data."
+
+msgid "Étape 11 : Gestion des consommations"
+msgstr "Step 11: Usage Management"
+
+msgid ""
+"Pour permettre aux utilisateurs de suivre leur consommation de données, "
+"d'appels et de SMS, l'API Orange Travel B2B propose un endpoint dédié à "
+"la récupération des consommations restantes."
+msgstr ""
+"To allow users to track their data, call, and SMS usage, the Orange "
+"Travel B2B API offers a dedicated endpoint for retrieving remaining "
+"usage."
+
+msgid "Disponibilité"
+msgstr "Availability"
+
+msgid ""
+"Cette fonctionnalité n'est disponible que pour les fournisseurs Welcome "
+"Travelers et Orange France. Les autres fournisseurs ne supportent pas "
+"cette fonctionnalité pour le moment."
+msgstr ""
+"This feature is only available for Welcome Travelers and Orange France "
+"providers. Other providers do not support this feature at the moment."
+
+msgid "Récupération des consommations restantes"
+msgstr "Retrieving Remaining Usage"
+
+msgid ""
+"Pour récupérer les consommations, utilisez l'endpoint suivant en "
+"spécifiant l'ID du fournisseur et l'ID de la transaction."
+msgstr ""
+"To retrieve usage, use the following endpoint by specifying the supplier "
+"ID and the transaction ID."
+
+msgid "De même que pour le statut, vous pouvez utiliser le paramètre"
+msgstr "As with status, you can use the parameter"
+
+msgid "pour les SIM physiques ou les eSIM récupérées par lot :"
+msgstr "for physical SIMs or eSIMs retrieved in batches:"
+
+msgid ""
+"La réponse contient des informations détaillées sur les consommations "
+"restantes, organisées par \"buckets\" (enveloppes de consommation)."
+msgstr ""
+"The response contains detailed information about remaining usage, "
+"organized by 'buckets' (consumption packages)."
+
+msgid "Conseil d'implémentation"
+msgstr "Implementation Tip"
+
+msgid ""
+"Intégrez cette fonctionnalité dans votre application pour permettre à vos"
+" clients de surveiller facilement leur consommation et d'éviter les "
+"mauvaises surprises. Vous pouvez également mettre en place des alertes "
+"lorsque les consommations atteignent certains seuils."
+msgstr ""
+"Integrate this feature into your application to allow your customers to "
+"easily monitor their usage and avoid unpleasant surprises. You can also "
+"set up alerts when usage reaches certain thresholds."
+
+msgid "Fonctionnalité avancée"
+msgstr "Advanced Feature"
+
+msgid "En plus des consommations individuelles, vous pouvez également accéder aux"
+msgstr "In addition to individual usage, you can also access"
+
+msgid "statistiques globales de consommation"
+msgstr "global usage statistics"
+
+msgid ""
+"par région ou par pays. Cette fonctionnalité permet d'analyser les "
+"tendances et d'optimiser vos offres."
+msgstr ""
+"by region or by country. This feature allows you to analyze trends and "
+"optimize your offers."
+
+msgid "Étape 11 : Gestion des transactions"
+msgstr "Step 11: Transaction Management"
+
+msgid ""
+"La gestion efficace des transactions est essentielle pour suivre les "
+"activités, générer des rapports et résoudre d'éventuels problèmes. L'API "
+"Orange Travel B2B propose plusieurs endpoints pour faciliter cette "
+"gestion."
+msgstr ""
+"Efficient transaction management is essential for tracking activities, "
+"generating reports, and resolving potential issues. The Orange Travel B2B"
+" API offers several endpoints to facilitate this management."
+
+msgid ""
+"Pour récupérer la liste des transactions, utilisez l'endpoint suivant. "
+"Vous pouvez utiliser divers filtres pour affiner les résultats."
+msgstr ""
+"To retrieve the list of transactions, use the following endpoint. You can"
+" use various filters to refine the results."
+
+msgid "offset"
+msgstr "offset"
+
+msgid "Décalage pour la pagination"
+msgstr "Offset for pagination"
+
+msgid "limit"
+msgstr "limit"
+
+msgid "Nombre maximal de transactions à retourner"
+msgstr "Maximum number of transactions to return"
+
+msgid "startDate"
+msgstr "startDate"
+
+msgid "Date de début (format YYYY-MM-DD)"
+msgstr "Start date (YYYY-MM-DD format)"
+
+msgid "endDate"
+msgstr "endDate"
+
+msgid "Date de fin (format YYYY-MM-DD)"
+msgstr "End date (YYYY-MM-DD format)"
+
+msgid "Filtre par statut (created, pending, ok, ko, expired)"
+msgstr "Filter by status (created, pending, ok, ko, expired)"
+
+msgid "Filtre par identifiant d'offre"
+msgstr "Filter by offer ID"
+
+msgid "Filtre par identifiant de fournisseur"
+msgstr "Filter by supplier ID"
+
+msgid "Filtre par identifiant utilisateur"
+msgstr "Filter by user ID"
+
+msgid "Exemple de requête avec filtres :"
+msgstr "Example request with filters:"
+
+msgid "Détails d'une transaction spécifique"
+msgstr "Details of a Specific Transaction"
+
+msgid ""
+"Pour récupérer les détails complets d'une transaction spécifique, "
+"utilisez l'identifiant de la transaction."
+msgstr ""
+"To retrieve the complete details of a specific transaction, use the "
+"transaction ID."
+
+msgid ""
+"Si vous avez besoin de connaître le nombre total de transactions sans "
+"récupérer les données complètes, utilisez l'endpoint dédié au comptage."
+msgstr ""
+"If you need to know the total number of transactions without retrieving "
+"the complete data, use the dedicated counting endpoint."
+
+msgid "Bonnes pratiques"
+msgstr "Best Practices"
+
+msgid ""
+"Pour optimiser les performances, utilisez toujours des filtres appropriés"
+" et limitez le nombre de résultats si vous n'avez pas besoin de récupérer"
+" toutes les transactions. Pour les rapports, considérez l'utilisation du "
+"comptage et de la pagination."
+msgstr ""
+"To optimize performance, always use appropriate filters and limit the "
+"number of results if you don't need to retrieve all transactions. For "
+"reports, consider using counting and pagination."
+
+msgid "Étape 12 : Gestion des erreurs"
+msgstr "Step 12: Error Management"
+
+msgid ""
+"Une gestion efficace des erreurs est essentielle pour assurer la "
+"robustesse de votre intégration avec l'API Orange Travel B2B. Cette "
+"dernière étape vous présente les différents types d'erreurs et comment "
+"les traiter."
+msgstr ""
+"Effective error management is essential to ensure the robustness of your "
+"integration with the Orange Travel B2B API. This final step presents the "
+"different types of errors and how to handle them."
+
+msgid "Format des réponses d'erreur"
+msgstr "Error Response Format"
+
+msgid ""
+"Toutes les erreurs sont retournées avec un code HTTP approprié et un "
+"corps JSON contenant des informations détaillées."
+msgstr ""
+"All errors are returned with an appropriate HTTP code and a JSON body "
+"containing detailed information."
+
+msgid "Principaux codes d'erreur HTTP"
+msgstr "Main HTTP Error Codes"
+
+msgid "401 Unauthorized"
+msgstr "401 Unauthorized"
+
+msgid "Problème d'authentification ou token expiré"
+msgstr "Authentication problem or expired token"
+
+msgid "Solution : Régénérer un token valide"
+msgstr "Solution: Regenerate a valid token"
+
+msgid "400 Bad Request"
+msgstr "400 Bad Request"
+
+msgid "Requête mal formée ou paramètres invalides"
+msgstr "Malformed request or invalid parameters"
+
+msgid "Solution : Vérifier les paramètres de la requête"
+msgstr "Solution: Check request parameters"
+
+msgid "404 Not Found"
+msgstr "404 Not Found"
+
+msgid "Ressource non trouvée (URL incorrecte ou ID invalide)"
+msgstr "Resource not found (incorrect URL or invalid ID)"
+
+msgid "Solution : Vérifier l'URL et les identifiants utilisés"
+msgstr "Solution: Check the URL and identifiers used"
+
+msgid "429 Too Many Requests"
+msgstr "429 Too Many Requests"
+
+msgid "Dépassement de la limite de requêtes"
+msgstr "Request limit exceeded"
+
+msgid "Solution : Implémenter un backoff exponentiel"
+msgstr "Solution: Implement exponential backoff"
+
+msgid "500 Internal Server Error"
+msgstr "500 Internal Server Error"
+
+msgid "Erreur interne du serveur"
+msgstr "Internal server error"
+
+msgid "Solution : Contacter le support d'Orange"
+msgstr "Solution: Contact Orange support"
+
+msgid "503 Service Unavailable"
+msgstr "503 Service Unavailable"
+
+msgid "Service temporairement indisponible"
+msgstr "Service temporarily unavailable"
+
+msgid "Solution : Réessayer plus tard avec un backoff"
+msgstr "Solution: Try again later with a backoff"
+
+msgid "Stratégies de gestion des erreurs"
+msgstr "Error Management Strategies"
+
+msgid "Validation préalable"
+msgstr "Prior validation"
+
+msgid "Validez vos données avant d'envoyer des requêtes"
+msgstr "Validate your data before sending requests"
+
+msgid "Gestion des 401"
+msgstr "Handling 401s"
+
+msgid "Implémentez un mécanisme de rafraîchissement automatique des tokens"
+msgstr "Implement an automatic token refresh mechanism"
+
+msgid "Retries avec backoff"
+msgstr "Retries with backoff"
+
+msgid ""
+"Pour les erreurs 429 et 503, implémentez un système de réessais avec "
+"délai croissant"
+msgstr "For 429 and 503 errors, implement a retry system with increasing delay"
+
+msgid "Logging"
+msgstr "Logging"
+
+msgid "Enregistrez toutes les erreurs pour faciliter le diagnostic"
+msgstr "Log all errors to facilitate diagnosis"
+
+msgid "Monitoring"
+msgstr "Monitoring"
+
+msgid "Mettez en place des alertes pour détecter les problèmes récurrents"
+msgstr "Set up alerts to detect recurring problems"
+
+msgid "Code d'exemple pour la gestion des erreurs"
+msgstr "Example code for error handling"
+
+msgid ""
+"La requête a été faite et le serveur a répondu avec un code d'état hors "
+"de la plage 2xx"
+msgstr ""
+"The request was made and the server responded with a status code outside "
+"the 2xx range"
+
+msgid "Problème d'authentification"
+msgstr "Authentication problem"
+
+msgid "Réessayer la requête avec le nouveau token"
+msgstr "Retry the request with the new token"
+
+msgid "Erreur de validation"
+msgstr "Validation error"
+
+msgid "Erreur de validation:"
+msgstr "Validation error:"
+
+msgid "Informer l'utilisateur du problème spécifique"
+msgstr "Inform the user of the specific problem"
+
+msgid "Trop de requêtes"
+msgstr "Too many requests"
+
+msgid "Réessayer la requête après le délai"
+msgstr "Retry the request after the delay"
+
+msgid "Autres erreurs"
+msgstr "Other errors"
+
+msgid "Erreur"
+msgstr "Error"
+
+msgid "Informer l'utilisateur qu'une erreur s'est produite"
+msgstr "Inform the user that an error has occurred"
+
+msgid "La requête a été faite mais aucune réponse n'a été reçue"
+msgstr "The request was made but no response was received"
+
+msgid "Pas de réponse du serveur"
+msgstr "No response from server"
+
+msgid "Vérifier la connectivité réseau"
+msgstr "Check network connectivity"
+
+msgid "Une erreur s'est produite lors de la configuration de la requête"
+msgstr "An error occurred during request configuration"
+
+msgid "Erreur de configuration:"
+msgstr "Configuration error:"
+
+msgid ""
+"La réponse contient des informations détaillées sur les consommations "
+"restantes, organisées par 'buckets' (enveloppes de consommation)."
+msgstr ""
+"The response contains detailed information about remaining usage, "
+"organized by 'buckets' (consumption packages)."
+
+msgid "Statistiques globales de consommation"
+msgstr "Global Usage Statistics"
+
+msgid ""
+"Pour analyser les tendances de consommation et optimiser vos offres, "
+"l'API Orange Travel B2B propose un endpoint permettant d'obtenir des "
+"statistiques globales de consommation par région ou par pays."
+msgstr ""
+"To analyze consumption trends and optimize your offers, the Orange Travel"
+" B2B API provides an endpoint for obtaining global consumption statistics"
+" by region or country."
+
+msgid "Endpoint pour les statistiques globales"
+msgstr "Endpoint for Global Statistics"
+
+msgid "Contrairement à l'endpoint"
+msgstr "Unlike the endpoint"
+
+msgid ""
+"qui fournit des informations pour une carte SIM spécifique, cet endpoint "
+"permet d'obtenir des statistiques agrégées pour l'ensemble des cartes "
+"SIM/eSIM d'un fournisseur sur une période donnée."
+msgstr ""
+"which provides information for a specific SIM card, this endpoint allows "
+"you to obtain aggregated statistics for all SIM/eSIM cards from a "
+"supplier over a given period."
+
+msgid "Paramètres disponibles"
+msgstr "Available Parameters"
+
+msgid "Identifiant du fournisseur"
+msgstr "Supplier identifier"
+
+msgid "Début de la période d'analyse (format ISO)"
+msgstr "Start of analysis period (ISO format)"
+
+msgid "Fin de la période d'analyse (format ISO)"
+msgstr "End of analysis period (ISO format)"
+
+msgid "Niveau d'agrégation (\"region\" ou \"country\")"
+msgstr "Aggregation level (\"region\" or \"country\")"
+
+msgid "Limitation"
+msgstr "Limitation"
+
+msgid ""
+"La période d'analyse ne peut pas dépasser 6 mois. Pour des statistiques "
+"sur une plus longue période, effectuez plusieurs appels avec des périodes"
+" successives."
+msgstr ""
+"The analysis period cannot exceed 6 months. For statistics over a longer "
+"period, make multiple calls with successive periods."
+
+msgid ""
+"La réponse contient des statistiques détaillées par zone géographique, "
+"avec pour chaque zone la consommation de données, de voix et de SMS."
+msgstr ""
+"The response contains detailed statistics by geographical area, with "
+"data, voice, and SMS consumption for each zone."
+
+msgid "Applications pratiques"
+msgstr "Practical Applications"
+
+msgid "Ces statistiques peuvent être utilisées pour :"
+msgstr "These statistics can be used to:"
+
+msgid "Analyser les tendances de consommation par zone géographique"
+msgstr "Analyze consumption trends by geographic area"
+
+msgid "Optimiser vos offres en fonction des habitudes d'utilisation"
+msgstr "Optimize your offers based on usage habits"
+
+msgid "Créer des rapports visuels pour vos clients"
+msgstr "Create visual reports for your customers"
+
+msgid "Anticiper les besoins en capacité et planifier vos achats"
+msgstr "Anticipate capacity needs and plan your purchases"
+
+msgid "Testez cet endpoint"
+msgstr "Test this endpoint"
+
+msgid "Vous pouvez tester cet endpoint directement dans notre"
+msgstr "You can test this endpoint directly in our"
+
+msgid "testeur d'API"
+msgstr "API tester"
+
+msgid "Sélectionnez l'endpoint"
+msgstr "Select the endpoint"
+
+msgid "et renseignez les paramètres requis."
+msgstr "and fill in the required parameters."
+
+msgid "Étape 1 : Base URL et vérifications initiales"
+msgstr "Step 1: Base URL and Initial Verifications"
+
+msgid ""
+"Utilisez systématiquement la Base URL suivante pour toutes les requêtes à"
+" l'API Orange Travel B2B Sandbox"
+msgstr ""
+"Always use the following Base URL for all requests to the Orange Travel "
+"B2B Sandbox API"
+
+msgid "Étape 2 : Compréhension des entités principales"
+msgstr "Step 2: Understanding the Main Entities"
+
+msgid ""
+"Pour intégrer efficacement l'API Orange Travel B2B, il est essentiel de "
+"comprendre les trois entités principales qui la composent."
+msgstr ""
+"To effectively integrate the Orange Travel B2B API, it is essential to "
+"understand the three main entities that comprise it."
+
+msgid "Étape 3 : Personnalisation des offres"
+msgstr "Step 3: Customization of Offers"
+
+msgid ""
+"Personnalisez les offres en fonction des besoins de vos clients et de "
+"votre modèle commercial."
+msgstr "Customize offers based on your customers' needs and your business model."
+
+msgid "Étape 4 : Gestion des prix"
+msgstr "Step 4: Price Management"
+
+msgid ""
+"Configurez et gérez les prix de vos offres pour optimiser votre modèle "
+"économique."
+msgstr ""
+"Configure and manage the prices of your offers to optimize your economic "
+"model."
+
+msgid "Étape 5 : Gestion des recharges à la demande (Topup)"
+msgstr "Step 5: On-Demand Recharge Management (Topup)"
+
+msgid "Impémentez la gestion des recharges mobiles à la demande pour vos clients."
+msgstr "Implement on-demand mobile recharge management for your customers."
+
+msgid ""
+"La personnalisation des offres permet au distributeur d'adapter les "
+"offres fournies par Orange selon ses besoins commerciaux spécifiques, "
+"tout en conservant une transparence totale sur les prix et les marges "
+"appliquées."
+msgstr ""
+"Offer customization allows the distributor to adapt the offers provided "
+"by Orange according to their specific business needs, while maintaining "
+"full transparency on prices and applied margins."
+
+msgid "Pourquoi personnaliser les offres ?"
+msgstr "Why customize offers?"
+
+msgid "Mieux adapter les offres aux attentes des clients finaux"
+msgstr "Better adapt offers to end-customer expectations"
+
+msgid "Améliorer son positionnement commercial avec des offres différenciantes"
+msgstr "Improve commercial positioning with differentiated offers"
+
+msgid "Ajuster librement les prix finaux en ajoutant des frais additionnels"
+msgstr "Freely adjust final prices by adding additional fees"
+
+msgid "Paramètres personnalisables"
+msgstr "Customizable Parameters"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid ""
+"Modifiez le nom par défaut de l'offre pour refléter votre marque ou "
+"stratégie commerciale."
+msgstr ""
+"Modify the default name of the offer to reflect your brand or commercial "
+"strategy."
+
+msgid "Exemple :"
+msgstr "Example:"
+
+msgid "Nom initial: Topup 10 € avec données"
+msgstr "Initial name: Topup 10 € with data"
+
+msgid "Nom personnalisé: Offre vacances 10 €"
+msgstr "Customized name: Holiday Offer 10 €"
+
+msgid "Frais additionnels"
+msgstr "Additional Fees"
+
+msgid ""
+"Définissez une marge commerciale additionnelle sur la valeur de revente "
+"initiale."
+msgstr "Define an additional commercial margin on the initial resale value."
+
+msgid "Types de frais :"
+msgstr "Fee types:"
+
+msgid "Frais fixes : montant précis ajouté au prix initial"
+msgstr "Fixed fee: precise amount added to the initial price"
+
+msgid "Frais en pourcentage : pourcentage appliqué au prix initial"
+msgstr "Percentage fee: percentage applied to the initial price"
+
+msgid "Exemple concret :"
+msgstr "Concrete example:"
+
+msgid "Valeur initiale : 10 €"
+msgstr "Initial value: 10 €"
+
+msgid "Avec frais fixe de 2 € : prix final de 12 €"
+msgstr "With fixed fee of 2 €: final price of 12 €"
+
+msgid "Avec frais de 10% : prix final de 11 €"
+msgstr "With 10% fee: final price of 11 €"
+
+msgid ""
+"Informations supplémentaires associées librement aux offres pour des "
+"besoins internes ou marketing."
+msgstr ""
+"Additional information freely associated with offers for internal or "
+"marketing needs."
+
+msgid "Exemple technique de personnalisation"
+msgstr "Technical Example of Customization"
+
+msgid ""
+"La gestion des prix est un aspect crucial de l'intégration avec l'API "
+"Orange Travel B2B. Cette étape explique les différents types de prix et "
+"comment ils sont calculés."
+msgstr ""
+"Price management is a crucial aspect of integration with the Orange "
+"Travel B2B API. This step explains the different types of prices and how "
+"they are calculated."
+
+msgid "Valeur affichée"
+msgstr "Display Value"
+
+msgid ""
+"Prix public indicatif qui peut être affiché au client final. Ce prix est "
+"une référence, mais le distributeur a la liberté de définir son propre "
+"prix de vente."
+msgstr ""
+"Indicative public price that can be displayed to the end customer. This "
+"price is a reference, but the distributor has the freedom to define its "
+"own selling price."
+
+msgid "Valeur de revente (resell_value)"
+msgstr "Resale Value (resell_value)"
+
+msgid ""
+"Prix facturé au distributeur par Orange. C'est la base sur laquelle le "
+"distributeur peut ajouter ses propres frais pour déterminer le prix "
+"final."
+msgstr ""
+"Price charged to the distributor by Orange. This is the basis on which "
+"the distributor can add its own fees to determine the final price."
+
+msgid "Calcul du prix final"
+msgstr "Calculating the Final Price"
+
+msgid "Exemple de calcul"
+msgstr "Calculation Example"
+
+msgid "Valeur de revente (définie par Orange) : 10 €"
+msgstr "Resale value (defined by Orange): 10 €"
+
+msgid "Ajout de frais fixe de 2 € : 10 € + 2 € = 12 €"
+msgstr "Addition of fixed fee of 2 €: 10 € + 2 € = 12 €"
+
+msgid "Ou ajout de frais en pourcentage de 15% : 10 € + (10 € × 15%) = 11.5 €"
+msgstr "Or addition of percentage fee of 15%: 10 € + (10 € × 15%) = 11.5 €"
+
+msgid "Le prix final est celui qui sera facturé au client"
+msgstr "The final price is the one that will be charged to the customer"
+
+msgid "Exemple de réponse de l'API pour une offre avec les prix"
+msgstr "Example API response for an offer with prices"
+
+msgid "Points importants à retenir"
+msgstr "Important Points to Remember"
+
+msgid "La valeur de revente (resell_value) est fixée par Orange"
+msgstr "The resale value (resell_value) is set by Orange"
+
+msgid "Les frais additionnels sont à la discrétion du distributeur"
+msgstr "Additional fees are at the distributor's discretion"
+
+msgid ""
+"L'API fournit toujours les informations de prix dans la devise de "
+"référence (EUR)"
+msgstr "The API always provides price information in the reference currency (EUR)"
+
+msgid ""
+"Des taux de change sont disponibles pour afficher les prix en devises "
+"locales"
+msgstr "Exchange rates are available to display prices in local currencies"
+
+msgid "Types de frais"
+msgstr "Fee types"
+
+msgid "Frais fixes"
+msgstr "Fixed fee"
+
+msgid "montant précis ajouté au prix initial"
+msgstr "precise amount added to the initial price"
+
+msgid "Frais en pourcentage"
+msgstr "Percentage fee"
+
+msgid "pourcentage appliqué au prix initial"
+msgstr "percentage applied to the initial price"
+
+msgid "Exemple concret"
+msgstr "Concrete example"
+
+msgid "Valeur initiale"
+msgstr "Initial value"
+
+msgid "Avec frais fixe de 2 €"
+msgstr "With fixed fee of 2 €"
+
+msgid "prix final de 12 €"
+msgstr "final price of 12 €"
+
+msgid "Avec frais de 10%"
+msgstr "With 10% fee"
+
+msgid "prix final de 11 €"
+msgstr "final price of 11 €"
+
+msgid "Valeur de revente (définie par Orange)"
+msgstr "Resale value (defined by Orange)"
+
+msgid "Ajout de frais fixe de 2 €"
+msgstr "Addition of fixed fee of 2 €"
+
+msgid "Ou ajout de frais en pourcentage de 15%"
+msgstr "Or addition of percentage fee of 15%"
+
+msgid "Avec frais de 10 pour cent"
+msgstr "With 10 percent fee"
+
+msgid "Ou ajout de frais en pourcentage de 15 pour cent"
+msgstr "Or addition of percentage fee of 15 percent"
+
+msgid "Mon offre personnalisée"
+msgstr "My customized offer"
+
+msgid "percent"
+msgstr "percent"
+
+msgid "Infos complémentaires personnalisées"
+msgstr "Custom additional information"
+
+msgid "Europe 10 Go"
+msgstr "Europe 10 GB"
+
+msgid "value"
+msgstr "value"
+
+msgid "33612345678"
+msgstr "33612345678"
+
+msgid "Produit"
+msgstr "Product"
+
+msgid "L'article disponible à la vente pour le client final."
+msgstr "The item available for sale to the end customer."
+
+msgid "Recharge mobile (topup) : crédit, données, minutes"
+msgstr "Mobile top-up (topup): credit, data, minutes"
+
+msgid "eSIM : SIM dématérialisée activable directement"
+msgstr "eSIM: digital SIM that can be activated directly"
+
+msgid "Fourni par Orange avec des informations prédéfinies"
+msgstr "Provided by Orange with predefined information"
+
+msgid ""
+"Associé à une zone de couverture, un fournisseur et des caractéristiques "
+"techniques"
+msgstr "Associated with a coverage area, a supplier, and technical characteristics"
+
+msgid "Offre"
+msgstr "Offer"
+
+msgid "La liaison commerciale entre un produit et le distributeur."
+msgstr "The commercial link between a product and the distributor."
+
+msgid "Prix de revente fixé par Orange au distributeur"
+msgstr "Resale price set by Orange to the distributor"
+
+msgid "Frais additionnels personnalisables"
+msgstr "Customizable additional fees"
+
+msgid "Métadonnées supplémentaires personnalisables"
+msgstr "Customizable additional metadata"
+
+msgid "Stock disponible (bucket) pour le distributeur"
+msgstr "Available stock (bucket) for the distributor"
+
+msgid "Transaction"
+msgstr "Transaction"
+
+msgid "Une opération d'achat concrète effectuée par un client."
+msgstr "A concrete purchase operation carried out by a customer."
+
+msgid "Enregistre chaque opération de vente"
+msgstr "Records each sales operation"
+
+msgid "Contient les informations pour l'exécution"
+msgstr "Contains information for execution"
+
+msgid "Facilite le suivi des ventes réalisées"
+msgstr "Facilitates tracking of completed sales"
+
+msgid "Permet la traçabilité des opérations"
+msgstr "Enables traceability of operations"
+
+msgid "Fonctionnement global"
+msgstr "Global Operation"
+
+msgid ""
+"Le processus général implique que le distributeur consulte d'abord les "
+"offres disponibles, puis génère des transactions spécifiques lorsqu'un "
+"client effectue un achat. Chaque transaction est suivie et détaillée pour"
+" garantir une traçabilité et une gestion simplifiée."
+msgstr ""
+"The general process involves the distributor first consulting the "
+"available offers, then generating specific transactions when a customer "
+"makes a purchase. Each transaction is tracked and detailed to ensure "
+"traceability and simplified management."
+
+msgid "Principaux endpoints liés aux entités"
+msgstr "Main Endpoints Related to Entities"
+
+msgid "Récupérer les offres disponibles"
+msgstr "Retrieve available offers"
+
+msgid "Détails d'une offre spécifique"
+msgstr "Details of a specific offer"
+
+msgid "Lister les transactions"
+msgstr "List transactions"
+
+msgid ""
+"Les recharges à la demande (topups) permettent d'ajouter du crédit, des "
+"données mobiles ou des minutes d'appel à un numéro de téléphone existant."
+" Voici comment gérer les transactions de type topup."
+msgstr ""
+"On-demand recharges (topups) allow adding credit, mobile data, or call "
+"minutes to an existing phone number. Here's how to manage topup "
+"transactions."
+

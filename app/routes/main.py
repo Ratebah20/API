@@ -1,9 +1,17 @@
 """
 Routes principales pour l'application web.
 """
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session, redirect, request, url_for
 
 main_bp = Blueprint('main', __name__)
+
+@main_bp.route('/change-language/<lang>')
+def change_language(lang):
+    """Change la langue de l'interface utilisateur."""
+    if lang in ['fr', 'en']:
+        session['language'] = lang
+    # Rediriger vers la page d'où vient la requête ou à la page d'accueil
+    return redirect(request.referrer or url_for('main.index'))
 
 @main_bp.route('/')
 def index():

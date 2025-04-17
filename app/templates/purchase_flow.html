@@ -3,15 +3,15 @@
     <div class="text-center mb-6">
         <img src="https://www.orange.com/sites/orangecom/files/styles/thumbnail/public/2020-06/Orange_logo.png" alt="Orange Logo" class="h-10 mx-auto">
         <h2 class="text-xl font-bold text-orange-600 mt-2">Orange Travel</h2>
-        <p class="text-sm text-gray-600 mt-1">Connectivité internationale</p>
+        <p class="text-sm text-gray-600 mt-1">{{ _("Connectivité internationale") }}</p>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4 text-center">
-        <h3 class="font-bold text-gray-800 mb-4">Bienvenue</h3>
-        <p class="text-gray-600 mb-4">Accédez à internet partout dans le monde avec nos solutions eSIM</p>
+        <h3 class="font-bold text-gray-800 mb-4">{{ _("Bienvenue") }}</h3>
+        <p class="text-gray-600 mb-4">{{ _("Accédez à internet partout dans le monde avec nos solutions eSIM") }}</p>
         <button 
             @click="goToStep('access_travel')" 
             class="bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition">
-            Commencer
+            {{ _("Commencer") }}
         </button>
     </div>
     <div class="flow-arrow flex justify-center mt-4">
@@ -19,7 +19,7 @@
             <svg class="h-8 w-8 text-orange-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
-            <div class="text-xs text-gray-500 mt-1">Lancement de l'application</div>
+            <div class="text-xs text-gray-500 mt-1">{{ _("Lancement de l'application") }}</div>
         </div>
     </div>
 </div>
@@ -27,7 +27,7 @@
 <!-- Écran d'accès Travel eSIM -->
 <div x-show="currentFlow === 'purchase' && currentStep === 'access_travel'" class="mobile-screen">
     <div class="screen-title text-center mb-4">
-        <h3 class="text-lg font-semibold text-orange-700">Accès Travel eSIM</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Accès Travel eSIM") }}</h3>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
         <div class="mb-4 text-center">
@@ -36,16 +36,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                 </svg>
             </div>
-            <p class="text-sm text-gray-600">Authentification en cours...</p>
+            <p class="text-sm text-gray-600">{{ _("Authentification en cours...") }}</p>
         </div>
         <div class="api-box border border-blue-200 bg-blue-50 p-3 rounded mb-3">
             <div class="api-endpoint text-xs font-mono text-blue-800">POST /oauth/v3/token</div>
-            <div class="text-xs text-gray-600 mt-1">Authentification avec les identifiants du distributeur</div>
+            <div class="text-xs text-gray-600 mt-1">{{ _("Authentification avec les identifiants du distributeur") }}</div>
         </div>
         <button 
             @click="goToStep('list_countries')" 
             class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-            Continuer
+            {{ _("Continuer") }}
         </button>
     </div>
     <div class="flow-arrow flex justify-center mt-4">
@@ -53,7 +53,7 @@
             <svg class="h-8 w-8 text-orange-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
-            <div class="text-xs text-gray-500 mt-1">Appel API pour l'authentification</div>
+            <div class="text-xs text-gray-500 mt-1">{{ _("Appel API pour l'authentification") }}</div>
         </div>
     </div>
 </div>
@@ -61,29 +61,29 @@
 <!-- Écran Liste des pays -->
 <div x-show="currentFlow === 'purchase' && currentStep === 'list_countries'" class="mobile-screen">
     <div class="screen-title text-center mb-4">
-        <h3 class="text-lg font-semibold text-orange-700">Choisissez votre destination</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Choisissez votre destination") }}</h3>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
         <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
             <div class="api-endpoint text-xs font-mono text-blue-800">GET /distributors/offers</div>
-            <div class="text-xs text-gray-600 mt-1">Récupération des destinations disponibles</div>
+            <div class="text-xs text-gray-600 mt-1">{{ _("Récupération des destinations disponibles") }}</div>
         </div>
         <div class="country-list mt-3 space-y-2">
             <div class="country-item flex items-center p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer" @click="goToStep('select_country')">
                 <img src="https://flagcdn.com/w40/fr.png" alt="France" class="w-6 h-4 mr-2">
-                <span>France</span>
+                <span>{{ _("France") }}</span>
             </div>
             <div class="country-item flex items-center p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer" @click="goToStep('select_country')">
                 <img src="https://flagcdn.com/w40/es.png" alt="Espagne" class="w-6 h-4 mr-2">
-                <span>Espagne</span>
+                <span>{{ _("Espagne") }}</span>
             </div>
             <div class="country-item flex items-center p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer" @click="goToStep('select_country')">
                 <img src="https://flagcdn.com/w40/it.png" alt="Italie" class="w-6 h-4 mr-2">
-                <span>Italie</span>
+                <span>{{ _("Italie") }}</span>
             </div>
             <div class="country-item flex items-center p-2 border border-gray-200 rounded hover:bg-orange-50 cursor-pointer" @click="goToStep('select_country')">
                 <img src="https://flagcdn.com/w40/de.png" alt="Allemagne" class="w-6 h-4 mr-2">
-                <span>Allemagne</span>
+                <span>{{ _("Allemagne") }}</span>
             </div>
         </div>
     </div>
@@ -97,28 +97,28 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Espagne</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Espagne") }}</h3>
     </div>
     <div class="api-note text-xs text-gray-500 mb-2">
-        <div class="api-endpoint font-mono">Manipulation côté client</div>
-        <div>Filtrage des offres disponibles pour l'Espagne</div>
+        <div class="api-endpoint font-mono">{{ _("Manipulation côté client") }}</div>
+        <div>{{ _("Filtrage des offres disponibles pour l'Espagne") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
-        <h4 class="font-semibold text-gray-800 mb-3">Offres disponibles</h4>
+        <h4 class="font-semibold text-gray-800 mb-3">{{ _("Offres disponibles") }}</h4>
         <div class="space-y-3">
             <div class="offer-item border border-orange-200 rounded p-3 cursor-pointer hover:bg-orange-50" @click="goToStep('select_offer')">
                 <div class="flex justify-between items-center">
-                    <span class="font-semibold">Espagne Data 5GB</span>
+                    <span class="font-semibold">{{ _("Espagne Data 5GB") }}</span>
                     <span class="text-orange-600 font-bold">€19.99</span>
                 </div>
-                <p class="text-xs text-gray-600 mt-1">7 jours - Data: 5GB - Validité: 7 jours</p>
+                <p class="text-xs text-gray-600 mt-1">{{ _("7 jours - Data: 5GB - Validité: 7 jours") }}</p>
             </div>
             <div class="offer-item border border-orange-200 rounded p-3 cursor-pointer hover:bg-orange-50" @click="goToStep('select_offer')">
                 <div class="flex justify-between items-center">
-                    <span class="font-semibold">Espagne Data 10GB</span>
+                    <span class="font-semibold">{{ _("Espagne Data 10GB") }}</span>
                     <span class="text-orange-600 font-bold">€29.99</span>
                 </div>
-                <p class="text-xs text-gray-600 mt-1">14 jours - Data: 10GB - Validité: 14 jours</p>
+                <p class="text-xs text-gray-600 mt-1">{{ _("14 jours - Data: 10GB - Validité: 14 jours") }}</p>
             </div>
         </div>
     </div>
@@ -132,42 +132,42 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Détails de l'offre</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Détails de l'offre") }}</h3>
     </div>
     <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
         <div class="api-endpoint text-xs font-mono text-blue-800">GET /distributors/offers/{offer_id}</div>
-        <div class="text-xs text-gray-600 mt-1">Récupération des détails de l'offre</div>
+        <div class="text-xs text-gray-600 mt-1">{{ _("Récupération des détails de l'offre") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
         <div class="text-center mb-3">
-            <span class="inline-block bg-orange-100 text-orange-800 text-lg font-bold py-1 px-4 rounded-full">Espagne Data 5GB</span>
+            <span class="inline-block bg-orange-100 text-orange-800 text-lg font-bold py-1 px-4 rounded-full">{{ _("Espagne Data 5GB") }}</span>
         </div>
         <div class="space-y-2 mb-4">
             <div class="flex justify-between border-b pb-2">
-                <span class="text-gray-600">Prix:</span>
+                <span class="text-gray-600">{{ _("Prix:") }}</span>
                 <span class="font-bold">€19.99</span>
             </div>
             <div class="flex justify-between border-b pb-2">
-                <span class="text-gray-600">Données:</span>
+                <span class="text-gray-600">{{ _("Données:") }}</span>
                 <span>5GB</span>
             </div>
             <div class="flex justify-between border-b pb-2">
-                <span class="text-gray-600">Validité:</span>
-                <span>7 jours</span>
+                <span class="text-gray-600">{{ _("Validité:") }}</span>
+                <span>{{ _("7 jours") }}</span>
             </div>
             <div class="flex justify-between border-b pb-2">
-                <span class="text-gray-600">Couverture:</span>
-                <span>Espagne</span>
+                <span class="text-gray-600">{{ _("Couverture:") }}</span>
+                <span>{{ _("Espagne") }}</span>
             </div>
             <div class="flex justify-between">
-                <span class="text-gray-600">Type:</span>
-                <span>Data uniquement</span>
+                <span class="text-gray-600">{{ _("Type:") }}</span>
+                <span>{{ _("Data uniquement") }}</span>
             </div>
         </div>
         <button 
             @click="goToStep('receive_esim')" 
             class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-            Acheter
+            {{ _("Acheter") }}
         </button>
     </div>
 </div>
@@ -180,11 +180,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Achat en cours</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Achat en cours") }}</h3>
     </div>
     <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
         <div class="api-endpoint text-xs font-mono text-blue-800">POST /distributors/transactions</div>
-        <div class="text-xs text-gray-600 mt-1">Création d'une transaction</div>
+        <div class="text-xs text-gray-600 mt-1">{{ _("Création d'une transaction") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4 text-center">
         <div class="mb-4">
@@ -193,16 +193,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
             </div>
-            <h4 class="font-semibold text-gray-800">Achat effectué avec succès</h4>
+            <h4 class="font-semibold text-gray-800">{{ _("Achat effectué avec succès") }}</h4>
         </div>
         <div class="api-note text-xs text-gray-600 rounded mb-4 p-2 bg-gray-50">
-            <p>Transaction ID: TRX-2023051584720</p>
-            <p>eSIM profil crypté reçu</p>
+            <p>{{ _("Transaction ID:") }} TRX-2023051584720</p>
+            <p>{{ _("eSIM profil crypté reçu") }}</p>
         </div>
         <button 
             @click="goToStep('decrypt_esim')" 
             class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-            Déchiffrer le profil eSIM
+            {{ _("Déchiffrer le profil eSIM") }}
         </button>
     </div>
 </div>
@@ -215,11 +215,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Déchiffrement</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Déchiffrement") }}</h3>
     </div>
     <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
-        <div class="api-endpoint text-xs font-mono text-blue-800">Opération de déchiffrement</div>
-        <div class="text-xs text-gray-600 mt-1">Utilisation de la clé privée</div>
+        <div class="api-endpoint text-xs font-mono text-blue-800">{{ _("Opération de déchiffrement") }}</div>
+        <div class="text-xs text-gray-600 mt-1">{{ _("Utilisation de la clé privée") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
         <div class="mb-4 text-center">
@@ -228,18 +228,18 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                 </svg>
             </div>
-            <h4 class="font-semibold text-gray-800">Déchiffrement en cours...</h4>
+            <h4 class="font-semibold text-gray-800">{{ _("Déchiffrement en cours...") }}</h4>
         </div>
         <div class="code-display bg-gray-50 p-3 rounded border font-mono text-xs mb-4 overflow-x-auto">
-            <div>---- BEGIN eSIM PROFILE ----</div>
+            <div>{{ _("---- BEGIN eSIM PROFILE ----") }}</div>
             <div>LPA:1$SMDP.ORANGE.COM$04386-AGYRT-A7894</div>
-            <div>ICCID: 8933150052279504333F</div>
-            <div>---- END eSIM PROFILE ----</div>
+            <div>{{ _("ICCID:") }} 8933150052279504333F</div>
+            <div>{{ _("---- END eSIM PROFILE ----") }}</div>
         </div>
         <button 
             @click="goToStep('install_esim')" 
             class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-            Installer le profil eSIM
+            {{ _("Installer le profil eSIM") }}
         </button>
     </div>
 </div>
@@ -252,31 +252,31 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Installation</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Installation") }}</h3>
     </div>
     <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
-        <div class="api-endpoint text-xs font-mono text-blue-800">Redirection système</div>
-        <div class="text-xs text-gray-600 mt-1">Installation via paramètres du téléphone</div>
+        <div class="api-endpoint text-xs font-mono text-blue-800">{{ _("Redirection système") }}</div>
+        <div class="text-xs text-gray-600 mt-1">{{ _("Installation via paramètres du téléphone") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4">
         <div class="system-dialog border border-gray-300 rounded-lg p-3 mb-4">
             <div class="dialog-header flex items-center justify-between mb-2 pb-2 border-b">
-                <span class="font-semibold">Paramètres système</span>
+                <span class="font-semibold">{{ _("Paramètres système") }}</span>
                 <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </div>
             <div class="dialog-content text-sm">
-                <p class="mb-2">Voulez-vous installer ce profil eSIM ?</p>
-                <p class="text-xs text-gray-600 mb-3">ORANGE TRAVEL - Espagne 5GB</p>
+                <p class="mb-2">{{ _("Voulez-vous installer ce profil eSIM ?") }}</p>
+                <p class="text-xs text-gray-600 mb-3">ORANGE TRAVEL - {{ _("Espagne") }} 5GB</p>
                 <div class="flex justify-end space-x-2">
-                    <button class="px-3 py-1 border rounded text-xs">Annuler</button>
-                    <button @click="goToStep('activate_esim')" class="px-3 py-1 bg-blue-500 text-white rounded text-xs">Installer</button>
+                    <button class="px-3 py-1 border rounded text-xs">{{ _("Annuler") }}</button>
+                    <button @click="goToStep('activate_esim')" class="px-3 py-1 bg-blue-500 text-white rounded text-xs">{{ _("Installer") }}</button>
                 </div>
             </div>
         </div>
         <div class="text-center text-sm text-gray-600">
-            <p>L'installation de l'eSIM nécessite une redirection vers les paramètres système</p>
+            <p>{{ _("L'installation de l'eSIM nécessite une redirection vers les paramètres système") }}</p>
         </div>
     </div>
 </div>
@@ -289,11 +289,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <h3 class="text-lg font-semibold text-orange-700">Activation</h3>
+        <h3 class="text-lg font-semibold text-orange-700">{{ _("Activation") }}</h3>
     </div>
     <div class="api-box border border-blue-200 bg-blue-50 p-2 rounded mb-3">
-        <div class="api-endpoint text-xs font-mono text-blue-800">Activation système</div>
-        <div class="text-xs text-gray-600 mt-1">Activation du profil eSIM</div>
+        <div class="api-endpoint text-xs font-mono text-blue-800">{{ _("Activation système") }}</div>
+        <div class="text-xs text-gray-600 mt-1">{{ _("Activation du profil eSIM") }}</div>
     </div>
     <div class="bg-white rounded-lg shadow p-4 mb-4 text-center">
         <div class="mb-4">
@@ -302,33 +302,33 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
             </div>
-            <h4 class="font-semibold text-gray-800 mb-1">eSIM activée avec succès</h4>
-            <p class="text-sm text-gray-600">Votre eSIM est maintenant prête à être utilisée</p>
+            <h4 class="font-semibold text-gray-800 mb-1">{{ _("eSIM activée avec succès") }}</h4>
+            <p class="text-sm text-gray-600">{{ _("Votre eSIM est maintenant prête à être utilisée") }}</p>
         </div>
         <div class="esim-details bg-gray-50 rounded p-3 text-left mb-4">
             <ul class="space-y-2 text-sm">
                 <li class="flex justify-between">
-                    <span class="text-gray-600">Nom:</span>
-                    <span>ORANGE TRAVEL - Espagne</span>
+                    <span class="text-gray-600">{{ _("Nom:") }}</span>
+                    <span>ORANGE TRAVEL - {{ _("Espagne") }}</span>
                 </li>
                 <li class="flex justify-between">
-                    <span class="text-gray-600">Données:</span>
+                    <span class="text-gray-600">{{ _("Données:") }}</span>
                     <span>5GB</span>
                 </li>
                 <li class="flex justify-between">
-                    <span class="text-gray-600">Validité:</span>
-                    <span>7 jours</span>
+                    <span class="text-gray-600">{{ _("Validité:") }}</span>
+                    <span>{{ _("7 jours") }}</span>
                 </li>
                 <li class="flex justify-between">
-                    <span class="text-gray-600">État:</span>
-                    <span class="text-green-600 font-semibold">Actif</span>
+                    <span class="text-gray-600">{{ _("État:") }}</span>
+                    <span class="text-green-600 font-semibold">{{ _("Actif") }}</span>
                 </li>
             </ul>
         </div>
         <button 
             @click="switchFlow('management', 'receive_profile')" 
             class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-            Gérer mon eSIM
+            {{ _("Gérer mon eSIM") }}
         </button>
     </div>
 </div>
