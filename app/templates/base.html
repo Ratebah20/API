@@ -21,7 +21,7 @@
                 </div>
                 <nav class="hidden md:block">
                     <ul class="flex space-x-6">
-                        <li><a href="/" class="hover:text-orange-200">{{ _('Accueil') }}</a></li>
+                        <li><a href="/" class="hover:text-orange-200">{{ _('Home') }}</a></li>
                         <li><a href="/guide" class="hover:text-orange-200">{{ _('Documentation') }}</a></li>
                         <li><a href="/api-tester" class="hover:text-orange-200">{{ _('API Tester') }}</a></li>
                         <li><a href="/simulator" class="hover:text-orange-200">{{ _('Simulateur') }}</a></li>
@@ -29,24 +29,12 @@
                         <!-- Sélecteur de langue avec drapeaux -->
                         <li class="flex space-x-2">
                             <!-- Drapeau français -->
-                            <a href="{{ url_for('main.change_language', lang='fr') }}" class="flex items-center justify-center w-8 h-6 rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-orange-400' if session.get('language', 'fr') == 'fr' }}" title="{{ _("Français") }}">
-                                <div class="w-full h-full flex">
-                                    <div class="w-1/3 h-full bg-blue-700"></div>
-                                    <div class="w-1/3 h-full bg-white"></div>
-                                    <div class="w-1/3 h-full bg-red-600"></div>
-                                </div>
+                            <a href="{{ url_for('main.change_language', lang='fr') }}" class="flex items-center justify-center rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-orange-400' if session.get('language', 'fr') == 'fr' }}" title="{{ _("Français") }}">
+                                <img width="32" height="32" src="https://img.icons8.com/emoji/48/st-martin-emoji.png" alt="french-flag"/>
                             </a>
                             <!-- Drapeau anglais/UK -->
-                            <a href="{{ url_for('main.change_language', lang='en') }}" class="flex items-center justify-center w-8 h-6 rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-orange-400' if session.get('language') == 'en' }}" title="{{ _("Anglais") }}">
-                                <div class="w-full h-full relative bg-blue-800 flex items-center justify-center">
-                                    <!-- Croix blanche horizontale -->
-                                    <div class="absolute w-full h-1/3 bg-white"></div>
-                                    <!-- Croix blanche verticale -->
-                                    <div class="absolute h-full w-1/3 bg-white"></div>
-                                    <!-- Croix rouge diagonale (simplifiée) -->
-                                    <div class="absolute w-full h-1/5 bg-red-600 transform rotate-45"></div>
-                                    <div class="absolute w-full h-1/5 bg-red-600 transform -rotate-45"></div>
-                                </div>
+                            <a href="{{ url_for('main.change_language', lang='en') }}" class="flex items-center justify-center rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-orange-400' if session.get('language') == 'en' }}" title="{{ _("English") }}">
+                                <img width="32" height="32" src="https://img.icons8.com/emoji/48/united-kingdom-emoji.png" alt="uk-flag"/>
                             </a>
                         </li>
                     </ul>
@@ -58,27 +46,18 @@
                         </svg>
                     </button>
                     <div x-show="open" x-cloak class="absolute top-16 right-0 bg-orange-500 w-48 py-2 shadow-lg rounded-lg">
-                        <a href="/" class="block px-4 py-2 hover:bg-orange-600">{{ _("Accueil") }}</a>
+                        <a href="/" class="block px-4 py-2 hover:bg-orange-600">{{ _("Home") }}</a>
                         <a href="/guide" class="block px-4 py-2 hover:bg-orange-600">{{ _("Documentation") }}</a>
                         <a href="/api-tester" class="block px-4 py-2 hover:bg-orange-600">{{ _("API Tester") }}</a>
                         <a href="/simulator" class="block px-4 py-2 hover:bg-orange-600">{{ _("Simulateur") }}</a>
                         <a href="/security" class="block px-4 py-2 hover:bg-orange-600">{{ _("Sécurité") }}</a>
                         <!-- Drapeaux pour la sélection de langue (version mobile) -->
                         <div class="flex justify-center space-x-2 mt-2 px-4 py-2">
-                            <a href="{{ url_for('main.change_language', lang='fr') }}" class="flex items-center justify-center w-10 h-7 rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-white' if session.get('language', 'fr') == 'fr' }}">
-                                <div class="w-full h-full flex">
-                                    <div class="w-1/3 h-full bg-blue-700"></div>
-                                    <div class="w-1/3 h-full bg-white"></div>
-                                    <div class="w-1/3 h-full bg-red-600"></div>
-                                </div>
+                            <a href="{{ url_for('main.change_language', lang='fr') }}" class="flex items-center justify-center rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-white' if session.get('language', 'fr') == 'fr' }}">
+                                <img width="40" height="40" src="https://img.icons8.com/emoji/48/st-martin-emoji.png" alt="french-flag"/>
                             </a>
-                            <a href="{{ url_for('main.change_language', lang='en') }}" class="flex items-center justify-center w-10 h-7 rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-white' if session.get('language') == 'en' }}">
-                                <div class="w-full h-full relative bg-blue-800 flex items-center justify-center">
-                                    <div class="absolute w-full h-1/3 bg-white"></div>
-                                    <div class="absolute h-full w-1/3 bg-white"></div>
-                                    <div class="absolute w-full h-1/5 bg-red-600 transform rotate-45"></div>
-                                    <div class="absolute w-full h-1/5 bg-red-600 transform -rotate-45"></div>
-                                </div>
+                            <a href="{{ url_for('main.change_language', lang='en') }}" class="flex items-center justify-center rounded overflow-hidden hover:opacity-80 {{ 'ring-2 ring-white' if session.get('language') == 'en' }}">
+                                <img width="40" height="40" src="https://img.icons8.com/emoji/48/united-kingdom-emoji.png" alt="uk-flag"/>
                             </a>
                         </div>
                     </div>
